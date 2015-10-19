@@ -1,8 +1,6 @@
 # PSR-SE
 =====================
 
-Phylab-Web项目将采用[]()
-
 本文件为软剑攻城队Phylab-Web项目的基本编码规范，本编码规范主体内容取自
 [PSR-1](https://github.com/PizzaLiu/PHP-FIG/blob/master/PSR-1-basic-coding-standard-cn.md)和[PSR-2](https://github.com/PizzaLiu/PHP-FIG/blob/master/PSR-2-coding-style-guide-meta-cn.md)，并在`PSR-2和PSR-1`的基础上为统一团队风格，进行了部分改动。
 
