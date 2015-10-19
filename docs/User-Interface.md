@@ -4,6 +4,10 @@
 
 在本次项目中，我们尝试和使用了`UXPIN`、`MockPlus`、`MockUpBuilder`工具进行了用户界面的原型设计，经过反复多次的用户原型设计修改，最终确定用户原型界面设计如下。该界面设计是针对到α版本的功能实现的主要界面的设计。因为`MockUpBuilder`对中文支持不佳，所以最后使用英文来展示我们的原型界面。
 
+我们的界面框架大致如下:
+
+![](https://raw.githubusercontent.com/buaase/Phylab-Web/master/docs/UserInterface/WebFrame.png)
+
 ## 2. 首页
 
 ### 2.1. 首页预览版
