@@ -2,13 +2,13 @@
 
 ## 1. 概述
 
-在本次项目中，我们使用了`MockUpBuilder`工具进行了用户界面的原型设计，并且经过了反复多次的用户原型设计修改，最终
+在本次项目中，我们尝试和使用了`UXPIN`、`MockPlus`、`MockUpBuilder`工具进行了用户界面的原型设计，经过反复多次的用户原型设计修改，最终确定用户原型界面设计如下。该界面设计是针对到α版本的功能实现的主要界面的设计。因为`MockUpBuilder`对中文支持不佳，所以最后使用英文来展示我们的原型界面。
 
 ## 2. 首页
 
 ### 2.1. 首页预览版
 
-![首页](https://github.com/buaase/Phylab-Web/blob/master/docs/UserInterface/Index.png)
+![首页](https://raw.githubusercontent.com/buaase/Phylab-Web/master/docs/UserInterface/Index.png)
 
 上图为我们所设计的首页预览版原型图，涉及到的按钮与功能有：
 
@@ -38,7 +38,7 @@ Try it now! | 如果当前用户已经登录，则自动跳转到物理实验报
 
 ### 2.2. 首页登录版
 
-![首页](https://github.com/buaase/Phylab-Web/blob/master/docs/UserInterface/Index_Login.png)
+![首页](https://raw.githubusercontent.com/buaase/Phylab-Web/master/docs/UserInterface/Index_Login.png)
 
 首页登录版增加的功能是：
 当用户点击右上角的`User welcome`时，弹出一个悬浮框，有两个按钮，按钮功能如下：
@@ -65,7 +65,7 @@ Sign in!|使用填好的用户名和密码在数据库中进行查询，如果�
 
 ### 4.1. 个人中心—个人资料
 
-![个人中心界面](https://github.com/buaase/Phylab-Web/blob/master/docs/UserInterface/User.png)
+![个人中心界面](https://raw.githubusercontent.com/buaase/Phylab-Web/master/docs/UserInterface/User.png)
 
 以上是我们设计的个人中心—个人资料的原型图，涉及到的控件与功能有：
 
@@ -83,17 +83,26 @@ Favorite | 点击Favorite时切换显示`用户收藏报告`标签页
 
 ### 4.2. 个人中心—用户收藏报告
 
-![](https://github.com/buaase/Phylab-Web/blob/master/docs/UserInterface/User_Favor.png)
+![](https://raw.githubusercontent.com/buaase/Phylab-Web/master/docs/UserInterface/User_Favor.png)
 
 以上是我们设计的个人中心—用户收藏报告的原型图，涉及到的主要是可点击的物理实验报告，用户在点击物理实验报告的链接后，会新建一个页面，显示用户在服务器上存放的特定的实验pdf文件。
 
 ## 5. 生成报告
 
-![](https://github.com/buaase/Phylab-Web/blob/master/docs/UserInterface/Generate.png)
+![](https://raw.githubusercontent.com/buaase/Phylab-Web/master/docs/UserInterface/Generate.png)
 
 以上是我们设计的生成报告的原型图，涉及到的控件与功能有：
 
 - 主体左侧上方是个下拉列表框，可以选择带有实验序号和实验名称的实验。
-- 主体左侧下方按钮`Import data table`即导入数据表，数据表的形式是excel。
-[FIXME]
 
+- 主体左侧下拉列表框在下拉时遮挡住了一个按钮`Export template table`即导出模版表，数据表的形式是excel，为各个实验的标准源数据记录excel模版。
+
+- 主体左侧下方按钮`Import data table`即导入数据表，数据表的形式是excel，导入后即向后台发出请求对excel进行对应实验的处理。如果导入的数据表格式不正确，则弹窗警告；否则就在后端生成PDF，并送给前端进行加载。
+
+- 主题左侧下方按钮`Chart`是指是否在实验报告中插入该实验的图表，点击变为`ON`的状态时生成的实验报告带有图表；点击变为`OFF`状态时生成的实验报告不带图表。
+
+- 主体右侧是物理实验报告。在导入数据表之前，它是一个预习实验报告；当导入数据表后，它是一个带有用户自己数据的定制实验报告。
+
+- 主体右侧下方是按钮`Export`，当点击该按钮时可以导出带有用户数据的PDF物理实验报告。
+
+- 主题右侧按钮左侧的★图标表示收藏，当点击该按钮时，首先判断用户收藏夹的pdf是否已经到达上限，如果到达上限，那么提示用户删除一部分物理实验报告；如果没有到达上限，将该pdf从临时缓存区取出存放到用户的收藏夹中，并且星星变为填充满的状态，表示已经收藏到收藏夹。
