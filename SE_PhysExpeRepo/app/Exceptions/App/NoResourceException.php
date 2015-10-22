@@ -1,0 +1,10 @@
+<?php
+namespace App\Exceptions;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Exception;
+class NoResourceException extends HttpException{
+    public function __construct($message,$httpCode,$code){
+        parent::__construct(404,"找不到请求所需要的资源",null,array(),901);
+    }
+}
+?>
