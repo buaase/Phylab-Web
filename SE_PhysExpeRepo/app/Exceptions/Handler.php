@@ -46,10 +46,13 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
         if ($e instanceof HttpException){
-            return response()->view('errors.phylab',[
+            $errorData = [
                   "message"=>$e->getMessage(),
                   "httpCode"=>$e->getStatusCode(),
-                  "code"=>$e->getCode() ]);
+                  "code"=>$e->getCode() ];
+            if ($request->ajax()) {
+                return response()->json($errorData);
+            else return response()->view('errors.phylab',$errorData);
         }
 
         return parent::render($request, $e);

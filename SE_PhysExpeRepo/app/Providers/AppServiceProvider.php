@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /*
+        defind the constant of the app
+        */
+        define('SUCCESS_MESSAGE', "success");
+        define('FAIL_MESSAGE',"fail");
+        Validator::extend('studenId', function($attribute, $value, $parameters)
+        {
+            return preg_match('/^\d{8}$/', $value);
+        });
     }
 
     /**

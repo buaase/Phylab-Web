@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -32,6 +32,22 @@ class ReportController extends Controller
         $data = ["status"=> "",
                  "experimentId" => "",
                  "link"  => ""];
+        $validatorRules = array(
+                'xml' => 'required'
+            );
+        $validatorAttributes = array(
+                'xml' => '模板xml文件'
+            );
+        $validator = Validator::make(
+                Request::all(), 
+                $validatorRules,
+                Config::get('phylab.validatorMessage'),
+                $validatorAttributes
+            );
+        if ($validator->fails()) {
+                $warnings = $validator->messages();
+                throw new InvalidRequestInputException(json_encode($warnings,JSON_UNESCAPED_UNICODE),1,1);
+            }
         //ToDo
         return response()->json($data);
     }

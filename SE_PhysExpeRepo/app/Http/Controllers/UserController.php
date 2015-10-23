@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Exceptions\App\InvalidRequestInputException
 
 class UserController extends Controller
 {
@@ -46,6 +47,24 @@ class UserController extends Controller
     public function update()
     {
         $data = ["status"       =>  ""];
+        $validatorRules = array(
+                'password' => 'confirmed|min:6',
+                'name'  =>  'max:50'
+            );
+        $validatorAttributes = array(
+                'password' => '密码',
+                'name'  =>  '用户名'
+            );
+        $validator = Validator::make(
+                Request::all(), 
+                $validatorRules,
+                Config::get('phylab.validatorMessage'),
+                $validatorAttributes
+            );
+        if ($validator->fails()) {
+                $warnings = $validator->messages();
+                throw new InvalidRequestInputException(json_encode($warnings,JSON_UNESCAPED_UNICODE),1,1);
+            }
         //ToDo
         return response()->json($data);
     }

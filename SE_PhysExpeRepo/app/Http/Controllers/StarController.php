@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -28,6 +28,24 @@ class StarController extends Controller
     public function create()
     {
         $data = ["status"=>""];
+        $validatorRules = array(
+                'link' => 'required',
+                'reportId'  =>  'required|integer'
+            );
+        $validatorAttributes = array(
+                'link' => '临时报告链接',
+                'reportId'  =>  '报告模板类别'
+            );
+        $validator = Validator::make(
+                Request::all(), 
+                $validatorRules,
+                Config::get('phylab.validatorMessage'),
+                $validatorAttributes
+            );
+        if ($validator->fails()) {
+                $warnings = $validator->messages();
+                throw new InvalidRequestInputException(json_encode($warnings,JSON_UNESCAPED_UNICODE),1,1);
+            }
         //ToDo
         //注意通过传入的临时文件地址来转移文件
         return response()->json($data);

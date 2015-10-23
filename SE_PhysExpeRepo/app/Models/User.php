@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = [ 'name','email', 'password','student_id'];
+    protected $fillable = [ 'name','email', 'password','student_id','avatar_path'];
 
     /**
      * The attributes excluded from the model's JSON form.

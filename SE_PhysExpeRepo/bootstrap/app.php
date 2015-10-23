@@ -1,9 +1,5 @@
 <?php
-/*
-defind the constant of the app
-*/
-define('SUCCESS_MESSAGE', "success");
-define('FAIL_MESSAGE',"fail");
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
