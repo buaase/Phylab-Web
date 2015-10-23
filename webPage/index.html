@@ -1,0 +1,95 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PhyLabHome</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+	<style type="text/css">
+		.ch{font-family:"Microsoft Yahei";}
+		.text-black{color:#fff;}
+	</style>
+</head>
+<body>
+<div class="modal fade" id="mymodal">
+	<div class="modal-dialog ch">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title lead">登录PhyLab</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="InputAccount" class="col-sm-2 control-label">账号</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="InputAccount" placeholder="请输入您的账号">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="InputPassword" class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-10">
+						<input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label><input type="checkbox" id="IfRemember">记住密码</input></label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar-header">
+     　	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			<span class="sr-only">Toggle Navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a href="##" class="navbar-brand">PhyLab</a>
+	</div>
+	<div class="collapse navbar-collapse navbar-responsive-collapse">
+    	<ul class="nav navbar-nav ch">
+      		<li class="active"><a href="##"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
+      		<li><a href="##">社区</a></li>
+      		<li class="dropdown">
+				<a href="##" data-toggle="dropdown" class="dropdown-toggle">
+					服务<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="##"><span class="glyphicon glyphicon-print"></span>&nbsp实验报告生成</a></li>
+					<li><a href="##"><span class="glyphicon glyphicon-file"></span>&nbsp导入数据模板</a></li>
+					<li class="disabled"><a href="##">其他功能</a></li>
+				</ul>
+			</li>
+      		<li><a href="##">关于</a></li>
+	 	</ul>
+		<div class="navbar-right ch">
+			<form action="##" class="navbar-form" rol="Sign" style="padding:0 40px 0 20px;">
+				<button class="btn btn-success" type="button">&nbsp&nbsp注册&nbsp&nbsp</button>
+				<button class="btn btn-default" type="button" id="Sign_in">&nbsp&nbsp登录&nbsp&nbsp</button>
+				
+			</form>
+		</div>
+	</div>
+</div>
+ <script src="./js/jquery-2.1.4.min.js"></script>
+ <script src="./js/bootstrap.min.js"></script>
+ <script>
+  $(function(){
+    $("#Sign_in").click(function(){
+      $("#mymodal").modal("toggle");
+    });
+  });
+</script>	
+</body>
+</html>
