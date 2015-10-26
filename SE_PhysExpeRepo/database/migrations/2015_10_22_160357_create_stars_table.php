@@ -15,6 +15,7 @@ class CreateStarsTable extends Migration
         //
         Schema::create('stars', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('link');
             $table->timestamps();
         });

@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
                   "message"=>$e->getMessage(),
                   "httpCode"=>$e->getStatusCode(),
                   "code"=>$e->getCode() ];
-            if ($request->ajax()) {
+            if ($request->ajax())
                 return response()->json($errorData);
             else return response()->view('errors.phylab',$errorData);
         }

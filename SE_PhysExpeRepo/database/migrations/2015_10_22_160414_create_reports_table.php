@@ -17,7 +17,7 @@ class CreateReportsTable extends Migration
             $table->string('script_link');
             $table->integer('experiment_id')->index();
             $table->string('experiment_name');
-            $table->text('document');
+            $table->string('prepare_link');
             $table->timestamps();
         });
     }

@@ -30,27 +30,34 @@ class StarController extends Controller
         $data = ["status"=>""];
         $validatorRules = array(
                 'link' => 'required',
-                'reportId'  =>  'required|integer'
+                'reportId'  =>  'required|integer|exists:reports,id'
             );
         $validatorAttributes = array(
                 'link' => '临时报告链接',
                 'reportId'  =>  '报告模板类别'
             );
-        $validator = Validator::make(
-                Request::all(), 
-                $validatorRules,
-                Config::get('phylab.validatorMessage'),
-                $validatorAttributes
-            );
-        if ($validator->fails()) {
-                $warnings = $validator->messages();
-                throw new InvalidRequestInputException(json_encode($warnings,JSON_UNESCAPED_UNICODE),1,1);
-            }
+        postCheck($rules,$message,$attributes);
         //ToDo
         //注意通过传入的临时文件地址来转移文件
         return response()->json($data);
     }
 
+    /**
+    * Delete the Star
+    * @return \Illuminate\Http\Response
+    */
+    public function delete(){
+        $data = ["status"=>""];
+        $validatorRules = array(
+                'id' => 'required|integer|exists:stars,id'
+            );
+        $validatorAttributes = array(
+                'id' => '收藏的对象'
+            );
+        postCheck($rules,$message,$attributes);
+        //ToDo
+        return response()->json($data);
+    }
     /**
      * Display the specified resource.
      *

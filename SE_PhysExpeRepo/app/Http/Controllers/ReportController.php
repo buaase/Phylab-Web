@@ -33,21 +33,16 @@ class ReportController extends Controller
                  "experimentId" => "",
                  "link"  => ""];
         $validatorRules = array(
-                'xml' => 'required'
+                'id'  => 'required|integer|exists:reports,id',
+                'xml' => 'required',
+                'chart' => 'required|boolean'
             );
         $validatorAttributes = array(
-                'xml' => '模板xml文件'
+                'id'  => '生成报告ID',
+                'xml' => '模板xml文件',
+                'chart' => '是否生成图表选项'
             );
-        $validator = Validator::make(
-                Request::all(), 
-                $validatorRules,
-                Config::get('phylab.validatorMessage'),
-                $validatorAttributes
-            );
-        if ($validator->fails()) {
-                $warnings = $validator->messages();
-                throw new InvalidRequestInputException(json_encode($warnings,JSON_UNESCAPED_UNICODE),1,1);
-            }
+        postCheck($rules,$message,$attributes);
         //ToDo
         return response()->json($data);
     }
@@ -62,12 +57,24 @@ class ReportController extends Controller
     {
         $data = ["id"   =>  "",
                  "experimentId" =>  "",
-                 "document" =>  "",
+                 "prepareLink" =>  "",
                  "experimentName"=> ""];
         //ToDo
         return view("report.show",$data);
     }
 
+    /**
+    * return the xml form view to front
+    * @param int $id
+    * @return \Illuminate\Http\Response
+    */
+    public function getXmlForm($id)
+    {
+        $data = ["id"   =>  ""];
+        $experimentId = "";
+        //ToDo
+        return view("xmlForm."$experimentId,$data);
+    }
     /**
      * edit the template of report.
      *
