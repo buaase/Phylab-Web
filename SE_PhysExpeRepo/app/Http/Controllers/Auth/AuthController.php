@@ -7,7 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use Config;
 class AuthController extends Controller
 {
     /*
@@ -66,7 +66,8 @@ class AuthController extends Controller
             'email' => $data['email'],
             'student_id' => $data['student_id'],
             'password' => bcrypt($data['password']),
-            'avatar_path'    =>  Config::get('phylab.defaultAvatarPath')
+            'avatar_path'    =>  Config::get('phylab.defaultAvatarPath'),
+            'birthday'      => '1990-01-01'
         ]);
     }
 }

@@ -1,10 +1,10 @@
 <?php
-namespace App\Exceptions;
+namespace App\Exceptions\Star;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Exception;
-class AuthenticationFailException extends HttpException{
+class ReachCeilingException extends HttpException{
     public function __construct(){
-        parent::__construct(403,"用户认证失败",null,array(),101);
+        parent::__construct(409,"收藏数已达上限，请先删除部分收藏",null,array(),301);
     }
 }
 ?>

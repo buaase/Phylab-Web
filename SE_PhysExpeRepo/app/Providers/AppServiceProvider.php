@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
         */
         define('SUCCESS_MESSAGE', "success");
         define('FAIL_MESSAGE',"fail");
-        Validator::extend('studenId', function($attribute, $value, $parameters)
+        Validator::extend('studentId', function($attribute, $value, $parameters)
         {
             return preg_match('/^\d{8}$/', $value);
         });

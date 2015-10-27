@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Report;
+use Storage;
+use App\Exceptions\App\FileIOException;
+use App\Exceptions\App\NoResourceException;
+use Exception;
+use Config;
 class ReportController extends Controller
 {
     /**
@@ -17,8 +22,18 @@ class ReportController extends Controller
     {
         //看这个形式： $data = ["reportTemplate"=>[ ["id"=> "", "experimentId" => "","experimentName"=> ""] , [] ,.......] ]
         $data = ["reportTemplate"=>[]];
-        //ToDo
-        return view("report.index",$data);
+        $reports = Report::all();
+        foreach ($reports as $report) {
+            $rearr = array(
+                "id"=>$report->id,
+                "experimentId"=>$report->experiment_id,
+                "experimentName"=>$report->experiment_name,
+                "prepareLink"=>$report->prepare_link
+                );
+            array_push($data["reportTemplate"],$rearr);
+        }
+        #return view("report.index",$data);
+        return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -42,8 +57,37 @@ class ReportController extends Controller
                 'xml' => '模板xml文件',
                 'chart' => '是否生成图表选项'
             );
-        postCheck($rules,$message,$attributes);
+        postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
         //ToDo
+        $xmlLink = getRandName().".xml";
+        try{
+            Storage::put("xml_tmp/".$xmlLink,Request::get('xml'));
+        }
+        catch(Exception $e){
+            throw new FileIOException();
+        }
+        $report = Report::find(Request::get('id'));
+        $scriptLink = $report->script_link;
+        $experimentId = $report->experiment_id;
+        $system = exec("python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/",$output,$reval);
+        #$system = system("python -c 'print 1111'",$out);
+        #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink;
+        #echo $out;
+        #echo $system;
+        if($reval==0){
+            $system = json_decode($system);
+            if($system->status== SUCCESS_MESSAGE){
+                $data["status"] = SUCCESS_MESSAGE;
+                $data["link"] = $system->link;
+                $data["experimentId"] = $experimentId;
+            }
+            else{
+                $data["status"]=FAIL_MESSAGE;
+            }
+        }
+        else{
+            $data["status"]=FAIL_MESSAGE;
+        }
         return response()->json($data);
     }
 
@@ -59,8 +103,18 @@ class ReportController extends Controller
                  "experimentId" =>  "",
                  "prepareLink" =>  "",
                  "experimentName"=> ""];
-        //ToDo
-        return view("report.show",$data);
+        $report = Report::find($id);
+        if($report){
+            $data["id"]=$report->id;
+            $data["experimentId"]=$report->experiment_id;
+            $data["experimentName"]=$report->experiment_name;
+            $data["prepareLink"]=$report->prepare_link;
+        }
+        else{
+            throw new NoResourceException();
+        }
+        #return view("report.show",$data);
+        return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -72,23 +126,15 @@ class ReportController extends Controller
     {
         $data = ["id"   =>  ""];
         $experimentId = "";
-        //ToDo
-        return view("xmlForm."$experimentId,$data);
-    }
-    /**
-     * edit the template of report.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editTemplate($id)
-    {
-        $experimentId = "";
-        $data = ["id"   =>  "",
-                 "experimentId" => "",
-                 "experiment_name" => ""];
-        //ToDo
-        return view("report.template."$experimentId, $data); 
+        $report = Report::find($id);
+        if($report){
+            $experimentId = $report->experiment_id;
+            $data["id"] = $id;
+        }
+        else{
+            throw new NoResourceException();
+        }
+        return view("report.xmlForm.".$experimentId,$data);
     }
 
     /**
@@ -98,7 +144,6 @@ class ReportController extends Controller
     */
     public function downloadReport($experimentId,$link)
     {
-        //ToDo
-        return response()->download(Config::get('phylab.tmpReportPath', $experimentId."pdf"))
+        return response()->download(Config::get('phylab.tmpReportPath').$link, $experimentId.".pdf");
     }
 }

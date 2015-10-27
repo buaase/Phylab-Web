@@ -102,12 +102,12 @@ Route::get('/report/{id}',[
     'middleware'    =>  'auth']);
 Route::get('/report/edit/{id}',[
     'as'    =>  'editReport',
-    'uses'  =>  'ReportController@editTemplate',
+    'uses'  =>  'ReportController@getXmlForm',
     'middleware'    =>  'auth']);
 Route::post('/report',[
     'uses'  =>  'ReportController@create',
     'middleware'    =>  'auth']);
-Route::get('/report/download/{$experimentId}/{$link}',[
+Route::get('/report/download/{experimentId}/{link}',[
     'as'    =>  'downloadReport',
     'uses'  =>  'ReportController@downloadReport',
     'middleware'    =>  'auth']);
