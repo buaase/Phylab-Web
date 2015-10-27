@@ -5,7 +5,16 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Star;
+use App\Models\User;
+use Storage;
+use Config;
+use App\Exceptions\App\NoResourceException;
+use Exception;
+use Auth;
+use App\Exceptions\App\FileIOException;
+use App\Exceptions\App\DatabaseOperatorException;
+use App\Models\Report;
 class StarController extends Controller
 {
     /**
@@ -16,8 +25,18 @@ class StarController extends Controller
     public function index()
     {
         $data = ["stars"=>[]];
-        //ToDo
-        return view("star.index",$data);
+        $stars = Auth::user()->stars()->get();
+        foreach ($stars as $star) {
+            $rearr = array(
+                "id" => $star->id,
+                "name" => $star->name,
+                "link" => $star->link,
+                "time" => $star->created_at
+                );
+            array_push($data["stars"],$rearr);
+        }
+        #return view("star.index",$data);
+        return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -36,8 +55,33 @@ class StarController extends Controller
                 'link' => '临时报告链接',
                 'reportId'  =>  '报告模板类别'
             );
-        postCheck($rules,$message,$attributes);
-        //ToDo
+        postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
+        if(Storage::disk('local_public')->exists('pdf_tmp/'.Request::get('link'))){
+            $report = Report::find(Request::get('reportId'));
+            $experimentName = $report->experiment_name;
+            $star = Star::create([
+                'link' => Request::get('link'),
+                'name' => 'Lab_'.Request::get('reportId').'_'.$experimentName.'_report',
+                'user_id' => Auth::user()->id,
+                'report_id' => Request::get('reportId')
+                ]);
+            if($star){
+                try{
+                    Storage::disk('local_public')->copy('pdf_tmp/'.Request::get('link'),'star_pdf/'.Request::get('link'));
+                }
+                catch(Exception $e)
+                {
+                    throw new FileIOException();
+                }
+                $data["status"] = SUCCESS_MESSAGE;
+            }
+            else{
+                $data["status"] = FAIL_MESSAGE;
+            }
+        }
+        else{
+            throw new NoResourceException();
+        }
         //注意通过传入的临时文件地址来转移文件
         return response()->json($data);
     }
@@ -49,13 +93,20 @@ class StarController extends Controller
     public function delete(){
         $data = ["status"=>""];
         $validatorRules = array(
-                'id' => 'required|integer|exists:stars,id'
+                'id' => 'required|integer|exists:stars,id,user_id,'.Auth::user()->id
             );
         $validatorAttributes = array(
                 'id' => '收藏的对象'
             );
-        postCheck($rules,$message,$attributes);
-        //ToDo
+        postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
+        try{
+            Star::destroy(Request::get('id'));
+            $data["status"] = SUCCESS_MESSAGE;
+        }
+        catch(Exception $e)
+        {
+            throw new DatabaseOperatorException();
+        }
         return response()->json($data);
     }
     /**
@@ -70,8 +121,18 @@ class StarController extends Controller
                  "link"         =>  "",
                  "createTime"   =>  "",
                  "experimentName"   =>  ""];
-        //ToDo
-        return view("star.show",$data);
+        $star = Star::find($id);
+        if($star && $star->user->id==Auth::user()->id){
+            $data["username"] = $star->user->name;
+            $data["link"] = $star->link;
+            $data["createTime"] = $star->created_at;
+            $data["experimentName"] = $star->report->experiment_name;
+        }
+        else{
+            throw new NoResourceException();
+        }
+        #return view("star.show",$data);
+        return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -83,8 +144,15 @@ class StarController extends Controller
     {
         $reportLink = "";
         $experimentId = "";
-        //ToDo
-        return response()->download(Config::get('phylab.starPath').$reportLink,$experimentId."pdf");
+        $star = Star::find($id);
+        if($star && $star->user->id==Auth::user()->id){
+            $reportLink = $star->link;
+            $experimentId = $star->report->experiment_id;
+        }
+        else{
+            throw new NoResourceException();
+        }
+        return response()->download(Config::get('phylab.starPath').$reportLink,$experimentId.".pdf");
     }
 
 }

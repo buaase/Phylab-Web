@@ -20,7 +20,8 @@ class IndexController extends Controller
         $data = ["auth" => false ,"username"    =>  ""];
         if(Auth::check()){
             //ToDo
-            //if login
+            $data["auth"] = true;
+            $data["username"] = Auth::user()->name;
         }
         else{
             //ToDo

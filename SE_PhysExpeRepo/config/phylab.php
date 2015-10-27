@@ -1,16 +1,18 @@
 <?php
 return [
-    'starPath' => public_path()."star_pdf/",
-    'tmpReportPath'=>public_path()."pdf_tmp/",
+    'starPath' => public_path()."/star_pdf/",
+    'tmpReportPath'=>public_path()."/pdf_tmp/",
     'latexTemplatePath'=>storage_path()."/app/latex_template/",
     'scriptPath'=>storage_path()."/app/script/",
     'tmpXmlPath'=>storage_path()."/app/xml_tmp/",
-    'defaultAvatarPath'   => public_path()."/avatar/default.jpg",
+    'defaultAvatarPath'   => "default.jpg",
     'avatarPath'    =>  public_path()."/avatar/",
     'videoPath'     =>  public_path()."/video/",
     'cssPath'       =>  public_path()."/css/",
     'jsPath'        =>  public_path()."/js/",
     'preparePath'   =>  public_path()."/prepare_pdf/",
+    'allowedFileFormat' => '/^(jpg|gif|png|jpeg|bmp)$/',
+    'maxUploadSize'     => 5000000,
     'validatorMessage' => array(
                 "required"      =>  ":attribute 不能为空",
                 "studentId"     =>  ":attribute 必须为8位数字",

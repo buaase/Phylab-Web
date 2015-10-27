@@ -8,7 +8,7 @@ class Star extends Model
 {
     //
     protected $table = 'stars';
-    protected $fillable = ['link'];
+    protected $fillable = ['name','link','user_id','report_id'];
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id');
     }
