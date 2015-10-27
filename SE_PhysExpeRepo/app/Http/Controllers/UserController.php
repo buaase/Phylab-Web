@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Exceptions\App\InvalidRequestInputException
 
 class UserController extends Controller
 {
@@ -48,23 +47,16 @@ class UserController extends Controller
     {
         $data = ["status"       =>  ""];
         $validatorRules = array(
-                'password' => 'confirmed|min:6',
-                'name'  =>  'max:50'
+                'password' => 'confirmed|between:6,15',
+                'name'  =>  'between:6,20',
+                'birthday'  =>  'date'
             );
         $validatorAttributes = array(
                 'password' => '密码',
-                'name'  =>  '用户名'
+                'name'  =>  '用户名',
+                'birthday'  => '生日'  
             );
-        $validator = Validator::make(
-                Request::all(), 
-                $validatorRules,
-                Config::get('phylab.validatorMessage'),
-                $validatorAttributes
-            );
-        if ($validator->fails()) {
-                $warnings = $validator->messages();
-                throw new InvalidRequestInputException(json_encode($warnings,JSON_UNESCAPED_UNICODE),1,1);
-            }
+        postCheck($rules,$message,$attributes);
         //ToDo
         return response()->json($data);
     }

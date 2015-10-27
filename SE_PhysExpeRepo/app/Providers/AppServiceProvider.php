@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         {
             return preg_match('/^\d{8}$/', $value);
         });
+        require app_path().'/Http/helper.php';
     }
 
     /**
