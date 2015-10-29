@@ -47,7 +47,10 @@ return [
             'driver' => 'local',
             'root'   => storage_path('app'),
         ],
-
+        'local_public' =>[
+            'driver' => 'local',
+            'root'   => public_path(),
+        ],
         'ftp' => [
             'driver'   => 'ftp',
             'host'     => 'ftp.example.com',

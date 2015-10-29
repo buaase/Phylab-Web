@@ -77,9 +77,11 @@ Route::get('/user/star',[
     'as'    =>  'star',
     'uses' =>  'StarController@index',
     'middleware'    =>  'auth']);
-//添加收藏时 传入临时生成的report的id，和其所属report模板的id
 Route::post('/user/star',[
     'uses'  =>  'StarController@create',
+    'middleware'    =>  'auth']);
+Route::delete('/user/star',[
+    'uses'  =>  'StarController@delete',
     'middleware'    =>  'auth']);
 Route::get('/user/star/{id}',[
     'uses'    =>  'StarController@show',
@@ -100,12 +102,12 @@ Route::get('/report/{id}',[
     'middleware'    =>  'auth']);
 Route::get('/report/edit/{id}',[
     'as'    =>  'editReport',
-    'uses'  =>  'ReportController@editTemplate',
+    'uses'  =>  'ReportController@getXmlForm',
     'middleware'    =>  'auth']);
 Route::post('/report',[
     'uses'  =>  'ReportController@create',
     'middleware'    =>  'auth']);
-Route::get('/report/download/{$experimentId}/{$link}',[
+Route::get('/report/download/{experimentId}/{link}',[
     'as'    =>  'downloadReport',
     'uses'  =>  'ReportController@downloadReport',
     'middleware'    =>  'auth']);
