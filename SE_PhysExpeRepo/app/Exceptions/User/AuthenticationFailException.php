@@ -1,5 +1,5 @@
 <?php
-namespace App\Exceptions;
+namespace App\Exceptions\User;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Exception;
 class AuthenticationFailException extends HttpException{

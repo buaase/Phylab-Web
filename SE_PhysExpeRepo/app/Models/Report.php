@@ -10,6 +10,6 @@ class Report extends Model
     protected $table = 'reports';
     protected $fillable = ['experiment_id','experiment_name','document','script_link'];
     public function stars(){
-        return hasMany('App\Models\Star','report_id','id');
+        return $this->hasMany('App\Models\Star','report_id','id');
     }
 }
