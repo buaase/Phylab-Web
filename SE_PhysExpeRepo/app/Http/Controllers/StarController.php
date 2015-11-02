@@ -14,6 +14,7 @@ use Exception;
 use Auth;
 use App\Exceptions\App\FileIOException;
 use App\Exceptions\App\DatabaseOperatorException;
+use App\Exceptions\Star\ReachCeilingException;
 use App\Models\Report;
 class StarController extends Controller
 {
@@ -59,24 +60,31 @@ class StarController extends Controller
         if(Storage::disk('local_public')->exists('pdf_tmp/'.Request::get('link'))){
             $report = Report::find(Request::get('reportId'));
             $experimentName = $report->experiment_name;
-            $star = Star::create([
-                'link' => Request::get('link'),
-                'name' => 'Lab_'.Request::get('reportId').'_'.$experimentName.'_report',
-                'user_id' => Auth::user()->id,
-                'report_id' => Request::get('reportId')
-                ]);
-            if($star){
-                try{
-                    Storage::disk('local_public')->copy('pdf_tmp/'.Request::get('link'),'star_pdf/'.Request::get('link'));
+            if(Auth::user()->stars()->count()<=Config::get('phylab.starMaxCount'))
+            {
+                $star = Star::create([
+                    'link' => Request::get('link'),
+                    'name' => 'Lab_'.Request::get('reportId').'_'.$experimentName.'_report',
+                    'user_id' => Auth::user()->id,
+                    'report_id' => Request::get('reportId')
+                    ]);
+                if($star){
+                    try{
+                        Storage::disk('local_public')->copy('pdf_tmp/'.Request::get('link'),'star_pdf/'.Request::get('link'));
+                    }
+                    catch(Exception $e)
+                    {
+                        throw new FileIOException();
+                    }
+                    $data["status"] = SUCCESS_MESSAGE;
                 }
-                catch(Exception $e)
-                {
-                    throw new FileIOException();
+                else{
+                    $data["status"] = FAIL_MESSAGE;
                 }
-                $data["status"] = SUCCESS_MESSAGE;
             }
-            else{
-                $data["status"] = FAIL_MESSAGE;
+            else
+            {
+                throw new ReachCeilingException();
             }
         }
         else{
@@ -100,7 +108,15 @@ class StarController extends Controller
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
         try{
+            $link = Star::find(Request::get('id'))->link;
             Star::destroy(Request::get('id'));
+            try{
+                Storage::disk('local_public')->delete('star_pdf/'.$link);
+            }
+            catch(Exception $e)
+            {
+                throw new FileIOException();
+            }
             $data["status"] = SUCCESS_MESSAGE;
         }
         catch(Exception $e)
@@ -120,6 +136,8 @@ class StarController extends Controller
         $data = ["username"     =>  "",
                  "link"         =>  "",
                  "createTime"   =>  "",
+                 "name"         =>  "",
+                 "experimentId" =>  "",
                  "experimentName"   =>  ""];
         $star = Star::find($id);
         if($star && $star->user->id==Auth::user()->id){
@@ -127,6 +145,8 @@ class StarController extends Controller
             $data["link"] = $star->link;
             $data["createTime"] = $star->created_at;
             $data["experimentName"] = $star->report->experiment_name;
+            $data["experimentId"]   = $star->report->experiment_id;
+            $data["name"]           = $star->name;
         }
         else{
             throw new NoResourceException();

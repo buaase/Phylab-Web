@@ -13,6 +13,7 @@ return [
     'preparePath'   =>  public_path()."/prepare_pdf/",
     'allowedFileFormat' => '/^(jpg|gif|png|jpeg|bmp)$/',
     'maxUploadSize'     => 5000000,
+    'starMaxCount'      => 10,
     'validatorMessage' => array(
                 "required"      =>  ":attribute 不能为空",
                 "studentId"     =>  ":attribute 必须为8位数字",

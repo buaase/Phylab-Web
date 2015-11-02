@@ -81,12 +81,12 @@ class UserController extends Controller
         $data = ["status"       =>  ""];
         $validatorRules = array(
                 'password' => 'confirmed|between:6,15',
-                'name'  =>  'between:6,20',
+                'username'  =>  'between:6,20',
                 'birthday'  =>  'date'
             );
         $validatorAttributes = array(
                 'password' => '密码',
-                'name'  =>  '用户名',
+                'username'  =>  '用户名',
                 'birthday'  => '生日'  
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);

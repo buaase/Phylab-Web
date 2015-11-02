@@ -49,13 +49,11 @@ class ReportController extends Controller
                  "link"  => ""];
         $validatorRules = array(
                 'id'  => 'required|integer|exists:reports,id',
-                'xml' => 'required',
-                'chart' => 'required|boolean'
+                'xml' => 'required'
             );
         $validatorAttributes = array(
                 'id'  => '生成报告ID',
-                'xml' => '模板xml文件',
-                'chart' => '是否生成图表选项'
+                'xml' => '模板xml文件'
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
         //ToDo
