@@ -6,14 +6,18 @@ from numpy import cos
 from numpy import pi
 from jinja2 import Template
 from jinja2 import Environment
+import os
+import json
+import sys
+import subprocess
 
-#È«¾Ö±äÁ¿£¬·½±ã¼ÇÂ¼Ô­Ê¼Êı¾İ
-#VertÎªÈıÀâ¾µ¶¥½Ç²âÁ¿Êı×é
+#ÃˆÂ«Â¾Ã–Â±Ã¤ÃÂ¿Â£Â¬Â·Â½Â±Ã£Â¼Ã‡Ã‚Â¼Ã”Â­ÃŠÂ¼ÃŠÃ½Â¾Ã
+#VertÃÂªÃˆÃ½Ã€Ã¢Â¾ÂµÂ¶Â¥Â½Ã‡Â²Ã¢ÃÂ¿ÃŠÃ½Ã—Ã©
 angle_a1_vert = []
 angle_a2_vert = []
 angle_b1_vert = []
 angle_b2_vert = []
-#RefractÎªÕÛÉäÂÊ²âÁ¿Êı×é
+#RefractÃÂªÃ•Ã›Ã‰Ã¤Ã‚ÃŠÂ²Ã¢ÃÂ¿ÃŠÃ½Ã—Ã©
 angle_a1_refract = []
 angle_a2_refract = []
 angle_b1_refract = []
@@ -26,10 +30,10 @@ uA = 0
 
 env = Environment(line_statement_prefix="#", variable_start_string="%%", variable_end_string="%%")
 
-#¿ÆÑ§¼ÆÊı·¨Ïû³ıe
+#Â¿Ã†Ã‘Â§Â¼Ã†ÃŠÃ½Â·Â¨ÃÃ»Â³Ã½e
 def ToScience(number):
     Tempstr = format(number,'.4g')
-    #Èç¹û·¢ÏÖTempstrÖĞº¬ÓĞeµÄ»°£¬ËµÃ÷ÊÇ¿ÆÑ§¼ÆÊı·¨
+    #ÃˆÃ§Â¹Ã»Â·Â¢ÃÃ–TempstrÃ–ÃÂºÂ¬Ã“ÃeÂµÃ„Â»Â°Â£Â¬Ã‹ÂµÃƒÃ·ÃŠÃ‡Â¿Ã†Ã‘Â§Â¼Ã†ÃŠÃ½Â·Â¨
     if 'e' in  Tempstr:
         index_str = Tempstr.split('e')
         return index_str[0]+'{\\times}10^{'+str(int(index_str[1]))+'}'
@@ -37,24 +41,24 @@ def ToScience(number):
         return Tempstr
 
 
-#·Ö¶È×ª½Ç¶È
+#Â·Ã–Â¶ÃˆÃ—ÂªÂ½Ã‡Â¶Ãˆ
 def Angle(angle):
     angle = int(angle) + (angle-int(angle))*100/60
     return angle
 
-#¶È×ª»¡¶È
+#Â¶ÃˆÃ—ÂªÂ»Â¡Â¶Ãˆ
 def change(x):
     x = x/180*pi
     return x
 
-#½Ç¶ÈµÄÖµµÄ±ä»»
+#Â½Ã‡Â¶ÃˆÂµÃ„Ã–ÂµÂµÃ„Â±Ã¤Â»Â»
 def ChangeAngle(angle,n):
     angle = abs(angle)
     if angle > 200 :
         return 360 - angle
     return angle
 
-#¼ÆËãaÀà²»È·¶¨¶È
+#Â¼Ã†Ã‹Ã£aÃ€Ã Â²Â»ÃˆÂ·Â¶Â¨Â¶Ãˆ
 def Ua(x, aver, k) :
     sumx = 0
     for i in range(k):
@@ -88,21 +92,21 @@ def BitAdapt(x,u_x) :
 
 
 def ReadXmlTop():
-    #´ò¿ªÍ³Ò»µÄÍ·ÎÄ¼şÄ£°æ
-    latex_head_file = open('D://latex//Head.tex','r')
+    #Â´Ã²Â¿ÂªÃÂ³Ã’Â»ÂµÃ„ÃÂ·ÃÃ„Â¼Ã¾Ã„Â£Â°Ã¦
+    latex_head_file = open('/home/qian/æ¡Œé¢/latex/Head.tex','r')
     latex_head = latex_head_file.read().decode('utf-8', 'ignore')
     latex_tail = "\n\\end{document}"
     latex_body = ""
 
-    dom = xml.dom.minidom.parse('D://latex//1071.xml')
-    #ÎÄµµµÄ¸ù½áµã
+    dom = xml.dom.minidom.parse(sys.argv[1])
+    #ÃÃ„ÂµÂµÂµÃ„Â¸Ã¹Â½Ã¡ÂµÃ£
     root = dom.documentElement
-    #»ñÈ¡µ½Ã¿¸öĞ¡ÊµÑéµÄ¶ÔÓ¦±êÇ©
+    #Â»Ã±ÃˆÂ¡ÂµÂ½ÃƒÂ¿Â¸Ã¶ÃÂ¡ÃŠÂµÃ‘Ã©ÂµÃ„Â¶Ã”Ã“Â¦Â±ÃªÃ‡Â©
     sublab_list = root.getElementsByTagName('sublab')
     for sublab in sublab_list:
         sublab_status = sublab.getAttribute("status")
         sublab_id = sublab.getAttribute("id")
-        #Èç¹ûstatusÎªtrue£¬±íÃ÷ÓÃ»§Ñ¡ÔñÁË¸ÃĞ¡ÊµÑé
+        #ÃˆÃ§Â¹Ã»statusÃÂªtrueÂ£Â¬Â±Ã­ÃƒÃ·Ã“ÃƒÂ»Â§Ã‘Â¡Ã”Ã±ÃÃ‹Â¸ÃƒÃÂ¡ÃŠÂµÃ‘Ã©
         if (sublab_status == 'true' )& (sublab_id == '10711'):
             ReadXml10711(sublab)
             latex_body += Handle10711()
@@ -112,18 +116,18 @@ def ReadXmlTop():
     return latex_head+latex_body+latex_tail
 
 
-#sublab_rootÎª×ÓÊµÑéµÄ¸ù½áµã
+#sublab_rootÃÂªÃ—Ã“ÃŠÂµÃ‘Ã©ÂµÃ„Â¸Ã¹Â½Ã¡ÂµÃ£
 def ReadXml10711(sublab_root):
-    #ÉùÃ÷È«¾Ö±äÁ¿
+    #Ã‰Ã¹ÃƒÃ·ÃˆÂ«Â¾Ã–Â±Ã¤ÃÂ¿
     global angle_a1_vert,angle_a2_vert,angle_b1_vert,angle_b2_vert
 
     sublab_table_list = sublab_root.getElementsByTagName("table")
 
-    #trÊÇÖ¸µÚ¼¸ĞĞ£¬ÆäÖĞµÄindexÊôĞÔ´ú±íÁËÆäĞĞÊı
+    #trÃŠÃ‡Ã–Â¸ÂµÃšÂ¼Â¸ÃÃÂ£Â¬Ã†Ã¤Ã–ÃÂµÃ„indexÃŠÃ´ÃÃ”Â´ÃºÂ±Ã­ÃÃ‹Ã†Ã¤ÃÃÃŠÃ½
     sublab_table_list = sublab_root.getElementsByTagName("table")
     for table in sublab_table_list:
         table_name = table.getAttribute("name")
-        #trÊÇÖ¸µÚ¼¸ĞĞ£¬ÆäÖĞµÄindexÊôĞÔ´ú±íÁËÆäĞĞÊı
+        #trÃŠÃ‡Ã–Â¸ÂµÃšÂ¼Â¸ÃÃÂ£Â¬Ã†Ã¤Ã–ÃÂµÃ„indexÃŠÃ´ÃÃ”Â´ÃºÂ±Ã­ÃÃ‹Ã†Ã¤ÃÃÃŠÃ½
         table_tr_list = table.getElementsByTagName("tr")
         for tr in table_tr_list:
             tr_index = tr.getAttribute("index")
@@ -136,7 +140,7 @@ def ReadXml10711(sublab_root):
 
 
 def ReadXml10712(sublab_root):
-    #ÉùÃ÷È«¾Ö±äÁ¿
+    #Ã‰Ã¹ÃƒÃ·ÃˆÂ«Â¾Ã–Â±Ã¤ÃÂ¿
     global angle_a1_refract,angle_a2_refract,angle_b1_refract,angle_b2_refract,uA,average_A
 
     sublab_table_list = sublab_root.getElementsByTagName("table")
@@ -144,7 +148,7 @@ def ReadXml10712(sublab_root):
         table_name = table.getAttribute("name")
         table_raw  = table.getAttribute("raw")
         table_column = table.getAttribute("column")
-        #trÊÇÖ¸µÚ¼¸ĞĞ£¬ÆäÖĞµÄindexÊôĞÔ´ú±íÁËÆäĞĞÊı
+        #trÃŠÃ‡Ã–Â¸ÂµÃšÂ¼Â¸ÃÃÂ£Â¬Ã†Ã¤Ã–ÃÂµÃ„indexÃŠÃ´ÃÃ”Â´ÃºÂ±Ã­ÃÃ‹Ã†Ã¤ÃÃÃŠÃ½
         table_tr_list = table.getElementsByTagName("tr")
         for tr in table_tr_list:
             tr_index = tr.getAttribute("index")         
@@ -154,11 +158,10 @@ def ReadXml10712(sublab_root):
             angle_b1_refract.append(float(tr_td_list[1].firstChild.nodeValue))
             angle_a2_refract.append(float(tr_td_list[2].firstChild.nodeValue))
             angle_b2_refract.append(float(tr_td_list[3].firstChild.nodeValue))
-            print angle_a1_refract
 
 def VertAngle(source,ANGLE_A1,ANGLE_A2,ANGLE_B1,ANGLE_B2):
     global angle_a1_vert,angle_a2_vert,angle_b1_vert,angle_b2_vert,uA,average_A
-    precision = 1.0/60  #¾«¶È£¬´Ë´¦Ä¬ÈÏÎª1'
+    precision = 1.0/60  #Â¾Â«Â¶ÃˆÂ£Â¬Â´Ã‹Â´Â¦Ã„Â¬ÃˆÃÃÂª1'
     sum_A = 0
     k = len(angle_a1_vert)
     angle_A = []
@@ -186,27 +189,27 @@ def VertAngle(source,ANGLE_A1,ANGLE_A2,ANGLE_B1,ANGLE_B2):
         ANGLE_THETA.append({'angle':str(int(theta)),'minus':str(minus)})
     
     average_A = sum_A / k
-    #´óĞ´µÄÊÇ»¡¶È±íÊ¾
+    #Â´Ã³ÃÂ´ÂµÃ„ÃŠÃ‡Â»Â¡Â¶ÃˆÂ±Ã­ÃŠÂ¾
     AVERAGE_A = change(average_A)
     AVERAGE_A = ToScience(AVERAGE_A)
 
     ua_theta = Ua(angle_A, average_A, k)
-    #´óĞ´µÄÊÇ»¡¶È±íÊ¾
+    #Â´Ã³ÃÂ´ÂµÃ„ÃŠÃ‡Â»Â¡Â¶ÃˆÂ±Ã­ÃŠÂ¾
     UA_THETA = change(ua_theta)
     UA_THETA = ToScience(UA_THETA)
 
     ub_theta =precision / sqrt(3)
     u_theta = sqrt(pow(ua_theta,2) + pow(ub_theta,2))
-    #´óĞ´µÄÊÇ»¡¶È±íÊ¾
+    #Â´Ã³ÃÂ´ÂµÃ„ÃŠÃ‡Â»Â¡Â¶ÃˆÂ±Ã­ÃŠÂ¾
     U_THETA = change(u_theta)
     U_THETA = ToScience(U_THETA)
 
     uA = u_theta/2
-    #´óĞ´µÄ»¡¶È±íÊ¾
+    #Â´Ã³ÃÂ´ÂµÃ„Â»Â¡Â¶ÃˆÂ±Ã­ÃŠÂ¾
     U_A = change(uA)
     U_A = ToScience(U_A)
 
-    re_u= uA / average_A #Ïà¶Ô²»È·¶¨¶È
+    re_u= uA / average_A #ÃÃ Â¶Ã”Â²Â»ÃˆÂ·Â¶Â¨Â¶Ãˆ
     RE_U = change(re_u)
     RE_U = ToScience(RE_U)
 
@@ -232,12 +235,12 @@ def VertAngle(source,ANGLE_A1,ANGLE_A2,ANGLE_B1,ANGLE_B2):
 
     return result
 
-#×ö·¨:ReadXmlÎÄ¼şÀïÓ¦¸ÃÏÈ¶ÔÃ¿¸öÊµÑé½øĞĞ²»Í¬µÄ¶ÁxmlÎÄ¼şµÄ²Ù×÷
+#Ã—Ã¶Â·Â¨:ReadXmlÃÃ„Â¼Ã¾Ã€Ã¯Ã“Â¦Â¸ÃƒÃÃˆÂ¶Ã”ÃƒÂ¿Â¸Ã¶ÃŠÂµÃ‘Ã©Â½Ã¸ÃÃÂ²Â»ÃÂ¬ÂµÃ„Â¶ÃxmlÃÃ„Â¼Ã¾ÂµÃ„Â²Ã™Ã—Ã·
 def Handle10711():
     global angle_a1_vert,angle_a2_vert,angle_b1_vert,angle_b2_vert
-    #ÔØÈë1071Èı½ÇĞÍ¶¥½Ç²âÁ¿Êı¾İ´¦ÀíÄ£°å
-    file_object = open("D://latex//Handle10711.tex","r")
-    #½«Ä£°å×÷Îª×Ö·û´®´æ´¢ÔÚtemplateÎÄ¼şÖĞ
+    #Ã”Ã˜ÃˆÃ«1071ÃˆÃ½Â½Ã‡ÃÃÂ¶Â¥Â½Ã‡Â²Ã¢ÃÂ¿ÃŠÃ½Â¾ÃÂ´Â¦Ã€Ã­Ã„Â£Â°Ã¥
+    file_object = open("/home/qian/æ¡Œé¢/latex/Handle10711.tex","r")
+    #Â½Â«Ã„Â£Â°Ã¥Ã—Ã·ÃÂªÃ—Ã–Â·Ã»Â´Â®Â´Ã¦Â´Â¢Ã”ÃštemplateÃÃ„Â¼Ã¾Ã–Ã
     source = file_object.read().decode('utf-8', 'ignore')
 
     angle_a1_vert = [82.55,120,158.38,43.55,45.57]
@@ -274,7 +277,7 @@ def Handle10711():
             tempstr = tempstr.split('.')[1]
         ANGLE_B2.append({'angle':int(b2),'minus':tempstr})
     
-    #µ÷ÓÃÖ÷Òª´¦Àíº¯Êı
+    #ÂµÃ·Ã“ÃƒÃ–Ã·Ã’ÂªÂ´Â¦Ã€Ã­ÂºÂ¯ÃŠÃ½
     source = VertAngle(source,ANGLE_A1,ANGLE_A2,ANGLE_B1,ANGLE_B2)
 
     return source
@@ -288,8 +291,8 @@ def Handle10712():
     ANGLE_B1 = []
     ANGLE_B2 = []
 
-    file_object = open("D://latex//Handle10712.tex","r")
-    #½«Ä£°å×÷Îª×Ö·û´®´æ´¢ÔÚtemplateÎÄ¼şÖĞ
+    file_object = open("/home/qian/æ¡Œé¢/latex/Handle10712.tex","r")
+    #Â½Â«Ã„Â£Â°Ã¥Ã—Ã·ÃÂªÃ—Ã–Â·Ã»Â´Â®Â´Ã¦Â´Â¢Ã”ÃštemplateÃÃ„Â¼Ã¾Ã–Ã
     source = file_object.read().decode('utf-8', 'ignore')
     
     for a1 in angle_a1_refract:
@@ -322,7 +325,7 @@ def Handle10712():
 
 
 def Refract(source,ANGLE_A1_MIN,ANGLE_A2_MIN,ANGLE_B1_MIN,ANGLE_B2_MIN):
-    precision = 1.0/60  #¾«¶È£¬´Ë´¦Ä¬ÈÏÎª1'
+    precision = 1.0/60  #Â¾Â«Â¶ÃˆÂ£Â¬Â´Ã‹Â´Â¦Ã„Â¬ÃˆÃÃÂª1'
     angle_min = []
     ANGLE_DELTA_MIN = []
     sum_min = 0
@@ -352,11 +355,11 @@ def Refract(source,ANGLE_A1_MIN,ANGLE_A2_MIN,ANGLE_B1_MIN,ANGLE_B2_MIN):
     N1 = ToScience(n1)
 
     ua_min = Ua(angle_min, average_min, k)
-    #»¡¶È
+    #Â»Â¡Â¶Ãˆ
     ua_min = change(ua_min)
     UA_MIN = ToScience(ua_min)
 
-    #AµÄ²»È·¶¨¶È
+    #AÂµÃ„Â²Â»ÃˆÂ·Â¶Â¨Â¶Ãˆ
     U_A = change(uA)
     U_A = ToScience(U_A)
 
@@ -373,7 +376,7 @@ def Refract(source,ANGLE_A1_MIN,ANGLE_A2_MIN,ANGLE_B1_MIN,ANGLE_B2_MIN):
     u_n1 = sqrt(pow(temp1,2)+pow(temp2,2))
     U_N1 = ToScience(u_n1)
 
-    re_u = u_n1/n1 #Ïà¶Ô²»È·¶¨¶È
+    re_u = u_n1/n1 #ÃÃ Â¶Ã”Â²Â»ÃˆÂ·Â¶Â¨Â¶Ãˆ
     RE_U_MIN = ToScience(re_u)
 
     RESULT = BitAdapt(n1,u_n1)
@@ -403,6 +406,12 @@ def Refract(source,ANGLE_A1_MIN,ANGLE_A2_MIN,ANGLE_B1_MIN,ANGLE_B2_MIN):
 
 if __name__ == '__main__':
     finish_str = ReadXmlTop()
-    finish_file = open("D://latex//1071finish.tex","w")
+    finish_file = open(sys.argv[2],"w")
     finish_file.write(finish_str.encode('utf-8', 'ignore'))
     finish_file.close()
+    #ç­‰äºï¼‘æ—¶æ˜¯é”™è¯¯
+    ret =  subprocess.call("xelatex -interaction=nonstopmode "+sys.argv[2],shell=True)
+    if ret==0:
+        return json.dumps({'status':'success'})
+    else:
+        return json.dumps({'status':'fail'})
