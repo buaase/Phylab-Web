@@ -1,0 +1,63 @@
+\subsection*{实验1.三棱镜顶角的测量}
+\subsubsection*{(1)原始数据记录表格}
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+i & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+${\alpha}_1$
+{% for a1 in ANGLE_A1_VERT -%}
+&%% a1.angle %%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\
+\hline 
+${\beta}_1$ 
+{% for a1 in ANGLE_B1_VERT -%}
+&%% a1.angle%%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+${\alpha}_2$
+{% for a1 in ANGLE_A2_VERT -%}
+&%% a1.angle %%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+${\beta}_2$ 
+{% for a1 in ANGLE_B2_VERT -%}
+&%% a1.angle %%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+${\theta}$ 
+{% for a1 in ANGLE_THETA -%}
+&%% a1.angle %%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+$A$
+{% for a1 in ANGLE_A -%}
+&%% a1.angle %%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+\end{tabular}
+\vspace{10pt}
+
+其中$\theta$ = $\displaystyle\frac{1}{2}[({\alpha}_2-{\alpha_1})+({\beta}_2-{\beta}_1)]$，$A=\displaystyle\frac{1}{2}{\theta}$
+
+\end{center}
+
+\subsubsection*{(2)不确定度的计算}
+
+$$\bar{A} =\frac{1}{5}\sum\limits_{i=1}^{5}{A_i}=%% AVERAGE_A %%rad$$
+A类误差：$$u_a({\theta})=\sqrt{\displaystyle\frac{\sum\limits_{i=1}^{5} ({\theta}_i-\bar{\theta})^2}{5{\times}(5-1)}}=%% UA_THETA %% $$
+B类误差：$$u_b({\theta})=\displaystyle\frac{\bigtriangleup\text{仪}}{\sqrt{3}}
+= \frac{1'}{\sqrt{3}} = \frac{\pi}{180\times60\times\sqrt{3}} = 1.6794 \times 10^{-4} $$
+${\theta}$不确定度：$$u({\theta})=\sqrt{{u_a({\theta})}^2+{u_b({\theta})}^2}=\sqrt{ %% UA_THETA %%^2 + 0.00016794^2} = %% U_THETA %% $$
+A的不确定度：
+$$u(A)=\displaystyle\frac{1}{2}u({\theta})=\displaystyle\frac{1}{2}{\times}%% U_THETA %% = %% U_A %% $$
+相对不确定度：$$\displaystyle\frac{u(A)}{A}=%% RE_U %%$$
+最终结果为：$$A{\pm}u(A) = %% RESULT_A %% {\pm} %% RESULT_UA %%rad$$

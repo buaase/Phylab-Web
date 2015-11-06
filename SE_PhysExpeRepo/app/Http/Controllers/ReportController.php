@@ -64,19 +64,24 @@ class ReportController extends Controller
         catch(Exception $e){
             throw new FileIOException();
         }
+        $tmpName = getRandName();
         $report = Report::find(Request::get('id'));
         $scriptLink = $report->script_link;
         $experimentId = $report->experiment_id;
-        $system = exec("python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/",$output,$reval);
+        $system = exec("cd ".public_path()."/pdf_tmp/;python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex",$output,$reval);
         #$system = system("python -c 'print 1111'",$out);
-        #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/";
+        #echo "cd ".public_path()."/pdf_tmp/;python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
         #echo $out;
-        #echo $system;
+        echo $system."\n";
+        echo $reval."\n";
+        #echo var_dump($output);
         if($reval==0){
+            #echo $system.'\n';
+            #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
             $system = json_decode($system);
             if($system->status== SUCCESS_MESSAGE){
                 $data["status"] = SUCCESS_MESSAGE;
-                $data["link"] = $system->link;
+                $data["link"] = $tmpName.".pdf";
                 $data["experimentId"] = $experimentId;
             }
             else{
