@@ -21,7 +21,7 @@ class ReportController extends Controller
     public function index()
     {
         //看这个形式： $data = ["reportTemplate"=>[ ["id"=> "", "experimentId" => "","experimentName"=> ""] , [] ,.......] ]
-        $data = ["reportTemplate"=>[]];
+        $data = ["reportTemplates"=>[]];
         $reports = Report::all();
         foreach ($reports as $report) {
             $rearr = array(
@@ -30,10 +30,10 @@ class ReportController extends Controller
                 "experimentName"=>$report->experiment_name,
                 "prepareLink"=>$report->prepare_link
                 );
-            array_push($data["reportTemplate"],$rearr);
+            array_push($data["reportTemplates"],$rearr);
         }
-        #return view("report.index",$data);
-        return json_encode($data,JSON_UNESCAPED_UNICODE);
+        return view("report.index",$data);
+        #return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -69,7 +69,7 @@ class ReportController extends Controller
         $experimentId = $report->experiment_id;
         $system = exec("python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/",$output,$reval);
         #$system = system("python -c 'print 1111'",$out);
-        #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink;
+        #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/";
         #echo $out;
         #echo $system;
         if($reval==0){

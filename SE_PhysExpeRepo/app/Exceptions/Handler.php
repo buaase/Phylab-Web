@@ -45,15 +45,15 @@ class Handler extends ExceptionHandler
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
-        // if ($e instanceof HttpException){
-        //     $errorData = [
-        //           "message"=>$e->getMessage(),
-        //           "httpCode"=>$e->getStatusCode(),
-        //           "code"=>$e->getCode() ];
-        //     if ($request->ajax())
-        //         return response()->json($errorData);
-        //     else return response()->view('errors.phylab',$errorData);
-        // }
+        if ($e instanceof HttpException){
+            $errorData = [
+                  "message"=>$e->getMessage(),
+                  "httpCode"=>$e->getStatusCode(),
+                  "code"=>$e->getCode() ];
+            if ($request->ajax())
+                return response("",$errorData['httpCode'])->json($errorData);
+            else return response("",$errorData['httpCode'])->view('errors.phylab',$errorData);
+        }
 
         return parent::render($request, $e);
     }
