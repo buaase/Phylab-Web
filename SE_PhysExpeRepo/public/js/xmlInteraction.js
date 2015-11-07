@@ -1,5 +1,5 @@
 
-function PostXMLDoc(url,xmlString,cfunc,id){
+function PostXMLDoc(url,xmlString,id,cfunc){
 	var xmlhttp;
 		if (window.XMLHttpRequest)
 		  {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -11,7 +11,8 @@ function PostXMLDoc(url,xmlString,cfunc,id){
 		  }
 	xmlhttp.onreadystatechange=cfunc;
 	xmlhttp.open("POST",url,true);
-	xmlhttp.send("xml="+xmlString+"&id="+id);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlhttp.send("xml="+encodeURI(xmlString)+"&id="+id);
 }
 
 function SetXMLDoc_lab(labnum){

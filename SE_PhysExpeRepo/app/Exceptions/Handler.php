@@ -51,8 +51,8 @@ class Handler extends ExceptionHandler
                   "httpCode"=>$e->getStatusCode(),
                   "code"=>$e->getCode() ];
             if ($request->ajax())
-                return response("",$errorData['httpCode'])->json($errorData);
-            else return response("",$errorData['httpCode'])->view('errors.phylab',$errorData);
+                return response()->json($errorData,$errorData['httpCode']);
+            else return response()->view('errors.phylab',$errorData,$errorData['httpCode']);
         }
 
         return parent::render($request, $e);

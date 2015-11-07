@@ -71,7 +71,7 @@ class ReportController extends Controller
         $scriptLink = $report->script_link;
         $experimentId = $report->experiment_id;
         $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex",$output,$reval);
-        #echo Config::get('scriptPath')."create.sh ".Config::get('tmpReportPath')." ".Config::get('scriptPath').$scriptLink." ".Config::get('tmpXmlPath').$xmlLink." ".Config::get('tmpReportPath').$tmpName.".tex";
+        #echo Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex";
         #echo $out;
         #echo $system."\n";
         #echo $reval."\n";
