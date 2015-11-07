@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PhyLabHome</title>
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/seven-style-btn.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/seven-style.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/mystyle.css')}}">
 </head>
 <body>
@@ -107,7 +107,8 @@
                 <div class="item">
                     <img src="./img/quantumislam.jpg" alt="">
                     <div class="carousel-caption container-fluid">
-                        <div class="row" style="padding-top:10px;">
+                        <div class="row" style="padding-top:10px;padding-bottom:5%;">
+							<button class="btn btn-lg btn-pure-outline hidden-xs col-sm-4"  data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif>>>>开始体验</button>
                             <button class="btn btn-lg btn-pure-outline hidden-xs col-sm-4"  data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif>>>>开始体验</button>
                         </div>
                     </div>
@@ -136,5 +137,6 @@
 
  <script src="./js/jquery-2.1.4.min.js"></script>
  <script src="./js/bootstrap.min.js"></script>
+ <script src="./js/global.js"></script>
 </body>
 </html>

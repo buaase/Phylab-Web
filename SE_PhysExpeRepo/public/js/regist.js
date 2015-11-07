@@ -3,7 +3,9 @@
 			SetDisable('btn-Signup',true);
 		}
 		$(function () {
-			$('[data-toggle="popover"]').popover();
+			$('[data-toggle="popover"]').popover({
+				html : true
+			});
 		})
 		
 		$('.user-input').bind("change",function(){
@@ -47,16 +49,16 @@
 			return check;
 		}
 		
-		function Post_user(){
-			var xmlString = "user_name="+document.getElementById('InputUser').value
-							+"&user_email="+document.getElementById('InputEmail').value
-							+"&user_stu="+document.getElementById('InputStudent').value
-							+"&user_pwd="+document.getElementById('InputPwd').value;
-			PostXMLDoc("##",xmlString,function(){
-				if (this.readyState==4 && this.status==200){
-					window.open(this.responseText);
-				}
-		})
+		//function Post_user(){
+		//	var xmlString = "user_name="+document.getElementById('InputUser').value
+		//					+"&user_email="+document.getElementById('InputEmail').value
+		//					+"&user_stu="+document.getElementById('InputStudent').value
+		//					+"&user_pwd="+document.getElementById('InputPwd').value;
+		//	PostXMLDoc("##",xmlString,function(){
+		//		if (this.readyState==4 && this.status==200){
+		//			window.open(this.responseText);
+		//		}
+		//})
 	}
 		
 	

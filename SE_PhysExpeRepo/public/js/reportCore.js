@@ -113,7 +113,11 @@ var labDoc3dot1415926;
 	}
 	function exportBtnClick(){
 		eleDisable();
-		Post_lab();
+		try{
+			Post_lab();
+		}catch(e){
+			error();
+		}
 	}
 	
 	$('a.lab_title').bind('click',function(){
@@ -157,7 +161,7 @@ var labDoc3dot1415926;
 		//get selected sublab
 		labStr = labStr.substring(0,labStr.lastIndexOf(','));
 		paraArray = $(labStr);
-		labStr = labStr.replace("para","var");
+		labStr = labStr.replace(new RegExp("para","gm"),"var");
 		varArray = $(labStr);
 		//get data form input, para can't be null
 		paraArray.each(function(){
@@ -188,14 +192,34 @@ var labDoc3dot1415926;
 	
 	
 	// //USE pdfObject v1.2.20111123, xmlInteraction
-	// function cp(pdfName){
-	// 	var myPDF = new PDFObject({ url: "./prepare_pdf/"+pdfName }).embed("chrom_pdf");
-	// }
-	// function changePdf('prepare',pdfName){
-	// 	$("#pdf_object").attr("data","./prepare_pdf/"+pdfName);
-	// 	$('#pdf_embed').attr("src","./prepare_pdf/"+pdfName);
-	// 	cp(pdfName);
-	// }
+	function cp(pdfPath){
+		var myPDF = new PDFObject({ url: pdfPath }).embed("chrom_pdf");
+		if(browser()=="FF"){
+			document.getElementById('firefox_pdf').style.display='block';
+		}
+		else if(browser()=="IE6"||browser()=="IE7"){
+			alert("Please use the above version of IE8 or other browsers");
+		}
+		else {
+			document.getElementById('chrom_pdf').style.display='block';
+			cp('./prepare_pdf/phylab_test.pdf');
+		}
+	}
+	function changePdf(type,pdfName){
+			var path = ""
+			if(type=="prepare"){
+				path = "./prepare_pdf/";
+			}
+			else if(type=="tmp"){
+				path = "./pdf_tmp/";
+			}
+			else if(type=="star"){
+				path = "./star_pdf/"
+			}
+			$("#pdf_object").attr("data",path+pdfName);
+			$('#pdf_embed').attr("src",path+pdfName);
+			cp(path+pdfName);
+	}
 	
 	function Post_lab(){
 		var xmlString = labDoc3dot1415926.getXML();

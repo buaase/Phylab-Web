@@ -8,7 +8,238 @@
     <link rel="stylesheet" href="./css/seven-style.css">
 	<link rel="stylesheet" href="./css/mystyle.css">
 </head>
-<body>
+<body onload="check()">
+<div class="modal fade" id="lab_table_1011">
+    <div class="modal-dialog modal-lab">
+        <div class="modal-content">
+            <div class="modal-header">
+    			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation"><h4><span class="label label-danger">&nbsp 1011&nbsp </span> &nbsp </h4></li>
+					<li role="presentation" class="active"><a href="#lab_1011_1" aria-controls="实验一 拉伸法测钢丝弹性模量" role="tab" data-toggle="tab">Lab1&nbsp拉伸法测钢丝弹性模量</a></li>
+					<li role="presentation"><a href="#lab_1011_2" aria-controls="实验二 扭摆法测定转动惯量" role="tab" data-toggle="tab">Lab2&nbsp扭摆法测定转动惯量</a></li>
+				</ul>
+			</div>
+			<div class="table-autoscroll well tab-content" id="modal-body-1011-1">
+				<div role="tabpanel" class="tab-pane fade in active" id="lab_1011_1">
+					<table class="table table-condensed table-hover table-striped" id="table1011_1_Lhb">
+					<thead>
+						<tr>
+							<th><label for="1011_1_gangsi">钢丝长L(cm)</label></th>
+							<th><label for="1011_1_pingmianjing">平面镜到标尺H(cm)</label></th>
+							<th><label for="1011_1_guangganggan">光杠杆前后足b(cm)</label></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="钢丝长L" id="1011_1_gangsi" ></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="平面镜到标尺H" id="1011_1_pingmianjing" ></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="光杠杆前后足b" id="1011_1_guangganggan" ></td>
+						</tr>
+					</tbody>
+					</table>
+					<table class="table table-condensed table-hover table-striped" id="table1011_1_zhijing">
+					<thead>
+						<tr>
+							<th>直径 </th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>5</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>(mm)</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="直径1" id="1011_1_D1"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="直径2" id="1011_1_D2"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="直径3" id="1011_1_D3"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="直径4" id="1011_1_D4"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="直径5" id="1011_1_D5"></td>
+						</tr>
+					</tbody>
+					</table>
+					<table class="table table-condensed table-hover table-striped" id="table1011_1_jiali">
+					<thead>
+						<tr>
+							<th>加力(kg)</th>
+							<td>读数(加力)</td>
+							<td>读数(减力)</td>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>10</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力10" id="1011_1_jia10"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力10" id="1011_1_jian10"></td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力12" id="1011_1_jia12"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力12" id="1011_1_jian12"></td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力14" id="1011_1_jia14"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力14" id="1011_1_jian14"></td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力16" id="1011_1_jia16"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力16" id="1011_1_jian16"></td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力18" id="1011_1_jia18"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力18" id="1011_1_jian18"></td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力20" id="1011_1_jia20"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力20" id="1011_1_jian20"></td>
+						</tr>
+						<tr>
+							<td>22</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力22" id="1011_1_jia22"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力22" id="1011_1_jian22"></td>
+						</tr>
+						<tr>
+							<td>24</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力24" id="1011_1_jia24"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力24" id="1011_1_jian24"></td>
+						</tr>
+						<tr>
+							<td>26</td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="加力26" id="1011_1_jia26"></td>
+							<td><input type="text" class="para 1011_1 form-control" aria-label="减力26" id="1011_1_jian26"></td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="lab_1011_2">
+					<table class="table table-condensed table-hover table-striped" id="table1011_2_msize">
+						<thead>
+							<tr>
+								<td colspan="5"><span class="badge">刚体参量</span></td>
+							</tr>
+							<tr>
+								<th></th>
+								<th>塑料圆柱</th>
+								<th>金属圆筒</th>
+								<th>球</th>
+								<th>细杆</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="form-group has-feedback">
+								<td>质量(g)</td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="塑料圆柱质量" id="1011_2_myuanzhu" ></td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="金属圆筒质量" id="1011_2_myuantong"></td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="球质量" id="1011_2_mqiu"></td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="细杆质量" id="1011_2_mxigan"></td>
+							</tr>
+							<tr class="form-group has-feedback">
+								<td>尺寸(mm)</td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="塑料圆柱尺寸" id="1011_2_chicunyuanzhu" ></td>
+								<td style="width:30%;"><div class="input-group">
+									<span class="input-group-addon">外</span>
+									<input class="para 1011_2 form-control" type="text" aria-label="金属圆筒尺寸内" id="1011_2_wchicunmyuantong">
+									<span class="input-group-addon">内</span>
+									<input class="para 1011_2 form-control" type="text" aria-label="金属圆筒尺寸外" id="1011_2_nchicunyuantong"></div></td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="球尺寸" id="1011_2_chicunqiu"></td>
+								<td><input class="para 1011_2 form-control" type="text" aria-label="细杆尺寸" id="1011_2_chicunxigan"></td>
+							</tr>
+							<tr class="form-group has-feedback">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+						</table>
+					<table class="table table-condensed table-hover table-striped" id="table1011_2_zuzhi">
+						<thead>
+							<tr>
+								<td colspan="5"><span class="badge">测量结果</span></td>
+							</tr>
+							<tr>
+								<th></th>
+								<th>物盘</th>
+								<th>盘+圆柱</th>
+								<th>盘+圆筒</th>
+								<th>圆球</th>
+								<th>细长杆</th>
+							</tr>
+							
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td><input class="para 1011_2 form-control" aria-label="物盘1" type="text" id="1011_2_w1" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆柱1" type="text" id="1011_2_pz1" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆筒1" type="text" id="1011_2_pt1" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="圆球1" type="text" id="1011_2_yq1" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="细长杆1" type="text" id="1011_2_xcg1" ></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><input class="para 1011_2 form-control" aria-label="物盘2" type="text" id="1011_2_w2" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆柱2" type="text" id="1011_2_pz2" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆筒2" type="text" id="1011_2_pt2" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="圆球2" type="text" id="1011_2_yq2" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="细长杆2" type="text" id="1011_2_xcg2" ></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><input class="para 1011_2 form-control" aria-label="物盘3" type="text" id="1011_2_w3" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆柱3" type="text" id="1011_2_pz3" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆筒3" type="text" id="1011_2_pt3" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="圆球3" type="text" id="1011_2_yq3" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="细长杆3" type="text" id="1011_2_xcg3" ></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><input class="para 1011_2 form-control" aria-label="物盘4" type="text" id="1011_2_w4" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆柱4" type="text" id="1011_2_pz4" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆筒4" type="text" id="1011_2_pt4" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="圆球4" type="text" id="1011_2_yq4" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="细长杆4" type="text" id="1011_2_xcg4" ></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td><input class="para 1011_2 form-control" aria-label="物盘5" type="text" id="1011_2_w5" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆柱5" type="text" id="1011_2_pz5" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="盘+圆筒5" type="text" id="1011_2_pt5" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="圆球5" type="text" id="1011_2_yq5" ></td>
+								<td><input class="para 1011_2 form-control" aria-label="细长杆5" type="text" id="1011_2_xcg5" ></td>
+							</tr>
+						</tbody>
+						</table>
+				</div>
+			</div>
+			<div id="modal-footer-1011-1">
+				<div class="form-group" style="float:right;">
+					<label for="check_1011_1">&nbsp Lab1&nbsp </label>
+					<div class="holder">
+						<input class="1011_1 check-ios" id="check_1011_1" name="check_1011" type="checkbox">
+						<label for="check_1011_1"></label>
+						<span></span>
+					</div>
+					<label for="check_1011_2">&nbsp Lab2&nbsp </label>
+					<div class="holder">
+						<input class="1011_2 check-ios" id="check_1011_2" name="check_1011" type="checkbox">
+						<label for="check_1011_2"></label>
+						<span></span>
+					</div>
+				</div><br/>
+				<button type="button" class="btn-Save btn btn-lg btn-danger btn-block" id="btnSave_1011" style="display:block;"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp 保存！</button>
+				<button type="button" class="btn-Error btn btn-lg btn-danger btn-block" id="btnError_1011" style="display:none;" disabled="disable"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp ：<span id="ErrorText_1011">请选择并完整填写至少一个实验</span></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div class="modal fade" id="lab_table_1021">
     <div class="modal-dialog modal-lab">
         <div class="modal-content">
@@ -1719,7 +1950,7 @@
 						<span>物理实验
 							<small>数据报告中心</small>
 						</span>
-						<hr style="height:1px;border:none;border-top:2px solid #808080;"><hr/>
+						<hr/>
 					</h2>
 				</div>
 				<div class="row" style="padding-top:0px;">
@@ -1796,9 +2027,9 @@
 						<div class="panel-body" style="padding:5px;">
 							<!--<iframe id="lab_window" src="lab_report.html" style="width:100%;height:92%;">
 							</iframe>-->
-                            <div id="firefox_pdf" style="width:100%;height:92%;min-height:500px;display:none;">
-								<object data="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_object"  style="width:100%;height:92%;min-height:480px;">
-									<embed src="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_embed"/>
+                            <div id="firefox_pdf" style="display:none;">
+								<object data="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_object">
+									<embed src="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_embed" style="width:100%;height:92%;min-height:480px;"/>
 								</object>
 							</div>
 							<div id="chrom_pdf" style="width:100%;height:92%;min-height:500px;display:none">
@@ -1823,7 +2054,6 @@
 <script src="./js/jquery-2.1.4.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/global.js"></script>
-<script src="./js/reportPdf.js"></script>
 <script src="./js/reportCore.js"></script>
 <script src="./js/pdfobject.js"></script>
 <script src="./js/xmlInteraction.js"></script>
