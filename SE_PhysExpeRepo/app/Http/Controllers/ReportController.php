@@ -68,12 +68,11 @@ class ReportController extends Controller
         $report = Report::find(Request::get('id'));
         $scriptLink = $report->script_link;
         $experimentId = $report->experiment_id;
-        $system = exec("cd ".public_path()."/pdf_tmp/;python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex",$output,$reval);
-        #$system = system("python -c 'print 1111'",$out);
-        #echo "cd ".public_path()."/pdf_tmp/;python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
+        $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex",$output,$reval);
+        #echo Config::get('scriptPath')."create.sh ".Config::get('tmpReportPath')." ".Config::get('scriptPath').$scriptLink." ".Config::get('tmpXmlPath').$xmlLink." ".Config::get('tmpReportPath').$tmpName.".tex";
         #echo $out;
-        echo $system."\n";
-        echo $reval."\n";
+        #echo $system."\n";
+        #echo $reval."\n";
         #echo var_dump($output);
         if($reval==0){
             #echo $system.'\n';

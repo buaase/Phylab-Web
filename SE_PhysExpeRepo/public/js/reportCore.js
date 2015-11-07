@@ -203,8 +203,8 @@ var labDoc3dot1415926;
 		PostXMLDoc("/report",xmlString,dbId,function(){
 			if (this.readyState==4 && this.status==200){
 				var jsonText = eval("(" + this.responseText + ")");
-				alert(this.responseText);
-				alert(jsonText["status"]);
+				//alert(this.responseText);
+				//alert(jsonText["status"]);
 				if(jsonText["status"]=='success'){
 					changePdf('tmp',jsonText['link']);
 					$('#LabStatus')[0].innerHTML = "终版";
