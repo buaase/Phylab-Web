@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[UTF8,adobefonts]{ctex}
+
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{ulem}
+
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{multirow}
+
+\begin{document}
+\section*{五、实验数据处理}
+\subsection*{实验1.激光双棱镜干涉}
+\subsubsection*{(1)原始数据记录}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 
+\\ 
+\hline 
+$x_i/mm$ & • & • & • & • & • & • & • & • & • & • 
+{% for a1 in ANGLE_A1 -%}
+&%% a1.angle %%$^{\circ}$%% a1.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+i & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 
+\\ 
+\hline 
+$x_i/mm$ & • & • & • & • & • & • & • & • & • & • 
+
+\\ 
+\hline 
+\end{tabular} 
+
+\subsubsection*{(3)不确定度计算}
+${\triangle}x$的不确定度：\\
+$10{\triangle}x$的A类不确定度：
+$$u_a(10{\triangle}x) = \sqrt{\displaystyle\frac{\sum\limits_{i=1}^{10} (10{{\triangle}x}_i-\bar{10{\triangle}x})^2}{10{\times}(10-1)}} = %% UA_10DELTA_X %%mm$$
+$10{\triangle}x$的B类不确定度：
+$$u_b({10{\triangle}x})=\displaystyle\frac{\bigtriangleup\text{仪}}{\sqrt{3}}
+= \frac{0.01}{2{\times}\sqrt{3}} = 0.00289mm$$
+$10{\triangle}x$的不确定度：
+$$u(10{\triangle}x)=\sqrt{{u_a(10{\triangle}x}^2+{u_b(10{\triangle}x}^2} = %% U_10DELTA_X %%$$
+${\triangle}x$的不确定度：
+$${\therefore}u({\triangle}x) = \displaystyle\frac{u_(10{\triangle}x)}{10} = %% U_DELTA_X %%$$
+
+$b$的不确定度：
+$$$$
+\end{document}
