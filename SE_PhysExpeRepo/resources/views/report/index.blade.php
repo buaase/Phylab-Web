@@ -1686,12 +1686,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<img src="./img/phylab_logo_single.svg" href="./index.html" style="float:left;margin:0 0 0 20px;height:50px;"></img>
-			<a class="navbar-brand" href="./index.html" style="margin:0 40px 0 0px;">PhyLab</a>
+			<img src="./img/phylab_logo_single.svg" href="{{URL::route('index')}}" style="float:left;margin:0 0 0 20px;height:50px;"></img>
+			<a class="navbar-brand" href="{{URL::route('index')}}" style="margin:0 40px 0 0px;">PhyLab</a>
 		</div>
 		<div class="collapse navbar-collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a href="./index.html"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
+				<li class="active"><a href="{{URL::route('index')}}"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
 				<li><a href="##">社区</a></li>
 				<li class="dropdown">
 					<a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
@@ -1704,11 +1704,9 @@
 				<li><a href="##">关于</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<div class="btn-group btn-block" rol="Sign" style="padding:10px 40px 0 20px;">
-					<button class="btn btn-success sym-nav-signup" type="button" id="Sign_up">&nbsp&nbsp注册&nbsp&nbsp</button>
-					<button class="btn btn-default sym-nav-signin" data-toggle="modal" data-target="#mymodal-signin" type="button" id="Sign_in">&nbsp&nbsp登录&nbsp&nbsp</button>
-				</div>
-			</ul>
+                <li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>
+                <li><a href="{{URL::route('logout')}}">登出</a></li>
+            </ul>
 		</div>
 	</nav>
 </div>
@@ -1824,10 +1822,10 @@
 
 <script src="./js/jquery-2.1.4.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
+<script src="./js/global.js"></script>
 <script src="./js/reportPdf.js"></script>
 <script src="./js/reportCore.js"></script>
 <script src="./js/pdfobject.js"></script>
-<script src="./js/global.js"></script>
 <script src="./js/xmlInteraction.js"></script>
 <script src="./js/test.js"></script>
 

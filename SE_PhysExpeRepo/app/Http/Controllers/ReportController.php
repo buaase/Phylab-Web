@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Report;
@@ -21,7 +22,8 @@ class ReportController extends Controller
     public function index()
     {
         //看这个形式： $data = ["reportTemplate"=>[ ["id"=> "", "experimentId" => "","experimentName"=> ""] , [] ,.......] ]
-        $data = ["reportTemplates"=>[]];
+        $data = ["reportTemplates"=>[],
+                 "username"=>Auth::user()->name];
         $reports = Report::all();
         foreach ($reports as $report) {
             $rearr = array(

@@ -79,7 +79,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (!$auth)
                 <div class="btn-group btn-block" rol="Sign" style="padding:10px 40px 0 20px;">
-                    <button class="btn btn-success sym-nav-signup" type="button" id="Sign_up">&nbsp&nbsp注册&nbsp&nbsp</button>
+                    <button class="btn btn-success sym-nav-signup" type="button" id="Sign_up" onclick="window.location.href='{{URL::route('register')}}'">&nbsp&nbsp注册&nbsp&nbsp</button>
                     <button class="btn btn-default sym-nav-signin" data-toggle="modal" data-target="#mymodal-signin" type="button" id="Sign_in">&nbsp&nbsp登录&nbsp&nbsp</button>
                 </div>
                 @else
