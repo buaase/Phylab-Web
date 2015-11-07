@@ -62,8 +62,6 @@ def ObjectImageConvex(exper_1, exper_2, exper_3,source):
     Round(u)
     Round(v)
     Round(f)
-    Average_f = round(average_f,2)
-    
     result = env.from_string(source).render(
         EXPER_1 = exper_1,
         EXPER_2 = exper_2,
@@ -71,11 +69,9 @@ def ObjectImageConvex(exper_1, exper_2, exper_3,source):
         U = u,
         V = v,
         f = f,
-        Average_f = Average_f
+        Average_f = round(average_f,2)
         )
-    
     return result
-
 #----test--------#
 '''
 exper_1 = [[1400.0,469.2,1011.5,1014.8],
@@ -89,7 +85,7 @@ ObjectImageConvex(exper_1, exper_2, exper_3)
 
 def ReadXmlObjectImageConvex():
     #载入1071三角型顶角测量数据处理模板
-    file_object = open("D://Handle10611.tex","r")
+    file_object = open("E://phylab//Handle10611.tex","r")
     #将模板作为字符串存储在template文件中
     source = file_object.read().decode('utf-8', 'ignore')
 
@@ -106,6 +102,6 @@ def ReadXmlObjectImageConvex():
 
 if __name__ == '__main__':
     nstr = ReadXmlObjectImageConvex()
-    nfile = open('D://Handle1071Three_Temp.tex','w')
+    nfile = open('E://phylab-temp//Handle10611finish.tex','w')
     nfile.write(nstr.encode('utf-8', 'ignore'));
     nfile.close();
