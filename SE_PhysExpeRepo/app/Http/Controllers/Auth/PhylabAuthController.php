@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Auth;
+use App\Models\User;
 use Config;
 use Request;
 use Illuminate\Routing\Controller;
@@ -62,7 +63,7 @@ class PhylabAuthController extends Controller {
         catch(InvalidRequestInputException $e){
             return response()->view('auth.register',["status"=>FAIL_MESSAGE,"message"=>json_decode($e->getMessage())]);
         }
-        Auth::login($this->create($request->all()));
+        Auth::login($this->create(Request::all()));
         return redirect('/index');
     }
     /**

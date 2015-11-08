@@ -1823,6 +1823,7 @@
 <script src="./js/jquery-2.1.4.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/global.js"></script>
+<script src="./js/xmlInteraction.js"></script>
 <script src="./js/reportPdf.js"></script>
 <script src="./js/reportCore.js"></script>
 <script src="./js/pdfobject.js"></script>
