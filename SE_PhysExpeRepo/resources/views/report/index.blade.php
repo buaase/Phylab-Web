@@ -1719,7 +1719,7 @@
                 <h4 class="modal-title lead">报告收藏夹</h4>
             </div>
             <div class="modal-body" style="padding:0">
-                <iframe src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
+                <iframe id="starIframe" src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

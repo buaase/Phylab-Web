@@ -14,6 +14,7 @@ function createStar(ico,txt,check){
                 ico.setAttribute("class","glyphicon glyphicon-star");
                 txt.innerHTML = "取消收藏";
                 alert("已添加至个人收藏夹！");
+                document.getElementById('starIframe').contentWindow.location.reload(true);
             }
             else{
                 errorAlert();
@@ -36,6 +37,7 @@ function deleteStar(ico,txt,check){
                 ico.setAttribute("class","glyphicon glyphicon-star-empty");
                 txt.innerHTML = "收藏";
                 alert("已取消收藏");
+                document.getElementById('starIframe').contentWindow.location.reload(true);
             }
             else{
                 errorAlert();
