@@ -1826,7 +1826,6 @@
 <script src="./js/reportPdf.js"></script>
 <script src="./js/reportCore.js"></script>
 <script src="./js/pdfobject.js"></script>
-<script src="./js/xmlInteraction.js"></script>
 <script src="./js/test.js"></script>
 
 </body>

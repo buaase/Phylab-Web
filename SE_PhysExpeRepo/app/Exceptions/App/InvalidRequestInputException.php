@@ -5,7 +5,7 @@ use Exception;
 
 class InvalidRequestInputException extends HttpException{
     public function __construct($message){
-        parent::__construct(400,json_encode($message,JSON_UNESCAPED_UNICODE),null,array(),904);
+        parent::__construct(400,$message,null,array(),904);
     }
 }
 ?>

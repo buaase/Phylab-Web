@@ -58,3 +58,19 @@
 		alert("滚吧！QAQ");
 		window.location = "http://www.taobao.com/"
 	}
+	function PostAjax(url,postData,cfunc){
+	    var xmlhttp;
+	        if (window.XMLHttpRequest)
+	          {// code for IE7+, Firefox, Chrome, Opera, Safari
+	          xmlhttp=new XMLHttpRequest();
+	          }
+	        else
+	          {// code for IE6, IE5
+	          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	          }
+	    xmlhttp.onreadystatechange=cfunc;
+	    xmlhttp.open("POST",url,true);
+	    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	    xmlhttp.setRequestHeader("X-Requested-With","XMLHttpRequest");
+	    xmlhttp.send(postData);
+	}

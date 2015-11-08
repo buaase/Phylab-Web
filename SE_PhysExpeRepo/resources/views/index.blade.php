@@ -33,6 +33,9 @@
                             <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码" name="password">
                         </div>
                     </div>
+                    <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
+                                        <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
+                                    </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-4">
                             <div class="checkbox">
@@ -42,7 +45,7 @@
                         <div class="col-md-offset-3 col-md-3" style="float:right"><a href="##">忘记密码?</a></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
+                        <button type="button" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
                     </div>
                 </form>
             </div>
@@ -136,5 +139,7 @@
 
  <script src="./js/jquery-2.1.4.min.js"></script>
  <script src="./js/bootstrap.min.js"></script>
+ <script src="./js/global.js"></script>
+ <script src="./js/login.js"></script>
 </body>
 </html>

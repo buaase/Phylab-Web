@@ -113,7 +113,7 @@ var labDoc3dot1415926;
 	}
 	function exportBtnClick(){
 		eleDisable();
-		Post_lab();
+		Post_lab(alert('生成报告失败'));
 	}
 	
 	$('a.lab_title').bind('click',function(){
@@ -197,10 +197,11 @@ var labDoc3dot1415926;
 	// 	cp(pdfName);
 	// }
 	
-	function Post_lab(){
+	function Post_lab(errorFunc){
 		var xmlString = labDoc3dot1415926.getXML();
 		var dbId = labDoc3dot1415926.getDbId();
-		PostXMLDoc("/report",xmlString,dbId,function(){
+		var postData = "xml="+encodeURI(xmlString)+"&id="+dbId;
+		PostXMLDoc("/report",postData,function(){
 			if (this.readyState==4 && this.status==200){
 				var jsonText = eval("(" + this.responseText + ")");
 				//alert(this.responseText);
@@ -210,6 +211,12 @@ var labDoc3dot1415926;
 					$('#LabStatus')[0].innerHTML = "终版";
 					eleEnable();
 				}
+				else{
+					errorFunc();
+				}
+			}
+			else{
+				errorFunc();
 			}
 		});
 	}
