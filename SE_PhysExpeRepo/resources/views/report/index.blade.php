@@ -1964,7 +1964,7 @@
 						<span>物理实验
 							<small>数据报告中心</small>
 						</span>
-						<hr style="height:1px;border:none;border-top:2px solid #808080;"><hr/>
+						<hr/>
 					</h2>
 				</div>
 				<div class="row" style="padding-top:0px;">
