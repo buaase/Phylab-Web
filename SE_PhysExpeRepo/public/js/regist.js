@@ -1,5 +1,5 @@
 ﻿		$('.user-input').bind("keydown",function(){
-			if(evt.keyCode == 13) return false;
+			if(event.keyCode == 13) return false;
 			else return true;
 		});
 		
