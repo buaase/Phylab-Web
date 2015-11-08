@@ -84,6 +84,33 @@ def BitAdapt(x,u_x) :
             i+=1
     u_x = round(u_x,bit)
     x = round(x,bit)
+    if bit == 0:
+        u_x = ("%.1f" % u_x)
+        x = ("%.1f" % x)
+    elif bit == 1:
+        u_x = ("%.1f" % u_x)
+        x = ("%.1f" % x)
+    elif bit == 2:
+        u_x = ("%.2f" % u_x)
+        x = ("%.2f" % x)
+    elif bit == 3:
+        u_x = ("%.3f" % u_x)
+        x = ("%.3f" % x)
+    elif bit == 4:
+        u_x = ("%.4f" % u_x)
+        x = ("%.4f" % x)
+    elif bit == 5:
+        u_x = ("%.5f" % u_x)
+        x = ("%.5f" % x)
+    elif bit == 6:
+        u_x = ("%.6f" % u_x)
+        x = ("%.6f" % x)
+    elif bit == 7:
+        u_x = ("%.7f" % u_x)
+        x = ("%.7f" % x)
+    elif bit == 8:
+        u_x = ("%.8f" % u_x)
+        x = ("%.8f" % x)
     res = []
     res.append(x)
     res.append(u_x)
@@ -242,11 +269,6 @@ def Handle10711():
     file_object = open("/home/qian/桌面/latex/Handle10711.tex","r")
     #½«Ä£°å×÷Îª×Ö·û´®´æ´¢ÔÚtemplateÎÄ¼þÖÐ
     source = file_object.read().decode('utf-8', 'ignore')
-
-    angle_a1_vert = [82.55,120,158.38,43.55,45.57]
-    angle_a2_vert = [323,0.11,38.46,284,287]
-    angle_b1_vert = [262.54,300,338.39,223.55,225.57]
-    angle_b2_vert = [142.56,180.04,218.45,104,106]
 
     ANGLE_A1 = []
     ANGLE_A2 = []
