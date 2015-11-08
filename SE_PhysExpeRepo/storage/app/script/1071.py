@@ -10,7 +10,6 @@ import os
 import json
 import sys
 import subprocess
-import traceback
 
 #È«¾Ö±äÁ¿£¬·½±ã¼ÇÂ¼Ô­Ê¼Êý¾Ý
 #VertÎªÈýÀâ¾µ¶¥½Ç²âÁ¿Êý×é
@@ -75,22 +74,62 @@ def BitAdapt(x,u_x) :
             ten += 1
         x = float(x)/10**ten
         u_x = float(u_x)/10**ten
-    i = 0
-    while(1):
-        temp = u_x*(10**i)
-        if(temp >= 1):
-            bit = i
+    Tempbit = 0;
+    bit = 0;
+    while (1):
+        i = 0
+        while(1):
+            temp = float(u_x)*(10**i)
+            if(temp >= 1):
+                bit = i
+                break;
+            else :
+                i+=1
+        u_x = round(float(u_x),bit)
+        x = round(float(x),bit)
+        if bit == 0:
+            u_x = ("%.1f" % u_x)
+            x = ("%.1f" % x)
+        elif bit == 1:
+            u_x = ("%.1f" % u_x)
+            x = ("%.1f" % x)
+        elif bit == 2:
+            u_x = ("%.2f" % u_x)
+            x = ("%.2f" % x)
+        elif bit == 3:
+            u_x = ("%.3f" % u_x)
+            x = ("%.3f" % x)
+        elif bit == 4:
+            u_x = ("%.4f" % u_x)
+            x = ("%.4f" % x)
+        elif bit == 5:
+            u_x = ("%.5f" % u_x)
+            x = ("%.5f" % x)
+        elif bit == 6:
+            u_x = ("%.6f" % u_x)
+            x = ("%.6f" % x)
+        elif bit == 7:
+            u_x = ("%.7f" % u_x)
+            x = ("%.7f" % x)
+        elif bit == 8:
+            u_x = ("%.8f" % u_x)
+            x = ("%.8f" % x)
+        i = 0
+        while(1):
+            temp = float(u_x)*(10**i)
+            if(temp >= 1):
+                Tempbit = i
+                break;
+            else :
+                i+=1
+        if Tempbit == bit:
             break;
-        else :
-            i+=1
-    u_x = round(u_x,bit)
-    x = round(x,bit)
-    res = []
+
+    res = []    
     res.append(x)
     res.append(u_x)
     res.append(ten)
     return res
-
 
 def ReadXmlTop():
     #´ò¿ªÍ³Ò»µÄÍ·ÎÄ¼þÄ£°æ
@@ -99,7 +138,7 @@ def ReadXmlTop():
     latex_tail = "\n\\end{document}"
     latex_body = ""
 
-    dom = xml.dom.minidom.parse(sys.argv[1])
+    dom = xml.dom.minidom.parse(sys.argv[1]+".xml")
     #ÎÄµµµÄ¸ù½áµã
     root = dom.documentElement
     #»ñÈ¡µ½Ã¿¸öÐ¡ÊµÑéµÄ¶ÔÓ¦±êÇ©
@@ -243,11 +282,6 @@ def Handle10711():
     file_object = open("/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Handle10711.tex","r")
     #½«Ä£°å×÷Îª×Ö·û´®´æ´¢ÔÚtemplateÎÄ¼þÖÐ
     source = file_object.read().decode('utf-8', 'ignore')
-
-    angle_a1_vert = [82.55,120,158.38,43.55,45.57]
-    angle_a2_vert = [323,0.11,38.46,284,287]
-    angle_b1_vert = [262.54,300,338.39,223.55,225.57]
-    angle_b2_vert = [142.56,180.04,218.45,104,106]
 
     ANGLE_A1 = []
     ANGLE_A2 = []
@@ -406,19 +440,19 @@ def Refract(source,ANGLE_A1_MIN,ANGLE_A2_MIN,ANGLE_B1_MIN,ANGLE_B2_MIN):
 
 
 if __name__ == '__main__':
-    #print sys.argv[1]+" "+sys.argv[2]
     try:
         finish_str = ReadXmlTop()
-        finish_file = open(sys.argv[2],"w")
+        finish_file = open(sys.argv[2]+".tex","w")
         finish_file.write(finish_str.encode('utf-8', 'ignore'))
         finish_file.close()
         #等于１时是错误
-        ret =  subprocess.call("xelatex -interaction=nonstopmode "+sys.argv[2],shell=True)
+        ret =  subprocess.call("xelatex -interaction=nonstopmode "+sys.argv[2]+".tex",shell=True)
+        subprocess.call("rm "+sys.argv[2]+".aux",shell=True)        
+        subprocess.call("rm "+sys.argv[2]+".synctex*",shell=True)
+        subprocess.call("rm "+sys.argv[2]+".log",shell=True)
         if ret==0:
             print('{"status":"success"}')
         else:
             print('{"status":"fail"}')
     except Exception as e:
         print(traceback.format_exc())
-
-    
