@@ -20,25 +20,29 @@
                     <h4 class="modal-title lead">登录PhyLab</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" method="post" action="{{URL::route('login')}}">
+                        {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="InputAccount" class="col-md-2 control-label">账号</label>
                             <div class="input-group col-md-9">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="email" class="form-control" id="InputAccount" placeholder="请输入您的账号">
+                                <input type="email" class="form-control" id="InputAccount" placeholder="请输入您的账号" name="email" value="{{ old('email') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputPassword" class="col-md-2 control-label">密码</label>
                             <div class="input-group col-md-9">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-eye-close"></span></span>
-                                <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码">
+                                <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码" name="password">
                             </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
+                            <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-4">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="IfRemember">记住密码</input></label>
+                                    <label><input type="checkbox" id="IfRemember" name="remember">记住密码</input></label>
                                 </div>
                             </div>
                             <div class="col-md-offset-3 col-md-3" style="float:right"><a href="##">忘记密码?</a></div>
@@ -46,7 +50,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
+                    <button type="submit" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -63,7 +67,7 @@
                     <label for="InputUser" class="sr-only">用户名</label>
                     <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                     </div>
-                    <input class="form-control user-input input-lg" id="InputUser" type="text" name="name" value="{{ old('name') }}" placeholder="请输入您的用户名" maxlength="20" pattern="^([a-zA-Z0-9_]|[\u4E00-\u9FA5]){1,20}$" required/>
+                    <input class="form-control user-input input-lg" id="InputUser" type="text" name="name" value="{{ old('name') }}" placeholder="请输入您的用户名" maxlength="20" title="^([a-zA-Z0-9_]|[\u4E00-\u9FA5]){1,20}$" pattern="^([a-zA-Z0-9_]|[\u4E00-\u9FA5]){1,20}$" required/>
                 </div>
                 <div class="alert alert-danger col-md-4 login-alert" id="InputUserAlert" role="alert" style="display:none;">
                     <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp </strong><span>&nbsp 用户名格式不正确，应由字母、数字、下划线构成</span>
@@ -76,7 +80,7 @@
                 <div class="input-group col-md-offset-4 col-md-4">
                     <label for="InputEmail" class="sr-only">邮箱</label>
                     <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                    <input class="form-control user-input input-lg" id="InputEmail" type="text" name="email" value="{{ old('email') }}" placeholder="您的邮箱：emai@domain.com" maxlength="30" pattern="^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$" required/>
+                    <input class="form-control user-input input-lg" id="InputEmail" type="text" name="email" value="{{ old('email') }}" placeholder="您的邮箱：emai@domain.com" maxlength="30" title="^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$" pattern="^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$" required/>
                 </div>
                 <div class="alert alert-danger col-md-4 login-alert" id="InputEmailAlert" role="alert" style="display:none;">
                     <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp </strong><span>&nbsp 邮箱格式不正确</span>
@@ -89,7 +93,7 @@
                 <div class="input-group col-md-offset-4 col-md-4">
                     <label for="InputStudent" class="sr-only">学号</label>
                     <div class="input-group-addon"><span class="glyphicon glyphicon-tags"></span></div>
-                    <input class="form-control user-input input-lg" id="InputStudent" type="text" name="student_id" placeholder="您的学号：xx-xx-xxxx" maxlength="8" pattern="^\d{8}$" required/>
+                    <input class="form-control user-input input-lg" id="InputStudent" type="text" name="student_id" placeholder="您的学号：xx-xx-xxxx" maxlength="8" title="^\d{8}$" pattern="^\d{8}$" required/>
                 </div>
                 <div class="alert alert-danger col-md-4 login-alert" id="InputStudentAlert" role="alert" style="display:none;">
                     <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp </strong><span>&nbsp 学号格式不正确，应当为八位数字</span>
@@ -102,7 +106,7 @@
                 <div class="input-group col-md-offset-4 col-md-4">
                     <label for="InputPwd" class="sr-only">密码</label>
                     <div class="input-group-addon"><span class="glyphicon glyphicon-eye-close"></span></div>
-                    <input class="form-control user-input input-lg" id="InputPwd" type="password" name="password" placeholder="设置密码：6-12位 由字母数字组成" maxlength="12" pattern="^[0-9a-zA-z]{6,12}$" required/>
+                    <input class="form-control user-input input-lg" id="InputPwd" type="password" name="password" placeholder="设置密码：6-12位 由字母数字组成" maxlength="12" title="^[0-9a-zA-z]{6,12}$" pattern="^[0-9a-zA-z]{6,12}$" required/>
                 </div>
                 <div class="alert alert-danger col-md-4 login-alert" id="InputPwdAlert" role="alert" style="display:none;">
                     <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp </strong><span>&nbsp 密码格式不正确，应当由6至12位字母数字组成</span>
@@ -115,7 +119,7 @@
                 <div class="input-group col-md-offset-4 col-md-4">
                     <label for="CheckPwd" class="sr-only">确认密码</label>
                     <div class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></div>
-                    <input class="form-control user-input input-lg" id="CheckPwd" type="password" name="password_confirmation" placeholder="确认密码" maxlength="12" pattern="^[0-9a-zA-z]{6,12}$" required/>
+                    <input class="form-control user-input input-lg" id="CheckPwd" type="password" name="password_confirmation" placeholder="确认密码" maxlength="12" title="^[0-9a-zA-z]{6,12}$" pattern="^[0-9a-zA-z]{6,12}$" required/>
                 </div>
                 <div class="alert alert-danger col-md-4 login-alert" id="CheckPwdAlert" role="alert" style="display:none;">
                     <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp </strong><span>&nbsp 两次输入密码不一致！</span>
@@ -124,10 +128,19 @@
                     <span class="glyphicon glyphicon-ok-sign"></span>
                 </div>
             </div>
+            @if (isset($status))
+                @foreach($message as $key => $value)
+                    @foreach($value as $err)
+                        <div class="alert alert-danger col-md-offset-4 col-md-4" role="alert" style="display:{{isset($status)?'block':'none'}};height:30px;padding:5px;">
+                            <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">{{isset($status)?$err:''}}</span>
+                        </div>
+                    @endforeach
+                @endforeach
+            @endif
             <div class="form-group row">
                 <div class="col-md-offset-4 col-md-4">
                     <label class="checkbox text-left">
-                    <input id="CheckLicense" type="checkbox" onclick="setSignUpStatus()"><span>我已阅读并同意<a tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab用户协议" data-content="1. 有个卵的用户协议" id="License">《用户协议》</a>&nbsp </span></label>
+                    <input id="CheckLicense" type="checkbox" onclick="setSignUpStatus()"><span>我已阅读并同意<a tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab用户协议" data-content=="1、	本网站为物理实验学习交流平台，严禁用于非法或商业用途<br/>2、	网站最终解释权归网站开发团队——软件攻城队所有" id="License">《用户协议》</a>&nbsp </span></label>
                 </div>
             </div>
             <div class="row" style="margin-bottom:40px;">
@@ -157,6 +170,7 @@
     <script src="./js/jquery-2.1.4.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/global.js"></script>
+    <script src="./js/login.js"></script>
     <script src="./js/xmlInteraction.js"></script>
 	<script src="./js/regist.js"></script>
   </body>

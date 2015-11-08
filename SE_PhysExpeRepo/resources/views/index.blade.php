@@ -33,6 +33,9 @@
                             <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码" name="password">
                         </div>
                     </div>
+                    <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
+                                        <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
+                                    </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-4">
                             <div class="checkbox">
@@ -42,13 +45,29 @@
                         <div class="col-md-offset-3 col-md-3" style="float:right"><a href="##">忘记密码?</a></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
+                        <button type="button" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
                     </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+@if($auth)
+<!--star modal-->
+<div class="modal fade" id="mymodal-star">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title lead">报告收藏夹</h4>
+            </div>
+            <div class="modal-body" style="padding:0">
+                <iframe src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@endif
 </div>
 <div class="wrapper wrapper_navbar_top">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -83,7 +102,8 @@
                     <button class="btn btn-default sym-nav-signin" data-toggle="modal" data-target="#mymodal-signin" type="button" id="Sign_in">&nbsp&nbsp登录&nbsp&nbsp</button>
                 </div>
                 @else
-                <li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>
+                <!--<li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>-->
+                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a><li>
                 <li><a href="{{URL::route('logout')}}">登出</a></li>
                 @endif
             </ul>
@@ -109,7 +129,6 @@
                     <div class="carousel-caption container-fluid">
                         <div class="row" style="padding-top:10px;padding-bottom:5%;">
 							<button class="btn btn-lg btn-pure-outline hidden-xs col-sm-4"  data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif>>>>开始体验</button>
-                            <button class="btn btn-lg btn-pure-outline hidden-xs col-sm-4"  data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif>>>>开始体验</button>
                         </div>
                     </div>
                 </div>
@@ -138,5 +157,6 @@
  <script src="./js/jquery-2.1.4.min.js"></script>
  <script src="./js/bootstrap.min.js"></script>
  <script src="./js/global.js"></script>
+ <script src="./js/login.js"></script>
 </body>
 </html>

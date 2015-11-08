@@ -1935,12 +1935,26 @@
 				<li><a href="##">关于</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-                <li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>
+                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a><li>
                 <li><a href="{{URL::route('logout')}}">登出</a></li>
             </ul>
 		</div>
 	</nav>
 </div>
+<!--star modal-->
+<div class="modal fade" id="mymodal-star">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title lead">报告收藏夹</h4>
+            </div>
+            <div class="modal-body" style="padding:0">
+                <iframe id="starIframe" src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div class="wrapper wrapper_contents" style="position:relative;top:60px;">
 	<div class="container-fluid" style="margin-left:50px;margin-right:50px;">
 		<div class="row">
@@ -2005,7 +2019,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-5" style="padding:0;padding-top:10px;">
-						<button class="btn btn-lg btn-warning btn-block"  type="submit" id="collectBtn"  disabled="disabled" onclick="collectBtnClick()"><span id="collectIco" class="glyphicon glyphicon-star-empty"></span>&nbsp <span id="collectText">收藏</span></button>
+						<button class="btn btn-lg btn-warning btn-block"  type="submit" id="collectBtn" link="" dbid="" disabled="disabled" onclick="collectBtnClick()"><span id="collectIco" class="glyphicon glyphicon-star-empty"></span>&nbsp <span id="collectText">收藏</span></button>
 					</div>
 					<div class="col-md-offset-1 col-md-6" style="padding:0;padding-top:10px;">
 						<button class="btn btn-lg btn-info btn-block" type="submit" id="exportBtn" disabled="disabled" onclick="exportBtnClick()"><span class="glyphicon glyphicon-download-alt"></span>&nbsp生成报告</button>
@@ -2027,9 +2041,9 @@
 						<div class="panel-body" style="padding:5px;">
 							<!--<iframe id="lab_window" src="lab_report.html" style="width:100%;height:92%;">
 							</iframe>-->
-                            <div id="firefox_pdf" style="display:none;">
-								<object data="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_object">
-									<embed src="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_embed" style="width:100%;height:92%;min-height:480px;"/>
+                            <div id="firefox_pdf" style="width:100%;height:92%;min-height:500px;display:none;">
+								<object data="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_object"  style="width:100%;height:92%;min-height:480px;">
+									<embed src="./prepare_pdf/phylab_test.pdf" type="application/pdf" id="pdf_embed"/>
 								</object>
 							</div>
 							<div id="chrom_pdf" style="width:100%;height:92%;min-height:500px;display:none">
@@ -2057,6 +2071,7 @@
 <script src="./js/reportCore.js"></script>
 <script src="./js/pdfobject.js"></script>
 <script src="./js/xmlInteraction.js"></script>
+<script src="./js/star.js"></script>
 <script src="./js/test.js"></script>
 
 </body>
