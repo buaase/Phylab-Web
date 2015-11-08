@@ -29,7 +29,9 @@
 			}
 		}
 	}
-	
+	function cp(pdfPath){
+	    var myPDF = new PDFObject({ url: pdfPath }).embed("chrom_pdf");
+	}
 	function SetDisable(index,if_disable){
 		var item = document.getElementById(index);
 		if(if_disable)

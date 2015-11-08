@@ -1,6 +1,3 @@
-function cp(pdfPath){
-    var myPDF = new PDFObject({ url: pdfPath }).embed("chrom_pdf");
-}
 if(browser()=="FF"){
 	document.getElementById('firefox_pdf').style.display='block';
 }
