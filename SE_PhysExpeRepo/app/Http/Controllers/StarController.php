@@ -36,8 +36,8 @@ class StarController extends Controller
                 );
             array_push($data["stars"],$rearr);
         }
-        #return view("star.index",$data);
-        return json_encode($data,JSON_UNESCAPED_UNICODE);
+        return view("star.index",$data);
+        #return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -48,7 +48,8 @@ class StarController extends Controller
     public function create()
     {
         $data = ["status"=>"",
-                 "message"=>""];
+                 "message"=>"",
+                 "id"=>""];
         $validatorRules = array(
                 'link' => 'required',
                 'reportId'  =>  'required|integer|exists:reports,id'
@@ -75,12 +76,15 @@ class StarController extends Controller
                     }
                     catch(Exception $e)
                     {
+                        $star->delete();
                         throw new FileIOException();
                     }
                     $data["status"] = SUCCESS_MESSAGE;
+                    $data["id"]=$star->id;
                 }
                 else{
                     $data["status"] = FAIL_MESSAGE;
+                    $data["message"] = "收藏报告失败";
                 }
             }
             else
@@ -153,8 +157,8 @@ class StarController extends Controller
         else{
             throw new NoResourceException();
         }
-        #return view("star.show",$data);
-        return json_encode($data,JSON_UNESCAPED_UNICODE);
+        return view("star.show",$data);
+        #return json_encode($data,JSON_UNESCAPED_UNICODE);
     }
 
     /**

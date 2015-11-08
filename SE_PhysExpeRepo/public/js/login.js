@@ -15,7 +15,7 @@
                 $('#loginAlert').show();
             }
         }
-        else{
+        else if(this.readyState==4 && this.status!=200){
             var jsonText = eval("(" + this.responseText + ")");
             $('#errorMessage').text(jsonText["message"]);
             $('#loginAlert').show();

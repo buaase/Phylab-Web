@@ -52,6 +52,20 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<!--star modal-->
+<div class="modal fade" id="mymodal-star">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title lead">报告收藏夹</h4>
+            </div>
+            <div class="modal-body" style="padding:0">
+                <iframe src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </div>
 <div class="wrapper wrapper_navbar_top">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -86,7 +100,8 @@
                     <button class="btn btn-default sym-nav-signin" data-toggle="modal" data-target="#mymodal-signin" type="button" id="Sign_in">&nbsp&nbsp登录&nbsp&nbsp</button>
                 </div>
                 @else
-                <li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>
+                <!--<li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>-->
+                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a><li>
                 <li><a href="{{URL::route('logout')}}">登出</a></li>
                 @endif
             </ul>

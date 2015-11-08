@@ -51,15 +51,11 @@ var labDoc3dot1415926;
 		var txt = document.getElementById(txt_id);
 		var check = txt.innerHTML;
 			if(check=="取消收藏"){
-				ico.setAttribute("class","glyphicon glyphicon-star-empty");
-				txt.innerHTML = "收藏";
-				alert("已取消收藏")
+				deleteStar(ico,txt,check);
 			}
 			else if(check=="收藏"){
-				ico.setAttribute("class","glyphicon glyphicon-star");
-				txt.innerHTML = "取消收藏";
-				alert("已添加至个人收藏夹！");
-			}
+				createStar(ico,txt,check);
+            }
 			else
 				alert("Button text can not be [txt] when use this function!Please Use 收藏/取消收藏");
 	}	
@@ -210,6 +206,7 @@ var labDoc3dot1415926;
 				//alert(jsonText["status"]);
 				if(jsonText["status"]=='success'){
 					changePdf('tmp',jsonText['link']);
+					$('#collectBtn').attr('link',jsonText['link']);
 					$('#LabStatus')[0].innerHTML = "终版";
 					eleEnable();
 				}

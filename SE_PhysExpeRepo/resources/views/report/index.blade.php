@@ -1774,7 +1774,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-5" style="padding:0;padding-top:10px;">
-						<button class="btn btn-lg btn-warning btn-block"  type="submit" id="collectBtn"  disabled="disabled" onclick="collectBtnClick()"><span id="collectIco" class="glyphicon glyphicon-star-empty"></span>&nbsp <span id="collectText">收藏</span></button>
+						<button class="btn btn-lg btn-warning btn-block"  type="submit" id="collectBtn" link="" dbid="" disabled="disabled" onclick="collectBtnClick()"><span id="collectIco" class="glyphicon glyphicon-star-empty"></span>&nbsp <span id="collectText">收藏</span></button>
 					</div>
 					<div class="col-md-offset-1 col-md-6" style="padding:0;padding-top:10px;">
 						<button class="btn btn-lg btn-info btn-block" type="submit" id="exportBtn" disabled="disabled" onclick="exportBtnClick()"><span class="glyphicon glyphicon-download-alt"></span>&nbsp生成报告</button>
@@ -1826,6 +1826,7 @@
 <script src="./js/xmlInteraction.js"></script>
 <script src="./js/reportPdf.js"></script>
 <script src="./js/reportCore.js"></script>
+<script src="./js/star.js"></script>
 <script src="./js/pdfobject.js"></script>
 <script src="./js/test.js"></script>
 
