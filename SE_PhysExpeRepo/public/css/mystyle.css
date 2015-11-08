@@ -16,6 +16,11 @@ a:hover
 {
 	color:#404040;
 }
+hr{
+	height:1px;
+	border:0;
+	border-top:2px solid #808080;
+}
 .ch{
 	font-family:"Microsoft Yahei";
 }
@@ -43,6 +48,23 @@ a:hover
 	opacity: 1;   
 }
 .no-padding{padding:0;}
+
+.login-alert{
+	height:40px;
+	padding:10px;
+	color:#a94442;
+	margin:0px;
+	text-align:left;
+}
+
+
+.login-success{
+	height:40px;
+	color:#3c763d;
+	padding-top:15px;
+	margin:0px;
+	text-align:left;
+}
 
 .img-responsive-mobile{
 	display: block;

@@ -2,3 +2,7 @@
 .env.*.php
 .env.php
 .env
+*.aux
+*.log
+*.synctex.gz(busy)
+*.synctex.gz
