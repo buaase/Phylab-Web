@@ -10,20 +10,31 @@ from jinja2 import Template
 from jinja2 import Environment
 
 global X_10811
-X_10811=[]
 global X_10812
 global DELTA_X
-DELTA_X=[]
 global UA_10DELTA_X
 global UB_10DELTA_X
 global U_10DELTA_X
 global U_DELTA_X
 global LIGHT_SMALL_BIG
 global DATA_BIG
-DATA_BIG=[]
 global DATA_SMALL
-DATA_SMALL=[]
 global source_10711
+global B_BIG
+global B_SMALL
+global U_B1
+global U_B2
+global S_SMALL
+global S_BIG
+global LAMDA_LAB
+global RE_LAMDA
+global RESULT_LAMDA,RESULT_U_LAMDA,RESULT_POWER,U_LAMDA
+
+DATA_SMALL=[]
+DATA_BIG=[]
+DELTA_X=[]
+X_10811=[]
+
 
 env = Environment(line_statement_prefix="#", variable_start_string="%%", variable_end_string="%%")
 
@@ -48,17 +59,58 @@ def BitAdapt(x,u_x) :
             ten += 1
         x = float(x)/10**ten
         u_x = float(u_x)/10**ten
-    i = 0
-    while(1):
-        temp = u_x*(10**i)
-        if(temp >= 1):
-            bit = i
+    Tempbit = 0;
+    bit = 0;
+    while (1):
+        i = 0
+        while(1):
+            temp = float(u_x)*(10**i)
+            if(temp >= 1):
+                bit = i
+                break;
+            else :
+                i+=1
+        u_x = round(float(u_x),bit)
+        x = round(float(x),bit)
+        if bit == 0:
+            u_x = ("%.1f" % u_x)
+            x = ("%.1f" % x)
+        elif bit == 1:
+            u_x = ("%.1f" % u_x)
+            x = ("%.1f" % x)
+        elif bit == 2:
+            u_x = ("%.2f" % u_x)
+            x = ("%.2f" % x)
+        elif bit == 3:
+            u_x = ("%.3f" % u_x)
+            x = ("%.3f" % x)
+        elif bit == 4:
+            u_x = ("%.4f" % u_x)
+            x = ("%.4f" % x)
+        elif bit == 5:
+            u_x = ("%.5f" % u_x)
+            x = ("%.5f" % x)
+        elif bit == 6:
+            u_x = ("%.6f" % u_x)
+            x = ("%.6f" % x)
+        elif bit == 7:
+            u_x = ("%.7f" % u_x)
+            x = ("%.7f" % x)
+        elif bit == 8:
+            u_x = ("%.8f" % u_x)
+            x = ("%.8f" % x)
+        i = 0
+        while(1):
+            temp = float(u_x)*(10**i)
+            if(temp >= 1):
+                Tempbit = i
+                break;
+            else :
+                i+=1
+        if Tempbit == bit:
             break;
-        else :
-            i+=1
-    u_x = round(u_x,bit)
-    x = round(x,bit)
-    res = []
+
+    res = []    
     res.append(x)
     res.append(u_x)
     res.append(ten)
@@ -115,7 +167,7 @@ def cal_delta_X10811(X):
         sum+=(10*(X[x+len(X)/2]-X[x])-10*delta_x)**2
     ua_10delta_x=math.sqrt(sum/(len(X)*(len(X)-1)))
     ub_10delta_x=0.01/(2*math.sqrt(3))
-    u_delta_x=math.sqrt(ua_10delta_x**2+ub_10delta_x**2)/1000
+    u_delta_x=math.sqrt(ua_10delta_x**2+ub_10delta_x**2)
     
     UA_10DELTA_X = ToScience(ua_10delta_x)
 
@@ -132,7 +184,7 @@ def cal_delta_X10811(X):
 
 #计算波长lab
 def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
-    global B_SMALL,B_BIG,S_SMALL,S_BIG, RE_LAMDA,U_B1,U_B2
+    global B_SMALL,B_BIG,S_SMALL,S_BIG, RE_LAMDA,U_B1,U_B2,LAMDA_LAB,RE_LAMDA, RESULT_LAMDA,RESULT_U_LAMDA,RESULT_POWER,U_LAMDA 
     #b1,b2各为长度为4的数组，记录正(两次)反(两次)共4次b值
     #x中存放光源，成小像，成大像x位置
     #delta_x为δx值
@@ -150,8 +202,8 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
     s2=x[0]-x[2]
     S_BIG = ToScience(s2)
 
-    lab=delta_x*math.sqrt(avg_b1*avg_b2)/(s1+s2)
-    LAMDA_LAB = format(lab,'.2f')
+    lab=delta_x*math.sqrt(avg_b1*avg_b2)/(s1+s2)*100000
+    LAMDA_LAB = format(lab,'.4g')
 
     #计算不确定度
     u_b1=0.025*avg_b1/math.sqrt(3)
@@ -165,20 +217,40 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
     u_lab=math.sqrt((u_delta_x/delta_x)**2+1/4*(u_b1/avg_b1)**2+1/4*(u_b2/avg_b2)**2+(u_s1s2/(s1+s2))**2)/10000
     RE_LAMDA = ToScience(u_lab)
 
+    u_lamda = lab * u_lab
+    U_LAMDA = ToScience(u_lamda)
+
+    Result = BitAdapt(lab,u_lamda)
+    RESULT_LAMDA = Result[0]
+    RESULT_U_LAMDA = Result[1]
+    RESULT_POWER = Result[2]
+    
     result = env.from_string(source_10711).render(
         X_10811 = X_10811,
+        DATA_BIG = DATA_BIG,
+        DATA_SMALL = DATA_SMALL,
         DELTA_X = DELTA_X,
         UA_10DELTA_X = UA_10DELTA_X,
         UB_10DELTA_X = UB_10DELTA_X,
         U_10DELTA_X = U_10DELTA_X,
         U_DELTA_X = U_DELTA_X,
         LIGHT_SMALL_BIG = LIGHT_SMALL_BIG,
-        DATA_BIG = DATA_BIG,
-        DATA_SMALL = DATA_SMALL
+        B_SMALL = B_SMALL,
+        B_BIG = B_BIG,
+        S_SMALL = S_SMALL,
+        S_BIG = S_BIG,
+        LAMDA_LAB = LAMDA_LAB,
+        U_B1 = U_B1,
+        U_B2 = U_B2,
+        RE_LAMDA = RE_LAMDA,
+        RESULT_LAMDA = RESULT_LAMDA,
+        RESULT_U_LAMDA = RESULT_U_LAMDA,
+        RESULT_POWER = RESULT_POWER,
+        U_LAMDA = U_LAMDA
         )
     #lab为波长
     #u_lab为lab的不确定度
-    return lab,u_lab
+    return result
 
 def ReadXmlTop():
     #´ò¿ªÍ³Ò»µÄÍ·ÎÄ¼þÄ£°æ
@@ -204,7 +276,8 @@ def ReadXmlTop():
         datalist2 = cal_delta_X10811(datalist1[3])
         #result存放结果
         result = cal_lab10811(datalist1[0], datalist1[1], datalist1[2], datalist2[0], datalist2[1])
-
+        return result
+    
 if __name__ == '__main__':
     finish_str = ReadXmlTop()
     finish_file = open("1081finished.tex","w")
