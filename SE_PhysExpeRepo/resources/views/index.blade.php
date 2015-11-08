@@ -52,6 +52,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+@if($auth)
 <!--star modal-->
 <div class="modal fade" id="mymodal-star">
     <div class="modal-dialog">
@@ -66,6 +67,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+@endif
 </div>
 <div class="wrapper wrapper_navbar_top">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
