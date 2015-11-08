@@ -14,7 +14,7 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('script_link');
+            $table->string('script_link')->nullable();
             $table->integer('experiment_id')->index();
             $table->string('experiment_name');
             $table->string('prepare_link');

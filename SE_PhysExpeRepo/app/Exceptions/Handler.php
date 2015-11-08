@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\Exceptions\App\UnkownException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -47,6 +48,7 @@ class Handler extends ExceptionHandler
         }
         if ($e instanceof HttpException){
             $errorData = [
+                  "status"=>FAIL_MESSAGE,
                   "message"=>$e->getMessage(),
                   "httpCode"=>$e->getStatusCode(),
                   "code"=>$e->getCode() ];
@@ -54,7 +56,9 @@ class Handler extends ExceptionHandler
                 return response()->json($errorData,$errorData['httpCode']);
             else return response()->view('errors.phylab',$errorData,$errorData['httpCode']);
         }
-
+        else{
+            throw new UnkownException();
+        }
         return parent::render($request, $e);
     }
 }

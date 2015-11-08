@@ -78,7 +78,8 @@ class UserController extends Controller
      */
     public function update()
     {
-        $data = ["status"       =>  ""];
+        $data = ["status"       =>  "",
+                 "status"       =>  ""];
         $validatorRules = array(
                 'password' => 'confirmed|between:6,15',
                 'username'  =>  'between:6,20',
@@ -119,7 +120,7 @@ class UserController extends Controller
      */
     public function setAvatar()
     {
-        $data = ["status"=>"","avatarPath"=>""];
+        $data = ["status"=>"","avatarPath"=>"","message"=>""];
         if(Request::hasFile('avatar'))
         {
             $avatar = Request::file('avatar');
