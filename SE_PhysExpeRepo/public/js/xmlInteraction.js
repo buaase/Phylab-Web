@@ -18,6 +18,101 @@ function PostXMLDoc(url,xmlString,id,cfunc){
 function SetXMLDoc_lab(labnum){
 	var str = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 	switch(labnum){
+		case "1011":
+			str += "<lab id=\"1011\">"+
+				"<sublab id=\"10111\" status=\""+document.getElementById('check_1011_1').checked+"\">"+
+					"<table name=\"10111_1\" raw=\"1\" column=\"5\">"+
+						"<tr index=\"1\">"+
+							"<td>"+document.getElementById('1011_1_D1').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_D2').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_D3').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_D4').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_D5').value+"</td>"+
+						"</tr>"+
+					"</table>"+
+					"<table name=\"10111_2\" raw=\"2\" column=\"9\">"+
+						"<tr index=\"1\">"+
+							"<td>"+document.getElementById('1011_1_jia10').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia12').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia14').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia16').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia18').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia20').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia22').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia24').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jia26').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"2\">"+
+							"<td>"+document.getElementById('1011_1_jian10').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian12').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian14').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian16').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian18').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian20').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian22').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian24').value+"</td>"+
+							"<td>"+document.getElementById('1011_1_jian26').value+"</td>"+
+						"</tr>"+
+					"</table>"+
+				"</sublab>"+
+				"<sublab id=\"10112\" status=\""+document.getElementById('check_1011_2').checked+"\">"+
+					"<table name=\"10112_1\" raw=\"3\" column=\"4\">"+
+						"<tr index=\"1\">"+
+							"<td>"+document.getElementById('1011_2_myuanzhu').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_myuantong').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_mqiu').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_mxigan').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"2\">"+
+							"<td>"+document.getElementById('1011_2_chicunyuanzhu').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_wchicunmyuantong').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_chicunqiu').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_chicunxigan').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"3\">"+
+							"<td>"+document.getElementById('1011_2_nchicunyuantong').value+"</td>"+
+						"</tr>"+
+					"</table>"+
+					"<table name=\"10112_2\" raw=\"5\" column=\"5\">"+
+						"<tr index=\"1\">"+
+							"<td>"+document.getElementById('1011_2_w1').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_w2').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_w3').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_w4').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_w5').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"2\">"+
+							"<td>"+document.getElementById('1011_2_pz1').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pz2').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pz3').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pz4').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pz5').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"3\">"+
+							"<td>"+document.getElementById('1011_2_pt1').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pt2').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pt3').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pt4').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_pt5').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"4\">"+
+							"<td>"+document.getElementById('1011_2_yq1').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_yq2').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_yq3').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_yq4').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_yq5').value+"</td>"+
+						"</tr>"+
+						"<tr index=\"5\">"+
+							"<td>"+document.getElementById('1011_2_xcg1').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_xcg2').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_xcg3').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_xcg4').value+"</td>"+
+							"<td>"+document.getElementById('1011_2_xcg5').value+"</td>"+
+						"</tr>"+
+					"</table>"+
+				"</sublab>"+
+			"</lab>"
+			return str;		
 	case "1021":
 		str += "<lab id=\"1021\">"+
 			"<sublab id=\"10211\" status=\""+document.getElementById('check_1021_1').checked+"\">"+
