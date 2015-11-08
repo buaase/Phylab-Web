@@ -200,7 +200,7 @@ var labDoc3dot1415926;
 		}
 		else {
 			document.getElementById('chrom_pdf').style.display='block';
-			cp('./prepare_pdf/phylab_test.pdf');
+			cp(pdfPath);
 		}
 	}
 	function changePdf(type,pdfName){
