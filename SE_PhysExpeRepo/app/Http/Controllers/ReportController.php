@@ -48,7 +48,8 @@ class ReportController extends Controller
         //post 传入 xml 模板文件
         $data = ["status"=> "",
                  "experimentId" => "",
-                 "link"  => ""];
+                 "link"  => "",
+                 "message" => ""];
         $validatorRules = array(
                 'id'  => 'required|integer|exists:reports,id',
                 'xml' => 'required'
@@ -70,20 +71,25 @@ class ReportController extends Controller
         $report = Report::find(Request::get('id'));
         $scriptLink = $report->script_link;
         $experimentId = $report->experiment_id;
-        $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex",$output,$reval);
-        #echo Config::get('scriptPath')."create.sh ".Config::get('tmpReportPath')." ".Config::get('scriptPath').$scriptLink." ".Config::get('tmpXmlPath').$xmlLink." ".Config::get('tmpReportPath').$tmpName.".tex";
-        #echo $out;
-        #echo $system."\n";
-        #echo $reval."\n";
-        #echo var_dump($output);
-        if($reval==0){
-            #echo $system.'\n';
-            #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
-            $system = json_decode($system);
-            if($system->status== SUCCESS_MESSAGE){
-                $data["status"] = SUCCESS_MESSAGE;
-                $data["link"] = $tmpName.".pdf";
-                $data["experimentId"] = $experimentId;
+        if($scriptLink!=null){
+            $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex",$output,$reval);
+            #echo Config::get('scriptPath')."create.sh ".Config::get('tmpReportPath')." ".Config::get('scriptPath').$scriptLink." ".Config::get('tmpXmlPath').$xmlLink." ".Config::get('tmpReportPath').$tmpName.".tex";
+            #echo $out;
+            #echo $system."\n";
+            #echo $reval."\n";
+            #echo var_dump($output);
+            if($reval==0){
+                #echo $system.'\n';
+                #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
+                $system = json_decode($system);
+                if($system->status== SUCCESS_MESSAGE){
+                    $data["status"] = SUCCESS_MESSAGE;
+                    $data["link"] = $tmpName.".pdf";
+                    $data["experimentId"] = $experimentId;
+                }
+                else{
+                    $data["status"]=FAIL_MESSAGE;
+                }
             }
             else{
                 $data["status"]=FAIL_MESSAGE;
@@ -91,6 +97,7 @@ class ReportController extends Controller
         }
         else{
             $data["status"]=FAIL_MESSAGE;
+            $data["message"]="暂时未有生成模板的脚本";
         }
         return response()->json($data);
     }

@@ -47,7 +47,8 @@ class StarController extends Controller
      */
     public function create()
     {
-        $data = ["status"=>""];
+        $data = ["status"=>"",
+                 "message"=>""];
         $validatorRules = array(
                 'link' => 'required',
                 'reportId'  =>  'required|integer|exists:reports,id'
@@ -99,7 +100,8 @@ class StarController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function delete(){
-        $data = ["status"=>""];
+        $data = ["status"=>"",
+                 "messgae"=>""];
         $validatorRules = array(
                 'id' => 'required|integer|exists:stars,id,user_id,'.Auth::user()->id
             );
