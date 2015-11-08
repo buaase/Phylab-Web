@@ -140,7 +140,7 @@
             <div class="form-group row">
                 <div class="col-md-offset-4 col-md-4">
                     <label class="checkbox text-left">
-                    <input id="CheckLicense" type="checkbox" onclick="setSignUpStatus()"><span>我已阅读并同意<a tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab用户协议" data-content="1. 有个卵的用户协议" id="License">《用户协议》</a>&nbsp </span></label>
+                    <input id="CheckLicense" type="checkbox" onclick="setSignUpStatus()"><span>我已阅读并同意<a tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab用户协议" data-content=="1、	本网站为物理实验学习交流平台，严禁用于非法或商业用途<br/>2、	网站最终解释权归网站开发团队——软件攻城队所有" id="License">《用户协议》</a>&nbsp </span></label>
                 </div>
             </div>
             <div class="row" style="margin-bottom:40px;">
