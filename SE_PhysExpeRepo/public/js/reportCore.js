@@ -232,6 +232,7 @@ var labDoc3dot1415926;
 					$('#collectBtn').attr('link',jsonText['link']);
 					$('#LabStatus')[0].innerHTML = "终版";
 					eleEnable();
+					SetDisable('collectBtn',false);
 				}
 				else{
 					postErrorFunc(jsonText["message"]);

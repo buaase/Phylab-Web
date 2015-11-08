@@ -1,7 +1,7 @@
 ﻿		$('.user-input').bind("keydown",function(){
 			if(evt.keyCode == 13) return false;
 			else return true;
-		}
+		});
 		
 		$('.user-input').bind("change",function(){
             if(this.id=="CheckPwd"){
