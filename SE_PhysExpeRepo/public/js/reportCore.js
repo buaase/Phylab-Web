@@ -113,9 +113,11 @@ var labDoc3dot1415926;
 	}
 	function exportBtnClick(){
 		eleDisable();
-		Post_lab(alert('生成报告失败'));
+		Post_lab(errorFunction);
 	}
-	
+	function errorFunction(){
+		alert('生成报告失败');
+	}	
 	$('a.lab_title').bind('click',function(){
 		//USE reportCore.js, bootstrap.min.js
 		if($('#InputLabIndex').attr("disabled")=="disabled")return;
@@ -197,11 +199,11 @@ var labDoc3dot1415926;
 	// 	cp(pdfName);
 	// }
 	
-	function Post_lab(errorFunc){
+	function Post_lab(postErrorFunc){
 		var xmlString = labDoc3dot1415926.getXML();
 		var dbId = labDoc3dot1415926.getDbId();
 		var postData = "xml="+encodeURI(xmlString)+"&id="+dbId;
-		PostXMLDoc("/report",postData,function(){
+		PostAjax("/report",postData,function(){
 			if (this.readyState==4 && this.status==200){
 				var jsonText = eval("(" + this.responseText + ")");
 				//alert(this.responseText);
@@ -212,11 +214,11 @@ var labDoc3dot1415926;
 					eleEnable();
 				}
 				else{
-					errorFunc();
+					postErrorFunc();
 				}
 			}
-			else{
-				errorFunc();
+			else if(this.readyState==4 && this.status!=200){
+				postErrorFunc();
 			}
 		});
 	}
