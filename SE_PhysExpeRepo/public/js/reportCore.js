@@ -111,8 +111,8 @@ var labDoc3dot1415926;
 		eleDisable();
 		Post_lab(errorFunction);
 	}
-	function errorFunction(){
-		alert('生成报告失败');
+	function errorFunction(message){
+		alert(message);
 	}	
 	$('a.lab_title').bind('click',function(){
 		//USE reportCore.js, bootstrap.min.js
@@ -211,11 +211,11 @@ var labDoc3dot1415926;
 					eleEnable();
 				}
 				else{
-					postErrorFunc();
+					postErrorFunc(jsonText["message"]);
 				}
 			}
 			else if(this.readyState==4 && this.status!=200){
-				postErrorFunc();
+				postErrorFunc("生成报告失败");
 			}
 		});
 	}
