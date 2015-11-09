@@ -136,7 +136,7 @@
             <a class="right carousel-control" href="#slidershow" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
-	<div class="container-fluid visible-xs" style="position:relative;padding-top:50px;">
+	<div class="container-fluid visible-xs" style="position:relative;">
 		<div>
 			<img class="img-responsive" src="./img/QuantumPhysics2.jpg" alt=""  ></img>
 		</div>
