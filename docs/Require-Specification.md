@@ -564,7 +564,7 @@ Favorite | 点击Favorite时切换显示`用户收藏报告`标签页
   <tr>
     <td>“录入实验数据”、“收藏”、“生成报告”按钮</td>
     <td>颜色较淡而且不能点击</td>
-    <td>![](http://cdn-img.easyicon.net/png/11639/1163912.gif)</td>
+    <td> </td>
   </tr>
   <tr>
     <th rowspan="7">报告生成</th>
