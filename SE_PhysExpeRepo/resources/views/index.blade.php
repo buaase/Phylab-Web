@@ -125,12 +125,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="./img/quantumislam.jpg" alt="">
-                    <div class="carousel-caption container-fluid">
-                        <div class="row" style="padding-top:10px;padding-bottom:5%;">
-							<button class="btn btn-lg btn-pure-outline hidden-xs col-sm-4"  data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif>>>>开始体验</button>
-                        </div>
-                    </div>
+                    <a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif><img src="./img/quantumislam.jpg" alt=""></img></a>
                 </div>
                 <div class="item">
                     <img src="./img/format2.jpg" alt="">
