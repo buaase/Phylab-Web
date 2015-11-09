@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/seven-style.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/mystyle.css')}}">
 </head>
-<body>
+<body style="background-color:#222;">
 <div class="modal fade" id="mymodal-signin">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -19,6 +19,9 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form" method="post" action="{{URL::route('login')}}">
                     {!! csrf_field() !!}
+					<div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
+                        <span class="glyphicon glyphicon-remove-sign"></span><span id="errorMessage">&nbsp 用户名或密码错误!</span>
+                    </div>
                     <div class="form-group">
                         <label for="InputAccount" class="col-md-2 control-label">账号</label>
                         <div class="input-group col-md-9">
@@ -33,9 +36,6 @@
                             <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码" name="password">
                         </div>
                     </div>
-                    <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
-                                        <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
-                                    </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-4">
                             <div class="checkbox">
@@ -111,8 +111,8 @@
     </nav>
 </div>
 <div class="wrapper wrapper_contents">
-    <div class="container-fluid">
-        <div id="slidershow" class="row carousel slide carousel-fade" style="position:relative;top:50px;">
+    <div class="container-fluid hidden-xs" style="position:relative;">
+        <div id="slidershow" class="carousel slide carousel-fade">
             <ol class="carousel-indicators">
                 <li data-target="#slidershow" data-slide-to="0" class="active"></li>
                 <li data-target="#slidershow" data-slide-to="1"></li>
@@ -121,23 +121,33 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="./img/QuantumPhysics2.jpg" alt=""  ></img>
-                    <div class="carousel-caption">
-                    </div>
                 </div>
                 <div class="item">
-                    <a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif><img src="./img/quantumislam.jpg" alt=""></img></a>
+                    <a href="##" data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif><img src="./img/quantumislam.jpg" alt=""></img></a>
                 </div>
                 <div class="item">
-                    <img src="./img/format2.jpg" alt="">
-                    <div class="carousel-caption" style="padding-bottom:4%;">
-                        <a href="##" class="Title" data-toggle="modal" data-target="#mymodal-signin">—— Join PhyLab Community ——</h1>
+                    <a href="##" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');"><img src="./img/format2.jpg" alt=""></a>
+					<div class="carousel-caption" style="padding-bottom:10%;">
+                        <a href="##" class="Title" data-toggle="modal" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');">—— Join PhyLab Community ——</h1>
                     </div>
                 </div>
             </div>
-            <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"> &nbsp </span></a>
             <a class="right carousel-control" href="#slidershow" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
+	<div class="container-fluid visible-xs" style="position:relative;padding-top:50px;">
+		<div>
+			<img class="img-responsive" src="./img/QuantumPhysics2.jpg" alt=""  ></img>
+		</div>
+		<div>
+			<a href="##" data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif><img class="img-responsive" src="./img/quantumislam.jpg" alt=""></img></a>
+		</div>
+		<div>
+			<a href="##" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');"><img class="img-responsive" src="./img/format2.jpg" alt=""></img></a>
+			<p onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');" class="Title" style="position:relative;bottom:50px;text-align:center;">—— Join PhyLab Community ——</h1></p>
+		</div>
+	</div>
 </div> 
 <div class="wrapper wrapper_navbar_foot">
     <nav class="navbar navbar-inverse navbar-fixed-bottom" style="min-height:20px;">

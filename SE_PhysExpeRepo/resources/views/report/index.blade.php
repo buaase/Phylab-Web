@@ -1007,7 +1007,7 @@
 					</div>
 					<label for="check_1061_4">&nbsp Lab4&nbsp </label>
 					<div class="holder">
-						<input class="1061_4 check-ios" id="check_1061_4" name="check_1061" type="checkbox">
+						<input class="1061_4 check-ios" id="check_1061_4" disabled="disabled" name="check_1061" type="checkbox">
 						<label for="check_1061_4"></label>
 						<span></span>
 					</div>
@@ -1948,7 +1948,7 @@
 				<li><a href="##">关于</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a><li>
+                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a></li>
                 <li><a href="{{URL::route('logout')}}">登出</a></li>
             </ul>
 		</div>

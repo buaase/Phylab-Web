@@ -22,6 +22,9 @@
                 <div class="modal-body">
                     <form class="form-horizontal" role="form" method="post" action="{{URL::route('login')}}">
                         {!! csrf_field() !!}
+                        <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
+                            <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
+                        </div>
                         <div class="form-group">
                             <label for="InputAccount" class="col-md-2 control-label">账号</label>
                             <div class="input-group col-md-9">
@@ -35,9 +38,6 @@
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-eye-close"></span></span>
                                 <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码" name="password">
                             </div>
-                        </div>
-                        <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
-                            <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-4">
