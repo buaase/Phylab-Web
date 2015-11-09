@@ -73,3 +73,15 @@
 	    xmlhttp.setRequestHeader("X-Requested-With","XMLHttpRequest");
 	    xmlhttp.send(postData);
 	}
+	function cp(pdfPath){
+                var myPDF = new PDFObject({ url: pdfPath }).embed("chrom_pdf");
+                if(browser()=="FF"){
+                        document.getElementById('firefox_pdf').style.display='block';
+                }
+                else if(browser()=="IE6"||browser()=="IE7"){
+                        alert("Please use the above version of IE8 or other browsers");
+                }
+                else {
+                        document.getElementById('chrom_pdf').style.display='block';
+                }
+        }
