@@ -12,16 +12,7 @@
 </div>
 <script src="/js/global.js"></script>
 <script>
-    if(browser()=="FF"){
-        document.getElementById('firefox_pdf').style.display='block';
-    }
-    else if(browser()=="IE6"||browser()=="IE7"){
-        alert("Please use the above version of IE8 or other browsers");
-    }
-    else {
-        document.getElementById('chrom_pdf').style.display='block';
-        cp("/star_pdf/{{$link}}");
-    }
+    cp("/star_pdf/{{$link}}");
 </script>
 </body>
 </html>
