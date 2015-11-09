@@ -103,7 +103,7 @@
                 </div>
                 @else
                 <!--<li><a href="{{URL::route('user')}}">{{$username}}的个人中心</a></li>-->
-                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a><li>
+                <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a></li>
                 <li><a href="{{URL::route('logout')}}">登出</a></li>
                 @endif
             </ul>
@@ -128,11 +128,11 @@
                 <div class="item">
                     <a href="##" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');"><img src="./img/format2.jpg" alt=""></a>
 					<div class="carousel-caption" style="padding-bottom:10%;">
-                        <a href="##" class="Title" data-toggle="modal" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');">—— Join PhyLab Community ——</h1>
+                        <a href="##" class="Title" data-toggle="modal" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');">—— Join PhyLab Community ——</a>
                     </div>
                 </div>
             </div>
-            <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"> &nbsp </span></a>
+            <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="right carousel-control" href="#slidershow" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
@@ -145,7 +145,7 @@
 		</div>
 		<div>
 			<a href="##" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');"><img class="img-responsive" src="./img/format2.jpg" alt=""></img></a>
-			<p onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');" class="Title" style="position:relative;bottom:50px;text-align:center;">—— Join PhyLab Community ——</h1></p>
+			<p onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');" class="Title" style="position:relative;bottom:50px;text-align:center;">—— Join PhyLab Community ——</p>
 		</div>
 	</div>
 </div> 
