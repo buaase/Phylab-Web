@@ -45,7 +45,7 @@
                         <div class="col-md-offset-3 col-md-3" style="float:right"><a href="##">忘记密码?</a></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
+                        <button type="button" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp </button>
                     </div>
                 </form>
             </div>
@@ -61,14 +61,14 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title lead">报告收藏夹</h4>
             </div>
-            <div class="modal-body" style="padding:0">
+            <div class="modal-body" style="padding:0px;">
                 <iframe src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 @endif
-</div>
+
 <div class="wrapper wrapper_navbar_top">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">

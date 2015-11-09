@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PhyLabReportStar</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/mystyle.css">
 </head>
 <body>
-    <table class="table table-striped">
+	<div class="well" style="margin:10px;">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>#</th>
-                <th>name</th>
-                <th>link</th>
-                <th>time</th>
-                <th>option</th>    
+                <th>No.</th>
+                <th>实验报告</th>
+                <th>链接</th>
+                <th>收藏时间</th>
+                <th>编辑</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,7 @@
             @endfor
         </tbody>
     </table>
+	</div>
     <script src="../js/jquery-2.1.4.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/global.js"></script>
