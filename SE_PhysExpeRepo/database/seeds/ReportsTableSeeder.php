@@ -41,6 +41,19 @@ class ReportsTableSeeder extends Seeder{
             "experiment_name" =>"光的干涉实验 2(分振幅法)",
             "prepare_link"  =>  "1061.pdf"
             ]);
+        Report::create([
+            "script_link" => null,
+            "experiment_id" => 1031,
+            "experiment_name" =>"模拟示波器的使用",
+            "prepare_link"  =>  "1031.pdf"
+            ]);
+        Report::create([
+            "script_link" => null,
+            "experiment_id" => 1082,
+            "experiment_name" =>"光的干涉实验 1(分波面法) 钠光双棱镜干涉",
+            "prepare_link"  =>  "1082.pdf"
+            ]);
+
     }
 }
 ?>

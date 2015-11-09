@@ -58,7 +58,7 @@
     </div>
     <!-- Signup Screen -->
     <div class="nav navbar-inverse navbar-fixed-top"style="text-align:center;position:relative;">
-        <a href="./index.html"><img style="width:20%;height:auto;" src="./img/phylab_logo_white.svg" /></a>
+        <a href="{{URL::route('index')}}"><img style="width:20%;height:auto;" src="./img/phylab_logo_white.svg" /></a>
     </div>
     <div class="container-fluid" style="margin-top:1%;">
         <form method="POST" action="/register" class="login-wrapper">

@@ -24,7 +24,7 @@ class ReportController extends Controller
         //看这个形式： $data = ["reportTemplate"=>[ ["id"=> "", "experimentId" => "","experimentName"=> ""] , [] ,.......] ]
         $data = ["reportTemplates"=>[],
                  "username"=>Auth::user()->name];
-        $reports = Report::all();
+        $reports = Report::orderBy('experiment_id')->get();
         foreach ($reports as $report) {
             $rearr = array(
                 "id"=>$report->id,
@@ -60,19 +60,19 @@ class ReportController extends Controller
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
         //ToDo
-        $xmlLink = getRandName().".xml";
+        //$xmlLink = getRandName().".xml";
+        $tmpName = getRandName();
         try{
-            Storage::put("xml_tmp/".$xmlLink,Request::get('xml'));
+            Storage::put("xml_tmp/".$tmpName.'.xml',Request::get('xml'));
         }
         catch(Exception $e){
             throw new FileIOException();
         }
-        $tmpName = getRandName();
         $report = Report::find(Request::get('id'));
         $scriptLink = $report->script_link;
         $experimentId = $report->experiment_id;
         if($scriptLink!=null){
-            $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex",$output,$reval);
+            $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$tmpName." ".Config::get('phylab.tmpReportPath').$tmpName,$output,$reval);
             #echo Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex";
             #echo $out;
             #echo $system."\n";
