@@ -1,5 +1,7 @@
-function errorAlert(){
-    alert("操作失败");
+function errorAlert(xmessage){
+    var message = typeof(xmessage) == "undefined"?null:xmessage;
+    message = message==null ? "未知错误":message;
+    alert("操作失败："+message);
 }
 function createStar(ico,txt,check){
     var url="/user/star";
@@ -17,11 +19,11 @@ function createStar(ico,txt,check){
                 document.getElementById('starIframe').contentWindow.location.reload(true);
             }
             else{
-                errorAlert();
+                errorAlert(jsonText["message"]);
             }
         }
         else if(this.readyState==4 && this.status!=200){
-            errorAlert();
+            errorAlert(null);
         }
     });
 }
@@ -40,11 +42,11 @@ function deleteStar(ico,txt,check){
                 document.getElementById('starIframe').contentWindow.location.reload(true);
             }
             else{
-                errorAlert();
+                errorAlert(jsonText["message"]);
             }
         }
         else if(this.readyState==4 && this.status!=200){
-            errorAlert();
+            errorAlert(null);
         }
     });
 }
@@ -60,11 +62,11 @@ function deleteStar(id){
                 $('#star_'+id).hide("slow");
             }
             else{
-                errorAlert();
+                errorAlert(jsonText["message"]);
             }
         }
         else if(this.readyState==4 && this.status!=200){
-            errorAlert();
+            errorAlert(null);
         }
     });
 }

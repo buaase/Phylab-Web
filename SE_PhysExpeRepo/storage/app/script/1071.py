@@ -446,7 +446,7 @@ if __name__ == '__main__':
         finish_file.write(finish_str.encode('utf-8', 'ignore'))
         finish_file.close()
         #等于１时是错误
-        ret =  subprocess.call("xelatex -interaction=nonstopmode "+sys.argv[2]+".tex",shell=True)
+        ret =  subprocess.call("pdflatex -interaction=nonstopmode "+sys.argv[2]+".tex",shell=True)
         subprocess.call("rm "+sys.argv[2]+".aux",shell=True)        
         subprocess.call("rm "+sys.argv[2]+".synctex*",shell=True)
         subprocess.call("rm "+sys.argv[2]+".log",shell=True)
@@ -455,4 +455,5 @@ if __name__ == '__main__':
         else:
             print('{"status":"fail"}')
     except Exception as e:
-        print(traceback.format_exc())
+        #print(traceback.format_exc())
+	print('{"status":"fail"}')
