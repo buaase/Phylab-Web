@@ -86,8 +86,9 @@ Route::delete('/user/star',[
 Route::get('/user/star/{id}',[
     'uses'    =>  'StarController@show',
     'middleware'    =>  'auth']);
+Route::get('/user/star/download',[
+    'as'   =>  'starDownload']);
 Route::get('/user/star/download/{id}',[
-    'as' => 'statDownload',
     'uses'  =>  'StarController@download',
     'middleware'    =>  'auth']);
 /***
