@@ -54,8 +54,8 @@
 </div><!-- /.modal -->
 @if($auth)
 <!--star modal-->
-<div class="modal fade" id="mymodal-star">
-    <div class="modal-dialog">
+<div class="modal fade bs-example-modal-lg" id="mymodal-star">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
