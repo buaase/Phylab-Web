@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="../css/mystyle.css">
 </head>
 <body>
-	<div class="well" style="margin:10px;">
-    <table class="table table-striped table-hover">
+	<div class="table-autoscroll well">
+    <table class="table table-condensed table-striped table-hover">
         <thead>
             <tr>
                 <th>No.</th>
