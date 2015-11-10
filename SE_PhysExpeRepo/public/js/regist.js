@@ -4,7 +4,7 @@
 		});
 		
 		$('#InputUser').bind('change',function(){
-			var patterns = "^([a-zA-Z0-9_]|[\u4E00-\u9FA5]){6,20}$";
+			var patterns = "^([a-zA-Z0-9_]|[\u4E00-\u9FA5]){1,20}$";
 			if(!(new RegExp(patterns)).test(this.value)){
                 $(this).addClass("wrong-input");
                 _setShowHide(this.id+'Alert',this.id+'Success')();
