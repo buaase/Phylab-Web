@@ -1914,8 +1914,8 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title lead">报告收藏夹</h4>
             </div>
-            <div class="modal-body" style="padding:0px;">
-                <iframe id="starIframe" src="{{URL::route('star')}}" style="width:100%;height:80%" frameborder="0"></iframe>
+            <div class="well" style="padding:0px;">
+                <iframe id="starIframe" src="{{URL::route('star')}}" style="width:100%;height:75%" frameborder="0"></iframe>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
