@@ -4,6 +4,11 @@
 		});
 		
 		$('.user-input').bind("change",function(){
+			browseApp = browser();
+			if(browseApp!="FF"&&browseApp!="Safari"&&browseApp!="Chrome")
+				patterns = this.title;
+			else
+				patterns = this.pattern;
             if(this.id=="CheckPwd"){
                 if(this.value!=$('#InputPwd')[0].value){
                     $(this).addClass("wrong-input");
@@ -14,7 +19,7 @@
                     _setShowHide(this.id+'Success',this.id+'Alert')();
                 }
             }
-            else if(!(new RegExp(this.pattern)).test(this.value)){
+            else if(!(new RegExp(patterns)).test(this.value)){
                 $(this).addClass("wrong-input");
                 _setShowHide(this.id+'Alert',this.id+'Success')();
             }
@@ -32,11 +37,6 @@
             else SetDisable('btn-Signup',true);
         }
 		function signUp(){
-			browseApp = browser();
-			if(browseApp!="FF"&&browseApp!="Safari"&&browseApp!="Chrome")
-				patterns = this.title;
-			else
-				patterns = this.pattern;
 			var check = true;
 			$('.user-input').each(function(){
 				if($(this).hasClass("wrong-input")) check = false; 
