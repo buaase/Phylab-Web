@@ -159,7 +159,7 @@ var labDoc3dot1415926;
 		//get selected sublab
 		if(labStr==""){
 			document.getElementById("ErrorText_"+index).innerHTML = "请先选择需要保存数据的子实验（￣▽￣）~*　)";
-			setShowHide("btnError_"+index,"btnSave_"+index,5000);	
+			setShowHide("btnError_"+index,"btnSave_"+index,3000);	
 		}
 		else{
 			labStr = labStr.substring(0,labStr.lastIndexOf(','));
@@ -190,7 +190,7 @@ var labDoc3dot1415926;
 			}
 			else{
 				document.getElementById("ErrorText_"+index).innerHTML = "有"+wrong_count+"处输入不合法，请检查标红输入框";
-				setShowHide("btnError_"+index,"btnSave_"+index,5000);
+				setShowHide("btnError_"+index,"btnSave_"+index,3000);
 			}
 		}
 	})	
