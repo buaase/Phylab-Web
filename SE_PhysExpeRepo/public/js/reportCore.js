@@ -107,6 +107,7 @@ var labDoc3dot1415926;
 			$('#loading-container').fadeIn();
 			setTimeout('Post_lab(errorFunction)',1000+Math.random()*2000); 
 		}catch(e){
+			$('#loading-container').fadeOut();
 			error();
 		}
 	}
