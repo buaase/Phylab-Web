@@ -26,9 +26,7 @@
 所谓稳态法，就是设法利用热源在待测样品内部形成不随时间改变的稳定温度分布，然后进行测量。
 
 傅里叶导热方程式指出，在物体内部，取两个垂直于热传导方向、彼此相距为$h$、温度分别为$\Theta _1$、$\Theta _2$ 的平行平面（设$\Theta _1$＞$\Theta _2$），若平面面积均为$S$，则在$\delta t$时间内通过面积$S$的热量$\delta Q$满足下述表达式：
-\begin{center}
-$\displaystyle\frac{\delta Q}{\delta t}=kS\displaystyle\frac{\Theta _1-\Theta _2}{h} $
-\end{center}
+$$ \displaystyle\frac{\delta Q}{\delta t}=kS\displaystyle\frac{\Theta _1-\Theta _2}{h} $$
 式中，$ \displaystyle\frac{\delta Q}{\delta t}$为热流强度，$k$称为该物质的热导率（又称导热系数）。数值上$k$等于相距单位长度的两平面的温度相差１个单位时，在单位时间内通过单位面积的热量，其单位为$ W/(m\cdot K)$。
 
 在支架$D$上先后放上圆铜盘$P$、待测样品$B$（圆盘形不良导体）和厚底紫铜圆盘$A$。在$A$的上方用红外灯Ｌ加热，使样品上、下表面分别维持在稳定的温度$\Theta _1$、$\Theta _2$，$\Theta _1$、$\Theta _2$分别用插入在$A$、$P$侧面深孔中的热电偶$E$来测量。$E$的冷端浸入盛于杜瓦瓶$H$内的冰水混合物中。$G$为双刀双掷开关，用以换接上、下热电偶的测量回路。数字式电压图4.5.5 稳态法测量热导率实验装置表Ｆ用来测量温差电动势。单位时间内通过待测样品$B$任一圆截面的热流量为
@@ -37,11 +35,11 @@ $\displaystyle\frac{\delta Q}{\delta t}=\displaystyle\frac{k\pi d_{B}^{2}}{4} \d
 \end{center}
 式中，$d_{B}$ 为圆盘样品的直径，$h_{B}$为样品厚度。当传热达到稳定状态时，$\Theta _1$ 和$\Theta _2$ 的值不变，这时通过$B$盘上表面的热流量与由黄铜盘$P$向周围环境散热的速率相等。因此，可通过黄铜盘$P$在稳定温度$\Theta _2$ 时的散热速率来求出热流量$\displaystyle\frac{\delta Q}{\delta t}$。实验中，在读得稳定时的$\Theta _1$ 和$\Theta _2$ 后，即可将样品$B$盘移去，而使筒Ａ的底面与盘$P$直接接触。当盘$P$的温度上升到高于稳定时的数值$\Theta _2$若干摄氏度后，再将筒$A$移开，让盘$P$自然冷却。观测其温度$\Theta $随时间$t$的变化情况，然后由此求出黄铜盘在$\Theta _2$的冷却速率$\displaystyle\frac{\delta Q}{\delta t}\|_{\Theta =\Theta _2}$，而$m_pc\displaystyle\frac{\delta \Theta }{\delta t}\|_{\Theta =\Theta _2}$（$m_p$为黄铜盘$P$的质量、$c$为其比热容）就是黄铜盘在温度为$Theta _2$ 时的散热速率。但须注意，这样求出的$\displaystyle\frac{\delta \Theta }{\delta t}$是黄铜盘的全部表面暴露于空气中的冷却速率，其散热表面积为$\pi {d_{P}}^{2}/2+\pi d_{P}h_{P}$（$d_P$ 与$h_P$ 分别为黄铜盘$P$的直径与厚度）。然而，在观测样品稳态传热时，$P$盘的上表面（面积为$\pi {d_{P}}^{2}/4$）是被样品覆盖着的。考虑到物体的冷却速率与它的表面积成正比，则稳态时黄铜盘散热速率的表达式应修正如下：
 \begin{center}
-$\displaystyle\frac{{\delta}Q}{{\delta}t}=m_{P}{c}\diaplaystyle\frac{{\delta}{\Theta}}{\delta t}\displaystyle\frac{\pi {d_{P}}^{2}/4+\pi d_{P}h_P}{\pi {d_{P}}^{2}/2+\pi d_{P}h_P}$
+$\displaystyle\frac{{\delta}Q}{{\delta}t}=m_{P}{c}\diaplaystyle\frac{{\delta}{\Theta}}{\delta t}\displaystyle\frac{{\pi}{d_{P}}^{2}/4+{\pi}d_{P}h_P}{{\pi}{d_{P}}^{2}/2+{\pi}d_{P}h_P}$
 \end{center}
 最终得：
 \begin{center}
-$k={m_P}{c}\diaplaystyle\frac{\delta\Theta}{{\delta}t}\displaystyle\frac{d_P+4h_P}{d_P+2h_P}\displaystyle\frac{h_B}{{\Theta}_1-{\Theta}_2}\displaystyle\frac{2}{{\pi}d_{B}^2$
+$k={m_P}{c}\diaplaystyle\frac{\delta\Theta}{{\delta}t}\displaystyle\frac{{d_P}+{4h_P}}{{d_P}+{2h_P}}\displaystyle\frac{h_B}{{{\Theta}_1}-{\Theta}_2}\displaystyle\frac{2}{{\pi}{d_{B}}^2$
 \end{center}
 
 \section*{三、实验仪器}

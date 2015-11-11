@@ -1,0 +1,155 @@
+<lab id="1061">
+	<sublab id="10611" status="true">
+		<table name="10611_1" raw="9" column="5">
+			<tr index="1">
+				<td>1400.0</td>
+				<td>469.2</td>
+				<td>1011.5</td>
+				<td>1014.8</td>
+			</tr>
+			<tr index="2">
+				<td>1400</td>
+				<td>492.3</td>
+				<td>1001.8</td>
+				<td>1004.6</td>
+			</tr>
+			<tr index="3">
+				<td>1400.0</td>
+				<td>426.1</td>
+				<td>1040.3</td>
+				<td>1037.8</td>
+			</tr>
+			<tr index="4">
+				<td>1400.0</td>
+				<td>507.1</td>
+				<td>934.1</td>
+				<td>936.9</td>
+			</tr>
+			<tr index="5">
+				<td>1400.0</td>
+				<td>531.2</td>
+				<td>947.8</td>
+				<td>947.6</td>
+			</tr>
+			<tr index="6">
+				<td>1400.0</td>
+				<td>539.8</td>
+				<td>952.9</td>
+				<td>954.1</td>
+			</tr>
+			<tr index="7">
+				<td>1400.0</td>
+				<td>410.5</td>
+				<td>716.9</td>
+				<td>715.4</td>
+			</tr>
+			<tr index="8">
+				<td>1400.0,,,],[,,,672.6]倒立缩小实像 光源距离2</td>
+				<td>397.1</td>
+				<td>712.8</td>
+				<td>711.0</td>
+			</tr>
+			<tr index="9">
+				<td>1400.0</td>
+				<td>370.4</td>
+				<td>674.9</td>
+				<td>672.6</td>
+			</tr>
+		</table>
+	</sublab>
+	<sublab id="10612" status="true">
+		<table name="10612_1" raw="5" column="5">
+			<tr index="1">
+				<td>1400</td> 
+				<td>1315.2</td>
+				<td>1311.9</td>
+			</tr>
+			<tr index="2">
+				<td>1300.0</td>
+				<td>1213.9</td>
+				<td>1209.9</td>
+			</tr>
+			<tr index="3">
+				<td>1200.0</td>
+				<td>1116.1</td>
+				<td>1118.3</td>
+			</tr>
+			<tr index="4">
+				<td>1100.0</td>
+				<td>1014.8</td>
+				<td>1013.9</td>
+			</tr>
+			<tr index="5">
+				<td>1000.0</td>
+				<td>916.7</td>
+				<td>918.2</td>
+			</tr>
+		</table>
+	</sublab>
+	<sublab id="10613" status="true">
+		<table name="10613_1" raw="3" column="5">
+			<tr index="1">
+				<td>949.1</td>
+				<td>990.3</td>
+				<td>988.8</td>
+				<td>808.1</td>
+			</tr>
+			<tr index="2">
+				<td>950.8</td>
+				<td>989.9</td>
+				<td>986.2</td>
+				<td>841.7</td>
+			</tr>
+			<tr index="3">
+				<td>949.8</td>
+				<td>987.1</td>
+				<td>987.9</td>
+				<td>834.5</td>
+			</tr>
+		</table>
+	</sublab>
+	<sublab id="10614" status="true">
+		<table name="10614_1" raw="5" column="8">
+			<tr index="1">
+				<td>光源距离1</td>
+				<td>大像一距离1</td>
+				<td>大像二距离1</td>
+				<td>小像一距离1</td>
+				<td>小像二距离1</td>
+				<td>光屏距离1</td>
+			</tr>
+			<tr index="2">
+				<td>光源距离2</td>
+				<td>大像一距离2</td>
+				<td>大像二距离2</td>
+				<td>小像一距离2</td>
+				<td>小像二距离2</td>
+				<td>光屏距离2</td>
+			</tr>
+			<tr index="3">
+				<td>光源距离3</td>
+				<td>大像一距离3</td>
+				<td>大像二距离3</td>
+				<td>小像一距离3</td>
+				<td>小像二距离3</td>
+				<td>光屏距离3</td>
+			</tr>
+			<tr index="4">
+				<td>光源距离4</td>
+				<td>大像一距离4</td>
+				<td>大像二距离4</td>
+				<td>小像一距离4</td>
+				<td>小像二距离4</td>
+				<td>光屏距离4</td>
+			</tr>
+			<tr index="5">
+				<td>光源距离5</td>
+				<td>大像一距离5</td>
+				<td>大像二距离5</td>
+				<td>小像一距离5</td>
+				<td>小像二距离5</td>
+				<td>光屏距离5</td>
+			</tr>
+		</table>
+	</sublab>
+</lab>

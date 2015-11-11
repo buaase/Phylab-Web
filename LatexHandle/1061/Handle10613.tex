@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[UTF8,adobefonts]{ctex}
+
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{ulem}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{multirow}
+
+\begin{document}
+
+\subsection*{实验3.物距像距法测凹透镜焦距}
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+屏1/mm &  凹透镜1/mm & 凹透镜2/mm & 屏2/mm 均值/mm \\ 
+\hline 
+{%for ei in EXPER -%}
+{% for i in ei-%}
+{% if loop.index ==1 -%}
+%% i %%
+{% else -%}
+& %% i %%
+{%- endif %}
+{%- endfor %}
+\\
+\hline
+{%- endfor %}
+\end{tabular}
+\vspace{10pt}
+
+\end{center}
+u = ${x}_{\text{屏1}} - {x}_{\text{均}}$\\
+${u}_1$ = %% U[0] %% mm		${u}_2$ = %% U[1] %% mm		${u}_3$ = %% U[2] %% mm\\
+v = $\left | {x}_{\text{屏2}} - {x}_{\text{均}} \right |$\\
+${v}_1$ = %% V[0] %% mm		${v}_2$ = %% V[1] %%	mm		${v}_3$ = %% V[2] %% mm\\
+$\because f = \frac{uv}{u+v}$\\
+$\therefore {f}_1 = \frac{{u}_1{v}_1}{{u}_1+{v}_1}$ = %% F[0][0] %% mm	$ {f}_2$ = %% F[0][1] %% mm	$ {f}_3$ = %% F[0][2] %% mm\\
+$\therefore \bar{f} = \frac{{f}_1+{f}_2+{f}_3}{3}$ = %%　AVERAGE_F %% mm\\
+\end{document}

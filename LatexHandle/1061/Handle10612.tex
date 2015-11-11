@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[UTF8,adobefonts]{ctex}
+
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{ulem}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{multirow}
+
+\begin{document}
+
+\subsection*{实验2.自准直法测凸透镜焦距}
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+光源/mm &  凸透镜1/mm & 凸透镜2/mm & 均值/mm \\ 
+\hline 
+{%for ei in EXPER -%}
+{% for i in ei-%}
+{% if loop.index ==1 -%}
+%% i %%
+{% else -%}
+& %% i %%
+{%- endif %}
+{%- endfor %}
+\\
+\hline
+
+{%- endfor %}
+\end{tabular}
+\vspace{10pt}
+
+\end{center}
+$\because f = {x}_{\text{光源}} - {x}_{\text{凸}} - \delta$		$\delta = $ %% DELTA %% mm\\
+$\therefore {f}_1 = $%% F[0] %% mm    
+${f}_2 = $%% F[1] %% mm    
+${f}_3 = $%% F[2] %% mm    
+${f}_4 = $%% F[3] %% mm    
+${f}_5 = $%% F[4] %% mm
+
+$\therefore \bar{f} = \frac{{f}_1+{f}_2+{f}_3+{f}_4+{f}_5}{5}$ = %%　AVERAGE_F %% mm\\
+不确定度计算： A类 ${u}_a = \sqrt{\frac{\bar{x^{2}} + \bar{x} ^{2}}{k-1}}$ %% UA_F %% mm\\
+             B类 ${u}_b = \frac{0.5}{\sqrt{3}} = $ %% UB_F %% mm\\
+             $u(f) = \sqrt{{u}_a ^ {2} + {u}_b ^ {2}} = $ %% UF %% mm\\
+             $\therefore $最终结果 f = (%% FINAL_F %% 
+             $\pm $ %% FINAL_U %% 
+             ) mm
+\end{document}

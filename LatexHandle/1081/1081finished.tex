@@ -68,16 +68,16 @@ X/cm
 
 \subsubsection*{(2)数据处理}
 用逐差法计算条纹间距${\Delta}x$:
-$${\Delta}x = \displaystyle\frac{\sum\limits_{i=1}^{10}(x_{i+10}-x_i)}{10{\times}10} = 0.2994mm$$
+$$\overline{{\Delta}x} = \displaystyle\frac{\sum\limits_{i=1}^{10}(x_{i+10}-x_i)}{10{\times}10} = 0.2994mm$$
 
 计算波长$\lambda$:
-$$\bar{b} = \displaystyle\frac{b_\text{正}+b_\text{反}}{2} = \displaystyle\frac{ (7.791-3.434)+(7.612-3.391)}{2} = 4.289$$
+$$\bar{b'} = \displaystyle\frac{b'_\text{正}+b'_\text{反}}{2} = \displaystyle\frac{ (7.791-3.434)+(7.612-3.391)}{2} = 4.289mm$$
 
-$$\bar{b'} = \displaystyle\frac{b_\text{正}+b_\text{反}}{2} = \displaystyle\frac{ (6.336-5.341)+(6.259-5.32)}{2} = 0.967$$
+$$\bar{b} = \displaystyle\frac{b_\text{正}+b_\text{反}}{2} = \displaystyle\frac{ (6.336-5.341)+(6.259-5.32)}{2} = 0.967mm$$
 
 $$ S = 129.4 - 66.45 = 62.95cm$$
 
-$$ S = 129.4 - 99.71 = 29.69cm$$
+$$ S' = 129.4 - 99.71 = 29.69cm$$
 
 $$ {\lambda} = \displaystyle\frac{{\Delta}\sqrt{bb'}}{S+S'} = 658.2nm$$
 
@@ -85,21 +85,21 @@ $$ {\lambda} = \displaystyle\frac{{\Delta}\sqrt{bb'}}{S+S'} = 658.2nm$$
 ${\triangle}x$的不确定度：
 
 $10{\triangle}x$的A类不确定度：
-$$u_a(10{\triangle}x) = \sqrt{\displaystyle\frac{\sum\limits_{i=1}^{10} (10{{\triangle}x}_i-\bar{10{\triangle}x})^2}{10{\times}(10-1)}} = 4.372mm$$
+$$u_a(10{\triangle}x) = \sqrt{\displaystyle\frac{\sum\limits_{i=1}^{10} (10{{\triangle}x}_i-{10\overline{{\triangle}x}})^2}{10{\times}(10-1)}} = 0.01363mm$$
 $10{\triangle}x$的B类不确定度：
 $$u_b({10{\triangle}x})=\displaystyle\frac{\bigtriangleup\text{仪}}{\sqrt{3}}
 = \frac{0.01}{2{\times}\sqrt{3}} = 0.00289mm$$
 $10{\triangle}x$的不确定度：
-$$u(10{\triangle}x)=\sqrt{{u_a(10{\triangle}x}^2)+{u_b(10{\triangle}x}^2)} = 4.372mm$$
+$$u(10{\triangle}x)=\sqrt{{u_a(10{\triangle}x}^2)+{u_b(10{\triangle}x}^2)} = 0.01394mm$$
 ${\triangle}x$的不确定度：
-$${\therefore}u({\triangle}x) = \displaystyle\frac{u(10{\triangle}x)}{10} = 0.4372mm$$
+$${\therefore}u({\triangle}x) = \displaystyle\frac{u(10{\triangle}x)}{10} = 0.001394mm$$
 
 $$ \displaystyle\frac{{\Delta}b}{b} = \displaystyle\frac{{\Delta}b'}{b} = 0.025 $$
 
-$b$的不确定度：
-$$ u(b) = \displaystyle\frac{ 4.289{\times}0.025}{\sqrt{3}} =0.06191 $$
-b'的不确定度：
-$$ u(b') = \displaystyle\frac{ 0.967{\times}0.025}{\sqrt{3}} =0.01396 $$
+$b'$的不确定度：
+$$ u(b') = \displaystyle\frac{ 4.289{\times}0.025}{\sqrt{3}} =0.06191mm$$
+b的不确定度：
+$$ u(b) = \displaystyle\frac{ 0.967{\times}0.025}{\sqrt{3}} =0.01396mm$$
 S的不确定度：
 $${\Delta}S = {\Delta}S' = 0.5cm$$
 $$ u(S+S') = \sqrt{2} {\times} 0.289 = 0.409cm$$
@@ -107,7 +107,12 @@ $$ u(S+S') = \sqrt{2} {\times} 0.289 = 0.409cm$$
 不确定度的合成：
 $$ \ln{\lambda} = \ln{{\Delta}x}+ \displaystyle\frac{1}{2}(\ln{b}+\ln{b'}) - \ln(S+S')$$
 
-$$\displaystyle\frac{\ln{\lambda}}{\lambda} = \displaystyle\frac{\ln{\Delta}x}{{\Delta}x}+\displaystyle\frac{1}{2}(\displaystyle\frac{\ln{b}}{b}+\displaystyle\frac{\ln{b'}}{b'}) - \displaystyle\frac{\ln{(S+S')}}{S+S'}$$
+$$\displaystyle\frac{\ln{\lambda}}{\lambda} = \displaystyle\frac{\ln{\Delta}x}{{\Delta}x}+\displaystyle\frac{1}{2}(\displaystyle\frac{\ln{b}}{b}+\displaystyle\frac{\ln{b'}}{b'}) - \displaystyle\frac{\ln{(S+S')}}{S+S'} $$
 
-$$\displaystyle\frac{u({\lambda})}{\lambda} = \sqrt{ [{\frac{u({\Delta}x)}{{\Delta}x}}]^2+\frac{1}{4}[{\frac{u(b)}{b}}]^2 +\frac{1}{4}[{\frac{u(b')}{b'}}]^2 + [\frac{u(S+S')}{S+S'}]^2   }  $$
+$$\displaystyle\frac{u({\lambda})}{\lambda} = \sqrt{ [{\frac{u({\Delta}x)}{{\Delta}x}}]^2+\frac{1}{4}[{\frac{u(b)}{b}}]^2 +\frac{1}{4}[{\frac{u(b')}{b'}}]^2 + [\frac{u(S+S')}{S+S'}]^2   } = 0.00641$$
+
+$$ u({\lambda}) = 4.219 nm$$
+最终结果为：
+$$ {\lambda}{\pm}{u({\lambda})} = 658 {\pm} 4 nm $$
+
 \end{document}
