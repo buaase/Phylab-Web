@@ -20,25 +20,29 @@
                     <h4 class="modal-title lead">登录PhyLab</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" method="post" action="{{URL::route('login')}}">
+                        {!! csrf_field() !!}
+                        <div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
+                            <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">&nbsp 用户名或密码错误!</span>
+                        </div>
                         <div class="form-group">
                             <label for="InputAccount" class="col-md-2 control-label">账号</label>
                             <div class="input-group col-md-9">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="email" class="form-control" id="InputAccount" placeholder="请输入您的账号">
+                                <input type="email" class="form-control" id="InputAccount" placeholder="请输入您的账号" name="email" value="{{ old('email') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputPassword" class="col-md-2 control-label">密码</label>
                             <div class="input-group col-md-9">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-eye-close"></span></span>
-                                <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码">
+                                <input type="password" class="form-control" id="InputPassword" placeholder="请输入您的密码" name="password">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-4">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" id="IfRemember">记住密码</input></label>
+                                    <label><input type="checkbox" id="IfRemember" name="remember">记住密码</input></label>
                                 </div>
                             </div>
                             <div class="col-md-offset-3 col-md-3" style="float:right"><a href="##">忘记密码?</a></div>
@@ -46,7 +50,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
+                    <button type="submit" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -54,7 +58,7 @@
     </div>
     <!-- Signup Screen -->
     <div class="nav navbar-inverse navbar-fixed-top"style="text-align:center;position:relative;">
-        <a href="./index.html"><img style="width:20%;height:auto;" src="./img/phylab_logo_white.svg" /></a>
+        <a href="{{URL::route('index')}}"><img style="width:20%;height:auto;" src="./img/phylab_logo_white.svg" /></a>
     </div>
     <div class="container-fluid" style="margin-top:1%;">
         <form method="POST" action="/register" class="login-wrapper">
@@ -124,10 +128,19 @@
                     <span class="glyphicon glyphicon-ok-sign"></span>
                 </div>
             </div>
+            @if (isset($status))
+                @foreach($message as $key => $value)
+                    @foreach($value as $err)
+                        <div class="alert alert-danger col-md-offset-4 col-md-4" role="alert" style="display:{{isset($status)?'block':'none'}};height:30px;padding:5px;">
+                            <span class="glyphicon glyphicon-remove-sign"></span><strong>&nbsp Error:</strong><span id="errorMessage">{{isset($status)?$err:''}}</span>
+                        </div>
+                    @endforeach
+                @endforeach
+            @endif
             <div class="form-group row">
                 <div class="col-md-offset-4 col-md-4">
                     <label class="checkbox text-left">
-                    <input id="CheckLicense" type="checkbox" onclick="setSignUpStatus()"><span>我已阅读并同意<a tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab用户协议" data-content="1. 有个卵的用户协议" id="License">《用户协议》</a>&nbsp </span></label>
+                    <input id="CheckLicense" type="checkbox" onclick="setSignUpStatus()"><span>我已阅读并同意<a tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab用户协议" data-content="1、	本网站为物理实验学习交流平台，严禁用于非法或商业用途<br/>2、	网站最终解释权归网站开发团队——软件攻城队所有" id="License">《用户协议》</a>&nbsp </span></label>
                 </div>
             </div>
             <div class="row" style="margin-bottom:40px;">
@@ -157,6 +170,7 @@
     <script src="./js/jquery-2.1.4.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/global.js"></script>
+    <script src="./js/login.js"></script>
     <script src="./js/xmlInteraction.js"></script>
 	<script src="./js/regist.js"></script>
   </body>

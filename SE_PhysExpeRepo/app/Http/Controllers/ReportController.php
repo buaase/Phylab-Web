@@ -24,7 +24,7 @@ class ReportController extends Controller
         //看这个形式： $data = ["reportTemplate"=>[ ["id"=> "", "experimentId" => "","experimentName"=> ""] , [] ,.......] ]
         $data = ["reportTemplates"=>[],
                  "username"=>Auth::user()->name];
-        $reports = Report::all();
+        $reports = Report::orderBy('experiment_id')->get();
         foreach ($reports as $report) {
             $rearr = array(
                 "id"=>$report->id,
@@ -48,7 +48,8 @@ class ReportController extends Controller
         //post 传入 xml 模板文件
         $data = ["status"=> "",
                  "experimentId" => "",
-                 "link"  => ""];
+                 "link"  => "",
+                 "message" => ""];
         $validatorRules = array(
                 'id'  => 'required|integer|exists:reports,id',
                 'xml' => 'required'
@@ -59,31 +60,36 @@ class ReportController extends Controller
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
         //ToDo
-        $xmlLink = getRandName().".xml";
+        //$xmlLink = getRandName().".xml";
+        $tmpName = getRandName();
         try{
-            Storage::put("xml_tmp/".$xmlLink,Request::get('xml'));
+            Storage::put("xml_tmp/".$tmpName.'.xml',Request::get('xml'));
         }
         catch(Exception $e){
             throw new FileIOException();
         }
-        $tmpName = getRandName();
         $report = Report::find(Request::get('id'));
         $scriptLink = $report->script_link;
         $experimentId = $report->experiment_id;
-        $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex",$output,$reval);
-        #echo Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex";
-        #echo $out;
-        #echo $system."\n";
-        #echo $reval."\n";
-        #echo var_dump($output);
-        if($reval==0){
-            #echo $system.'\n';
-            #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
-            $system = json_decode($system);
-            if($system->status== SUCCESS_MESSAGE){
-                $data["status"] = SUCCESS_MESSAGE;
-                $data["link"] = $tmpName.".pdf";
-                $data["experimentId"] = $experimentId;
+        if($scriptLink!=null){
+            $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$tmpName." ".Config::get('phylab.tmpReportPath').$tmpName,$output,$reval);
+            #echo Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex";
+            #echo $out;
+            #echo $system."\n";
+            #echo $reval."\n";
+            #echo var_dump($output);
+            if($reval==0){
+                #echo $system.'\n';
+                #echo "python ".storage_path()."/app/script/".$scriptLink." ".storage_path()."/app/xml_tmp/".$xmlLink." ".public_path()."/pdf_tmp/".$tmpName.".tex";
+                $system = json_decode($system);
+                if($system->status== SUCCESS_MESSAGE){
+                    $data["status"] = SUCCESS_MESSAGE;
+                    $data["link"] = $tmpName.".pdf";
+                    $data["experimentId"] = $experimentId;
+                }
+                else{
+                    $data["status"]=FAIL_MESSAGE;
+                }
             }
             else{
                 $data["status"]=FAIL_MESSAGE;
@@ -91,6 +97,7 @@ class ReportController extends Controller
         }
         else{
             $data["status"]=FAIL_MESSAGE;
+            $data["message"]="暂时未有生成模板的脚本";
         }
         return response()->json($data);
     }

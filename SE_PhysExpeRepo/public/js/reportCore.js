@@ -26,12 +26,11 @@ var labDoc3dot1415926;
 			document.getElementById('firefox_pdf').style.display='block';
 		}
 		else if(browser()=="IE6"||browser()=="IE7"){
-			eleDisable();
 			alert("Please use the above version of IE8 or other browsers");
 		}
 		else {
 			document.getElementById('chrom_pdf').style.display='block';
-			cp('phylab_test.pdf');
+			cp('./prepare_pdf/phylab_test.pdf');
 		}
 	}	
 	function eleDisable(){
@@ -43,7 +42,7 @@ var labDoc3dot1415926;
 	}
 	function eleEnable(){
 		SetDisable('importBtn',false);
-		SetDisable('collectBtn',false);
+		SetDisable('collectBtn',true);
 		SetDisable('exportBtn',true);
 	}
 	function collectLab(ico_id,txt_id){
@@ -51,15 +50,11 @@ var labDoc3dot1415926;
 		var txt = document.getElementById(txt_id);
 		var check = txt.innerHTML;
 			if(check=="取消收藏"){
-				ico.setAttribute("class","glyphicon glyphicon-star-empty");
-				txt.innerHTML = "收藏";
-				alert("已取消收藏")
+				deleteStar(ico,txt,check);
 			}
 			else if(check=="收藏"){
-				ico.setAttribute("class","glyphicon glyphicon-star");
-				txt.innerHTML = "取消收藏";
-				alert("已添加至个人收藏夹！");
-			}
+				createStar(ico,txt,check);
+            }
 			else
 				alert("Button text can not be [txt] when use this function!Please Use 收藏/取消收藏");
 	}	
@@ -114,12 +109,14 @@ var labDoc3dot1415926;
 	function exportBtnClick(){
 		eleDisable();
 		try{
-			Post_lab();
+			Post_lab(errorFunction);
 		}catch(e){
 			error();
 		}
 	}
-	
+	function errorFunction(message){
+		alert(message);
+	}	
 	$('a.lab_title').bind('click',function(){
 		//USE reportCore.js, bootstrap.min.js
 		if($('#InputLabIndex').attr("disabled")=="disabled")return;
@@ -181,6 +178,7 @@ var labDoc3dot1415926;
 			$("#lab_table_"+index).modal('toggle');
 			if(labStr!=""){
 				SetDisable('exportBtn',false);
+				SetDisable('collectBtn',false);
 				labDoc3dot1415926.flush();
 			}//when no selected sublab exist, just close modal
 		}
@@ -191,49 +189,43 @@ var labDoc3dot1415926;
 	})	
 	
 	
-	// //USE pdfObject v1.2.20111123, xmlInteraction
-	function cp(pdfPath){
-		var myPDF = new PDFObject({ url: pdfPath }).embed("chrom_pdf");
-		if(browser()=="FF"){
-			document.getElementById('firefox_pdf').style.display='block';
-		}
-		else if(browser()=="IE6"||browser()=="IE7"){
-			alert("Please use the above version of IE8 or other browsers");
-		}
-		else {
-			document.getElementById('chrom_pdf').style.display='block';
-			cp('./prepare_pdf/phylab_test.pdf');
-		}
-	}
 	function changePdf(type,pdfName){
-			var path = ""
-			if(type=="prepare"){
-				path = "./prepare_pdf/";
-			}
-			else if(type=="tmp"){
-				path = "./pdf_tmp/";
-			}
-			else if(type=="star"){
-				path = "./star_pdf/"
-			}
-			$("#pdf_object").attr("data",path+pdfName);
-			$('#pdf_embed').attr("src",path+pdfName);
-			cp(path+pdfName);
+	    var path = ""
+	    if(type=="prepare"){
+	        path = "./prepare_pdf/";
+	    }
+	    else if(type=="tmp"){
+	        path = "./pdf_tmp/";
+	    }
+	    else if(type=="star"){
+	        path = "./star_pdf/"
+	    }
+		$("#pdf_object").attr("data",path+pdfName);
+	    $('#pdf_embed').attr("src",path+pdfName);
+	    cp(path+pdfName);
 	}
-	
-	function Post_lab(){
+	function Post_lab(postErrorFunc){
 		var xmlString = labDoc3dot1415926.getXML();
 		var dbId = labDoc3dot1415926.getDbId();
-		PostXMLDoc("/report",xmlString,dbId,function(){
+		var postData = "xml="+encodeURI(xmlString)+"&id="+dbId;
+		PostAjax("/report",postData,function(){
 			if (this.readyState==4 && this.status==200){
 				var jsonText = eval("(" + this.responseText + ")");
 				//alert(this.responseText);
 				//alert(jsonText["status"]);
 				if(jsonText["status"]=='success'){
 					changePdf('tmp',jsonText['link']);
+					$('#collectBtn').attr('link',jsonText['link']);
 					$('#LabStatus')[0].innerHTML = "终版";
 					eleEnable();
+					SetDisable('collectBtn',false);
 				}
+				else{
+					postErrorFunc(jsonText["message"]);
+				}
+			}
+			else if(this.readyState==4 && this.status!=200){
+				postErrorFunc("生成报告失败");
 			}
 		});
 	}

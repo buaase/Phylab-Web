@@ -31,7 +31,7 @@ Route::get('/login', [
     'uses'  =>  'Auth\AuthController@getLogin',
     'middleware'    =>  'guest']);
 Route::post('/login', [
-    'uses'  =>  'Auth\AuthController@postLogin',
+    'uses'  =>  'Auth\PhylabAuthController@postLogin',
     'middleware'    =>  'guest']);
 Route::get('/logout', [
     'as'    =>  'logout',
@@ -46,7 +46,7 @@ Route::get('/register', [
     'uses'  =>  'Auth\AuthController@getRegister',
     'middleware'    =>  'guest']);
 Route::post('/register', [
-    'uses'    =>  'Auth\AuthController@postRegister',
+    'uses'    =>  'Auth\PhylabAuthController@postRegister',
     'middleware'    =>  'guest']);
 
 /***
@@ -86,8 +86,9 @@ Route::delete('/user/star',[
 Route::get('/user/star/{id}',[
     'uses'    =>  'StarController@show',
     'middleware'    =>  'auth']);
+Route::get('/user/star/download',[
+    'as'   =>  'starDownload']);
 Route::get('/user/star/download/{id}',[
-    'as' => 'statDownload',
     'uses'  =>  'StarController@download',
     'middleware'    =>  'auth']);
 /***

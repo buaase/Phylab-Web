@@ -29,7 +29,6 @@
 			}
 		}
 	}
-	
 	function SetDisable(index,if_disable){
 		var item = document.getElementById(index);
 		if(if_disable)
@@ -58,3 +57,31 @@
 		alert("滚吧！QAQ");
 		window.location = "http://www.taobao.com/"
 	}
+	function PostAjax(url,postData,cfunc){
+	    var xmlhttp;
+	        if (window.XMLHttpRequest)
+	          {// code for IE7+, Firefox, Chrome, Opera, Safari
+	          xmlhttp=new XMLHttpRequest();
+	          }
+	        else
+	          {// code for IE6, IE5
+	          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	          }
+	    xmlhttp.onreadystatechange=cfunc;
+	    xmlhttp.open("POST",url,true);
+	    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	    xmlhttp.setRequestHeader("X-Requested-With","XMLHttpRequest");
+	    xmlhttp.send(postData);
+	}
+	function cp(pdfPath){
+                var myPDF = new PDFObject({ url: pdfPath }).embed("chrom_pdf");
+                if(browser()=="FF"){
+                        document.getElementById('firefox_pdf').style.display='block';
+                }
+                else if(browser()=="IE6"||browser()=="IE7"){
+                        alert("Please use the above version of IE8 or other browsers");
+                }
+                else {
+                        document.getElementById('chrom_pdf').style.display='block';
+                }
+        }

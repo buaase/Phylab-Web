@@ -1,42 +1,74 @@
-﻿	
-		function check(){
-			SetDisable('btn-Signup',true);
-		}
-		$(function () {
-			$('[data-toggle="popover"]').popover({
-				html : true
-			});
+﻿		$('.user-input').bind("keydown",function(){
+			if(event.keyCode == 13) return false;
+			else return true;
+		});
+		
+		$('#InputUser').bind('change',function(){
+			var patterns = "^([a-zA-Z0-9_]|[\u4E00-\u9FA5]){1,20}$";
+			if(!(new RegExp(patterns)).test(this.value)){
+                $(this).addClass("wrong-input");
+                _setShowHide(this.id+'Alert',this.id+'Success')();
+            }
+            else{
+                $(this).removeClass("wrong-input");
+                _setShowHide(this.id+'Success',this.id+'Alert')();
+            }
 		})
 		
-		$('.user-input').bind("change",function(){
-			browseApp = browser();
-			if(browseApp!="FF"||browseApp!="Safari"||browseApp!="Chrome")
-				patterns = this.title;
-			else
-				patterns = this.pattern;
-			if(this.id=="CheckPwd"){
-				if(this.value!=$('#InputPwd')[0].value){
-					$(this).addClass("wrong-input");
-					_setShowHide(this.id+'Alert',this.id+'Success')();
-				}
-				else{
-					$(this).removeClass("wrong-input");
-					_setShowHide(this.id+'Success',this.id+'Alert')();
-				}
+		$('#InputEmail').bind('change',function(){
+			var patterns = "^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$";
+			if(!(new RegExp(patterns)).test(this.value)){
+                $(this).addClass("wrong-input");
+                _setShowHide(this.id+'Alert',this.id+'Success')();
+            }
+            else{
+                $(this).removeClass("wrong-input");
+                _setShowHide(this.id+'Success',this.id+'Alert')();
 			}
-			else if(!(new RegExp(patterns)).test(this.value)){
-				$(this).addClass("wrong-input");
-				_setShowHide(this.id+'Alert',this.id+'Success')();
+		})
+		
+		$('#InputStudent').bind('change',function(){
+			var patterns = "^\\d{8}$";
+			if(!(new RegExp(patterns)).test(this.value)){
+                $(this).addClass("wrong-input");
+                _setShowHide(this.id+'Alert',this.id+'Success')();
+            }
+            else{
+                $(this).removeClass("wrong-input");
+                _setShowHide(this.id+'Success',this.id+'Alert')();
 			}
-			else{
-				$(this).removeClass("wrong-input");
-				_setShowHide(this.id+'Success',this.id+'Alert')();
+		})
+		
+		$('#InputPwd').bind('change',function(){
+			var patterns = "^[0-9a-zA-z]{6,12}$";
+			if(!(new RegExp(patterns)).test(this.value)){
+                $(this).addClass("wrong-input");
+                _setShowHide(this.id+'Alert',this.id+'Success')();
+            }
+            else{
+                $(this).removeClass("wrong-input");
+                _setShowHide(this.id+'Success',this.id+'Alert')();
 			}
-		});	
-		function setSignUpStatus(){
-			if(document.getElementById('CheckLicense').checked) SetDisable('btn-Signup',false);
-			else SetDisable('btn-Signup',true);
-		}	
+		})
+		
+		$('#CheckPwd').bind('change',function(){
+			if(this.value!=$('#InputPwd')[0].value){
+                $(this).addClass("wrong-input");
+                _setShowHide(this.id+'Alert',this.id+'Success')();
+            }
+            else{
+                $(this).removeClass("wrong-input");
+                _setShowHide(this.id+'Success',this.id+'Alert')();
+            }
+		})
+        
+        function check(){
+            SetDisable('btn-Signup',true);
+        }
+        function setSignUpStatus(){
+            if(document.getElementById('CheckLicense').checked) SetDisable('btn-Signup',false);
+            else SetDisable('btn-Signup',true);
+        }
 		function signUp(){
 			var check = true;
 			$('.user-input').each(function(){
@@ -46,19 +78,13 @@
 					_setShowHide(this.id+'Alert',this.id+'Success')();
 				}
 			});
-			return check;
+			$('#register-post').click();
 		}
 		
-		//function Post_user(){
-		//	var xmlString = "user_name="+document.getElementById('InputUser').value
-		//					+"&user_email="+document.getElementById('InputEmail').value
-		//					+"&user_stu="+document.getElementById('InputStudent').value
-		//					+"&user_pwd="+document.getElementById('InputPwd').value;
-		//	PostXMLDoc("##",xmlString,function(){
-		//		if (this.readyState==4 && this.status==200){
-		//			window.open(this.responseText);
-		//		}
-		//})
-	}
+		$(function () {
+			$('[data-toggle="popover"]').popover({
+				html : true
+			});
+		})
 		
 	
