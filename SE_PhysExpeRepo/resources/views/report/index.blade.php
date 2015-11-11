@@ -1984,7 +1984,7 @@
 										<div class="row">
 											<div class="form-group  col-md-7">
 												<label for="InputLabIndex" class="sr-only">LabIndex</label>
-												<input type="text" class="form-control lab_input" id="InputLabIndex" onkeypress="labIndexInput()" placeholder="请输入实验编号">
+												<input type="text" class="form-control lab_input" id="InputLabIndex" placeholder="请输入实验编号">
 											 </div>
 											<input type="button" class="btn btn-default-outline col-md-4" id="selectBtn" style="margin-left:10px;" onclick="selectBtnClick()"  value="Select"></input>
 										</div>

@@ -75,20 +75,6 @@ var labDoc3dot1415926;
 		var a = $.merge($("input.para"),$("input.var"));
 		for(var i = 0; i<a.length; i++) a[i].setAttribute("value",a[i].getAttribute("aria-label"));
 	}
-	function labIndexInput(){
-		if(event.keyCode==13) {
-			if(SelectLab($('#InputLabIndex')[0].value,'LabText')){
-				$('.alert').hide();
-				$('#LabStatus')[0].innerHTML = "预览";
-				changePdf('prepare',labDoc3dot1415926.getIndex()+".pdf");
-				eleEnable();
-				return false;
-			}
-			else $('.alert').show();
-			return false;
-		}
-		else return true;
-	}
 	function selectBtnClick(){
 			if(SelectLab($('#InputLabIndex')[0].value,'LabText')){
 				$('.alert').hide();
@@ -117,6 +103,21 @@ var labDoc3dot1415926;
 	function errorFunction(message){
 		alert(message);
 	}	
+	
+	$("#InputLabIndex").bind("keypress",function(){
+		if(event.keyCode==13) {
+			if(SelectLab($('#InputLabIndex')[0].value,'LabText')){
+				$('.alert').hide();
+				$('#LabStatus')[0].innerHTML = "预览";
+				changePdf('prepare',labDoc3dot1415926.getIndex()+".pdf");
+				eleEnable();
+				return false;
+			}
+			else $('.alert').show();
+			return false;
+		}
+		else return true;
+	})
 	$('a.lab_title').bind('click',function(){
 		//USE reportCore.js, bootstrap.min.js
 		if($('#InputLabIndex').attr("disabled")=="disabled")return;
@@ -156,35 +157,41 @@ var labDoc3dot1415926;
 			i++;
 		}
 		//get selected sublab
-		labStr = labStr.substring(0,labStr.lastIndexOf(','));
-		paraArray = $(labStr);
-		labStr = labStr.replace(new RegExp("para","gm"),"var");
-		varArray = $(labStr);
-		//get data form input, para can't be null
-		paraArray.each(function(){
-			if($(this).hasClass("wrong-input")) wrong_count++;
-			else if(this.value==""){
-				wrong_count++;
-				$(this).addClass("wrong-input");
-			}
-			//else if((new RegExp("(^\\d+(.\\d+)?$)")).test(this.value)==false){error();return false;}
-		})
-		varArray.each(function(){
-			if($(this).hasClass("wrong-input")) wrong_count++;
-			//else if((new RegExp("(^\\d+(.\\d+)?$)|(^$)")).test(this.value)==false){error();return false;}
-		})
-		//check data
-		if(wrong_count==0){
-			$("#lab_table_"+index).modal('toggle');
-			if(labStr!=""){
-				SetDisable('exportBtn',false);
-				SetDisable('collectBtn',false);
-				labDoc3dot1415926.flush();
-			}//when no selected sublab exist, just close modal
+		if(labStr==""){
+			document.getElementById("ErrorText_"+index).innerHTML = "请先选择需要保存数据的子实验（￣▽￣）~*　)";
+			setShowHide("btnError_"+index,"btnSave_"+index,5000);	
 		}
 		else{
-			document.getElementById("ErrorText_"+index).innerHTML = "有"+wrong_count+"处输入不合法，请检查标红输入框";
-			setShowHide("btnError_"+index,"btnSave_"+index,5000);
+			labStr = labStr.substring(0,labStr.lastIndexOf(','));
+			paraArray = $(labStr);
+			labStr = labStr.replace(new RegExp("para","gm"),"var");
+			varArray = $(labStr);
+			//get data form input, para can't be null
+			paraArray.each(function(){
+				if($(this).hasClass("wrong-input")) wrong_count++;
+				else if(this.value==""){
+					wrong_count++;
+					$(this).addClass("wrong-input");
+				}
+				//else if((new RegExp("(^\\d+(.\\d+)?$)")).test(this.value)==false){error();return false;}
+			})
+			varArray.each(function(){
+				if($(this).hasClass("wrong-input")) wrong_count++;
+				//else if((new RegExp("(^\\d+(.\\d+)?$)|(^$)")).test(this.value)==false){error();return false;}
+			})
+			//check data
+			if(wrong_count==0){
+				$("#lab_table_"+index).modal('toggle');
+				if(labStr!=""){
+					SetDisable('exportBtn',false);
+					SetDisable('collectBtn',false);
+					labDoc3dot1415926.flush();
+				}//when no selected sublab exist, just close modal
+			}
+			else{
+				document.getElementById("ErrorText_"+index).innerHTML = "有"+wrong_count+"处输入不合法，请检查标红输入框";
+				setShowHide("btnError_"+index,"btnSave_"+index,5000);
+			}
 		}
 	})	
 	
