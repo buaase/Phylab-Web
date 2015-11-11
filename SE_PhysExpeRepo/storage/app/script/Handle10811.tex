@@ -1,0 +1,125 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[UTF8,adobefonts]{ctex}
+
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{multirow}
+
+\begin{document}
+\section*{五、实验数据处理}
+\subsection*{实验1.激光双棱镜干涉}
+\subsubsection*{(1)原始数据记录}
+
+\begin{center}
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 
+\\ 
+\hline 
+$x_i/mm$
+{% for x in X_10811 -%}
+{% if loop.index <=10 -%}
+&%% x %%
+{%- endif %}
+{%- endfor %}
+\\ 
+\hline 
+i & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 
+\\ 
+\hline 
+$x_i/mm$ 
+{% for x in X_10811 -%}
+{% if loop.index >10 -%}
+&%% x %%
+{%- endif %}
+{%- endfor %}
+\\ 
+\hline 
+\end{tabular} 
+\end{table}
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|c|}
+\hline 
+   & 扩展光源 & 透镜成小像 & 透镜成大像 \\ 
+\hline 
+X/cm 
+{% for x in LIGHT_SMALL_BIG -%}
+&%% x %%
+{% endfor %}
+\\
+\hline 
+\end{tabular} 
+\end{table}
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|c|c|}
+\hline  
+ & \multicolumn{2}{|c|}{b/mm(小像) }& \multicolumn{2}{|c|}{b'/mm(大像)} \\ 
+\hline 
+左 & %% DATA_SMALL[0] %% &%% DATA_SMALL[2] %% & %% DATA_BIG[0] %% & %%DATA_BIG[2] %% \\ 
+\hline 
+右 & %% DATA_SMALL[1] %% &%% DATA_SMALL[3]%% & %%  DATA_BIG[1] %% & %% DATA_BIG[3] %% \\ 
+\hline 
+\end{tabular}
+\end{table}
+\end{center}
+
+\subsubsection*{(2)数据处理}
+用逐差法计算条纹间距${\Delta}x$:
+$$\overline{{\Delta}x} = \displaystyle\frac{\sum\limits_{i=1}^{10}(x_{i+10}-x_i)}{10{\times}10} = %% DELTA_X %%mm$$
+
+计算波长$\lambda$:
+$$\bar{b'} = \displaystyle\frac{b'_\text{正}+b'_\text{反}}{2} = \displaystyle\frac{ (%% DATA_SMALL[0] %%-%% DATA_SMALL[1]%%)+(%% DATA_SMALL[2] %%-%% DATA_SMALL[3] %%)}{2} = %% B_SMALL %%mm$$
+
+$$\bar{b} = \displaystyle\frac{b_\text{正}+b_\text{反}}{2} = \displaystyle\frac{ (%% DATA_BIG[0] %%-%% DATA_BIG[1]%%)+(%% DATA_BIG[2] %%-%% DATA_BIG[3] %%)}{2} = %% B_BIG %%mm$$
+
+$$ S = %% LIGHT_SMALL_BIG[0] %% - %% LIGHT_SMALL_BIG[1] %% = %% S_SMALL %%cm$$
+
+$$ S' = %% LIGHT_SMALL_BIG[0] %% - %% LIGHT_SMALL_BIG[2] %% = %% S_BIG %%cm$$
+
+$$ {\lambda} = \displaystyle\frac{{\Delta}\sqrt{bb'}}{S+S'} = %% LAMDA_LAB %%nm$$
+
+\subsubsection*{(3)不确定度计算}
+${\triangle}x$的不确定度：
+
+$10{\triangle}x$的A类不确定度：
+$$u_a(10{\triangle}x) = \sqrt{\displaystyle\frac{\sum\limits_{i=1}^{10} (10{{\triangle}x}_i-{10\overline{{\triangle}x}})^2}{10{\times}(10-1)}} = %% UA_10DELTA_X %%mm$$
+$10{\triangle}x$的B类不确定度：
+$$u_b({10{\triangle}x})=\displaystyle\frac{\bigtriangleup\text{仪}}{\sqrt{3}}
+= \frac{0.01}{2{\times}\sqrt{3}} = 0.00289mm$$
+$10{\triangle}x$的不确定度：
+$$u(10{\triangle}x)=\sqrt{{u_a(10{\triangle}x}^2)+{u_b(10{\triangle}x}^2)} = %% U_10DELTA_X %%mm$$
+${\triangle}x$的不确定度：
+$${\therefore}u({\triangle}x) = \displaystyle\frac{u(10{\triangle}x)}{10} = %% U_DELTA_X %%mm$$
+
+$$ \displaystyle\frac{{\Delta}b}{b} = \displaystyle\frac{{\Delta}b'}{b} = 0.025 $$
+
+$b'$的不确定度：
+$$ u(b') = \displaystyle\frac{ %% B_SMALL %%{\times}0.025}{\sqrt{3}} =%% U_B1 %%mm$$
+b的不确定度：
+$$ u(b) = \displaystyle\frac{ %% B_BIG %%{\times}0.025}{\sqrt{3}} =%% U_B2 %%mm$$
+S的不确定度：
+$${\Delta}S = {\Delta}S' = 0.5cm$$
+$$ u(S+S') = \sqrt{2} {\times} 0.289 = 0.409cm$$
+
+不确定度的合成：
+$$ \ln{\lambda} = \ln{{\Delta}x}+ \displaystyle\frac{1}{2}(\ln{b}+\ln{b'}) - \ln(S+S')$$
+
+$$\displaystyle\frac{\ln{\lambda}}{\lambda} = \displaystyle\frac{\ln{\Delta}x}{{\Delta}x}+\displaystyle\frac{1}{2}(\displaystyle\frac{\ln{b}}{b}+\displaystyle\frac{\ln{b'}}{b'}) - \displaystyle\frac{\ln{(S+S')}}{S+S'} $$
+
+$$\displaystyle\frac{u({\lambda})}{\lambda} = \sqrt{ [{\frac{u({\Delta}x)}{{\Delta}x}}]^2+\frac{1}{4}[{\frac{u(b)}{b}}]^2 +\frac{1}{4}[{\frac{u(b')}{b'}}]^2 + [\frac{u(S+S')}{S+S'}]^2   } = %% RE_LAMDA %%$$
+
+$$ u({\lambda}) = %% U_LAMDA %% nm$$
+最终结果为：
+$$ {\lambda}{\pm}{u({\lambda})} = %% RESULT_LAMDA %% {\pm} %% RESULT_U_LAMDA %% nm $$
+
+\end{document}
