@@ -68,7 +68,7 @@ var labDoc3dot1415926;
 	}	
 	function SelectLab(index,ref){
 		var lt = document.getElementById(ref);
-			if((new RegExp("^10(11|12|21|22|31|41|42|51|61|62|71|81|82|91)$")).test(index)){
+			if((new RegExp("^10(11|21|31|41|61|71|81|82|91)$")).test(index)){
 				labDoc3dot1415926 = new lab(index);
 				lt.innerHTML = index;
 				return true;
