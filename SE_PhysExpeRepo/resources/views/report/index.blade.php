@@ -842,44 +842,38 @@
 						<tr>
 							<th></th>
 							<th>光源(mm)</th>
-							<th>光屏(mm)</th>
-							<th>凸透镜1(mm)</th>
-							<th>凸透镜2(mm)</th>
+							<th>凸透镜正(mm)</th>
+							<th>凸透镜反(mm)</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>1</td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="光源距离1" id="z_guangyuan1" ></td>
-							<td><input class="para 1061_2 form-control" type="text" aria-label="光屏距离1" id="z_guangping1" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜一距离1" id="z_tutoujing11" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜二距离1" id="z_tutoujing21" ></td>
 						</tr>
 						<tr>
 							<td>2</td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="光源距离2" id="z_guangyuan2" ></td>
-							<td><input class="para 1061_2 form-control" type="text" aria-label="光屏距离2" id="z_guangping2" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜一距离2" id="z_tutoujing12" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜二距离2" id="z_tutoujing22" ></td>
 						</tr>
 						<tr>
 							<td>3</td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="光源距离3" id="z_guangyuan3" ></td>
-							<td><input class="para 1061_2 form-control" type="text" aria-label="光屏距离3" id="z_guangping3" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜一距离3" id="z_tutoujing13" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜二距离3" id="z_tutoujing23" ></td>
 						</tr>
 						<tr>
 							<td>4</td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="光源距离4" id="z_guangyuan4" ></td>
-							<td><input class="para 1061_2 form-control" type="text" aria-label="光屏距离4" id="z_guangping4" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜一距离4" id="z_tutoujing14" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜二距离4" id="z_tutoujing24" ></td>
 						</tr>
 						<tr>
 							<td>5</td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="光源距离5"  id="z_guangyuan5" ></td>
-							<td><input class="para 1061_2 form-control" type="text" aria-label="光屏距离5" id="z_guangping5" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜一距离5" id="z_tutoujing15" ></td>
 							<td><input class="para 1061_2 form-control" type="text" aria-label="透镜二距离5" id="z_tutoujing25" ></td>
 						</tr>
