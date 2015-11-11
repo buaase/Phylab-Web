@@ -24,7 +24,7 @@ class PhylabAuthController extends Controller {
                 'password' => 'required'
             );
         $validatorAttributes = array(
-                'email'  => '邮箱',
+                'email'  => '邮箱或用户名',
                 'password' => '密码'
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
