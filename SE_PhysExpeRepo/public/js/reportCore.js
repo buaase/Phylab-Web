@@ -102,7 +102,6 @@ var labDoc3dot1415926;
 	}
 	function exportBtnClick(){
 		eleDisable();
-		$('#lab_collapse').collapse('hide');
 		try{
 			Post_lab(errorFunction);
 		}catch(e){
@@ -224,6 +223,7 @@ var labDoc3dot1415926;
 		var xmlString = labDoc3dot1415926.getXML();
 		var dbId = labDoc3dot1415926.getDbId();
 		var postData = "xml="+encodeURI(xmlString)+"&id="+dbId;
+		$('#lab_collapse').collapse('hide');
 		PostAjax("/report",postData,function(){
 			if (this.readyState==4 && this.status==200){
 				var jsonText = eval("(" + this.responseText + ")");
