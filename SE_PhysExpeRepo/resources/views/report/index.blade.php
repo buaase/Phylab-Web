@@ -248,7 +248,7 @@
     			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<ul class="nav nav-tabs" role="tablist">
 					<li role="presentation"><h4><span class="label label-danger">&nbsp 1021&nbsp </span> &nbsp </h4></li>
-					<li role="presentation" class="active"><a href="#lab_1021_1" aria-controls="实验一 测量冰的溶解热" role="tab" data-toggle="tab">Lab1&nbsp测量冰的溶解热</a></li>
+					<li role="presentation" class="active"><a href="#lab_1021_1" aria-controls="实验一 测量冰的熔解热" role="tab" data-toggle="tab">Lab1&nbsp测量冰的熔解热</a></li>
 					<li role="presentation"><a href="#lab_1021_2" aria-controls="实验二 焦尔法测量热功当量" role="tab" data-toggle="tab">Lab2&nbsp焦耳法测量热功当量</a></li>
 				</ul>
 			</div>
