@@ -102,6 +102,7 @@ var labDoc3dot1415926;
 	}
 	function exportBtnClick(){
 		eleDisable();
+		$('#lab_collapse').collapse('hide');
 		try{
 			Post_lab(errorFunction);
 		}catch(e){
@@ -234,7 +235,6 @@ var labDoc3dot1415926;
 					$('#LabStatus')[0].innerHTML = "数据";
 					eleReset();
 					SetDisable('collectBtn',false);
-					$('#lab_collapse').collapse('hide');
 				}
 				else{
 					eleReset();
