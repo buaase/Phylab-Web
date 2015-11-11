@@ -103,11 +103,14 @@ var labDoc3dot1415926;
 	function exportBtnClick(){
 		eleDisable();
 		try{
-			Post_lab(errorFunction);
+			$('#lab_collapse').collapse('hide');
+			$('#loading-container').fadeIn();
+			setTimeout('Post_lab(errorFunction)',1000+Math.random()*2000); 
 		}catch(e){
 			error();
 		}
 	}
+	
 	function errorFunction(message){
 		alert(message);
 	}	
@@ -192,7 +195,6 @@ var labDoc3dot1415926;
 				$("#lab_table_"+index).modal('toggle');
 				if(labStr!=""){
 					SetDisable('exportBtn',false);
-					SetDisable('collectBtn',false);
 					labDoc3dot1415926.flush();
 				}//when no selected sublab exist, just close modal
 			}
@@ -223,7 +225,6 @@ var labDoc3dot1415926;
 		var xmlString = labDoc3dot1415926.getXML();
 		var dbId = labDoc3dot1415926.getDbId();
 		var postData = "xml="+encodeURI(xmlString)+"&id="+dbId;
-		$('#lab_collapse').collapse('hide');
 		PostAjax("/report",postData,function(){
 			if (this.readyState==4 && this.status==200){
 				var jsonText = eval("(" + this.responseText + ")");
@@ -232,18 +233,21 @@ var labDoc3dot1415926;
 				if(jsonText["status"]=='success'){
 					changePdf('tmp',jsonText['link']);
 					$('#collectBtn').attr('link',jsonText['link']);
-					$('#LabStatus')[0].innerHTML = "数据";
+					$('#loading-container').fadeOut();
 					eleReset();
+					$('#LabStatus')[0].innerHTML = "数据";
 					SetDisable('collectBtn',false);
 				}
 				else{
-					eleReset();
 					postErrorFunc(jsonText["message"]);
+					$('#loading-container').fadeOut();
+					eleReset();
 				}
 			}
 			else if(this.readyState==4 && this.status!=200){
-				eleReset();
 				postErrorFunc("生成报告失败");
+				$('#loading-container').fadeOut();
+				eleReset();
 			}
 		});
 	}
