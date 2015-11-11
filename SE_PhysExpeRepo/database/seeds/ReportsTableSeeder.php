@@ -18,7 +18,7 @@ class ReportsTableSeeder extends Seeder{
             "prepare_link"  =>  "1021.pdf"
             ]);
         Report::create([
-            "script_link" => null,
+            "script_link" => "1061.py",
             "experiment_id" => 1061,
             "experiment_name" =>"薄透镜和单球面镜焦距的测量",
             "prepare_link"  =>  "1061.pdf"
@@ -30,7 +30,7 @@ class ReportsTableSeeder extends Seeder{
             "prepare_link"  =>  "1071.pdf"
             ]);
         Report::create([
-            "script_link" => null,
+            "script_link" => "1081.py",
             "experiment_id" => 1081,
             "experiment_name" =>"光的干涉实验 1(分波面法)",
             "prepare_link"  =>  "1061.pdf"
@@ -52,7 +52,7 @@ class ReportsTableSeeder extends Seeder{
             "experiment_id" => 1082,
             "experiment_name" =>"光的干涉实验 1(分波面法) 钠光双棱镜干涉",
             "prepare_link"  =>  "1082.pdf"
-            ]);
+            ]);        
 
     }
 }
