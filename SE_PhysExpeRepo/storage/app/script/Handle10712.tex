@@ -1,0 +1,72 @@
+\subsection*{实验3.最小偏向角法测量棱镜的折射率}
+\subsubsection*{(1)原始数据记录表格}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{2}{|c|}{次数} & 1 & 2 & 3 & 4 & 5 \\ 
+\hline 
+\multirow{2}{*}{\text{入射角}}
+& ${\alpha}_1$ 
+{% for a in ANGLE_A1_MIN %}
+& %% a.angle %%$^{\circ}$%% a.minus %%'
+{%- endfor %}
+\\  
+\cline{2-7}
+& ${\beta}_1$ 
+{% for a in ANGLE_B1_MIN %}
+& %% a.angle %%$^{\circ}$%% a.minus %%'
+{%- endfor %}
+\\ 
+\hline 
+\multirow{2}{*}{\text{折射角}}
+& ${\alpha}_2$ 
+{% for a in ANGLE_A2_MIN %}
+& %% a.angle %%$^{\circ}$%% a.minus %%'
+{%- endfor %} 
+\\ 
+\cline{2-7}
+& ${\beta}_2$ 
+{% for a in ANGLE_B2_MIN %}
+& %% a.angle %%$^{\circ}$%% a.minus %%'
+{%- endfor %} 
+\\ 
+\hline 
+\multicolumn{2}{|c|}{${\delta}_{min}$} 
+{% for a in ANGLE_DELTA_MIN %}
+& %% a.angle %%$^{\circ}$%% a.minus %%'
+{%- endfor %}\\ 
+\hline 
+\end{tabular} 
+\end{center}
+\vspace{10pt}
+
+\begin{center}
+${\delta}_{min}$是最小偏向角，且有${\delta}_{min}$ = $\displaystyle\frac{1}{2}[({\alpha}_2-{\alpha_1})+({\beta}_2-{\beta}_1)]$
+\end{center}
+
+${\delta}_{min}$的平均值为：$$\bar{{\delta}_{min}}=\displaystyle\frac{1}{5}\sum\limits_{i=1}^{5}{{\delta}_{min}}=%% AVERAGE_MIN %%rad$$
+
+$$ n_1=\displaystyle\frac{\sin{\displaystyle\frac{{\delta}_{min}+A}{2}}}{\sin{\displaystyle\frac{A}{2}}} = \displaystyle\frac{\sin{\displaystyle\frac{ %% AVERAGE_A %% + %% AVERAGE_MIN %% }{2}}}{\sin{\displaystyle\frac{ %% AVERAGE_A %% }{2}}} = %% N1 %% $$
+
+\subsubsection*{(2)不确定度的计算}
+${\delta}_{min}$的A类不确定度：
+$$u_a({\delta}_{min}) = \sqrt{\displaystyle\frac{\sum\limits_{i=1}^{5}({\delta}_{min}-\bar{{\delta}_{min}})}{5{\times}(5-1)}^2 } = %% UA_MIN %% $$
+
+${\delta}_{min}$的B类不确定度：
+$$u_b({\delta}_{min})=\displaystyle\frac{\bigtriangleup\text{仪}}{\sqrt{3}}
+= \frac{1'}{\sqrt{3}} = \frac{\pi}{180\times60\times\sqrt{3}} = 1.6794 \times 10^{-4} $$
+
+${\delta}_{min}$的不确定度：
+$$u({\delta}_{min}) = \sqrt{u^2_a({\delta}_{min})+u^2_b({\delta}_{min})} = %% U_MIN %%$$
+
+$$u(A) = %% U_A %% $$
+
+$$u(n_1) = \sqrt{(\displaystyle\frac{{\partial}n_1}{{\partial}{\delta}_{min}})^2{\times}u^2({\delta}_{min})+(\displaystyle\frac{{\partial}n_1}{{\partial}A})^2u^2(A)} = %% U_N1 %% $$
+
+相对不确定度：
+$$\displaystyle\frac{u(n_1)}{n_1} = %% RE_U_MIN %%$$
+
+最终结果:
+$${n_1}{\pm}u({n_1}) = %% RESULT_N1 %% {\pm} %% RESULT_U_N1 %% $$
