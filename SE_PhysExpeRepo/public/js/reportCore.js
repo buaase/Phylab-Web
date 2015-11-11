@@ -32,6 +32,9 @@ var labDoc3dot1415926;
 			document.getElementById('chrom_pdf').style.display='block';
 			cp('./prepare_pdf/phylab_test.pdf');
 		}
+		$('#lab_collapse').collapse({
+			toggle: false
+		})
 	}	
 	function eleDisable(){
 		SetDisable('importBtn',true);
@@ -44,6 +47,11 @@ var labDoc3dot1415926;
 		SetDisable('importBtn',false);
 		SetDisable('collectBtn',true);
 		SetDisable('exportBtn',true);
+	}
+	function eleReset(){
+		SetDisable('selectBtn',false);
+		SetDisable('importBtn',false);
+		SetDisable('InputLabIndex',false);
 	}
 	function collectLab(ico_id,txt_id){
 		var ico = document.getElementById(ico_id);
@@ -223,15 +231,18 @@ var labDoc3dot1415926;
 				if(jsonText["status"]=='success'){
 					changePdf('tmp',jsonText['link']);
 					$('#collectBtn').attr('link',jsonText['link']);
-					$('#LabStatus')[0].innerHTML = "终版";
-					eleEnable();
+					$('#LabStatus')[0].innerHTML = "数据";
+					eleReset();
 					SetDisable('collectBtn',false);
+					$('#lab_collapse').collapse('hide');
 				}
 				else{
+					eleReset();
 					postErrorFunc(jsonText["message"]);
 				}
 			}
 			else if(this.readyState==4 && this.status!=200){
+				eleReset();
 				postErrorFunc("生成报告失败");
 			}
 		});

@@ -614,34 +614,29 @@ function SetXMLDoc_lab(labnum){
 				"</table>"+
 			"</sublab>"+
 			"<sublab id=\"10612\" status=\""+document.getElementById('check_1061_2').checked+"\">"+
-				"<table name=\"10612_1\" raw=\"5\" column=\"5\">"+
+				"<table name=\"10612_1\" raw=\"5\" column=\"4\">"+
 					"<tr index=\"1\">"+
 						"<td>"+document.getElementById('z_guangyuan1').value+"</td>"+
-						"<td>"+document.getElementById('z_guangping1').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing11').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing21').value+"</td>"+
 					"</tr>"+
 					"<tr index=\"2\">"+
 						"<td>"+document.getElementById('z_guangyuan2').value+"</td>"+
-						"<td>"+document.getElementById('z_guangping2').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing12').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing22').value+"</td>"+
 					"</tr>"+
 					"<tr index=\"3\">"+
 						"<td>"+document.getElementById('z_guangyuan3').value+"</td>"+
-						"<td>"+document.getElementById('z_guangping3').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing13').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing23').value+"</td>"+
 					"</tr>"+
 					"<tr index=\"4\">"+
 						"<td>"+document.getElementById('z_guangyuan4').value+"</td>"+
-						"<td>"+document.getElementById('z_guangping4').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing14').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing24').value+"</td>"+
 					"</tr>"+
 					"<tr index=\"5\">"+
 						"<td>"+document.getElementById('z_guangyuan5').value+"</td>"+
-						"<td>"+document.getElementById('z_guangping5').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing15').value+"</td>"+
 						"<td>"+document.getElementById('z_tutoujing25').value+"</td>"+
 					"</tr>"+
@@ -651,21 +646,21 @@ function SetXMLDoc_lab(labnum){
 				"<table name=\"10613_1\" raw=\"3\" column=\"5\">"+
 					"<tr index=\"1\">"+
 						"<td>"+document.getElementById('wa_guangyuan1').value+"</td>"+
-						"<td>"+document.getElementById('wa_guangping1').value+"</td>"+
 						"<td>"+document.getElementById('wa_tutoujing11').value+"</td>"+
 						"<td>"+document.getElementById('wa_tutoujing21').value+"</td>"+
+						"<td>"+document.getElementById('wa_guangping1').value+"</td>"+
 					"</tr>"+
 					"<tr index=\"2\">"+
-						"<td>"+document.getElementById('wa_guangyuan2').value+"</td>"+
 						"<td>"+document.getElementById('wa_guangping2').value+"</td>"+
 						"<td>"+document.getElementById('wa_tutoujing12').value+"</td>"+
 						"<td>"+document.getElementById('wa_tutoujing22').value+"</td>"+
+						"<td>"+document.getElementById('wa_guangyuan2').value+"</td>"+
 					"</tr>"+
 					"<tr index=\"3\">"+
-						"<td>"+document.getElementById('wa_guangyuan3').value+"</td>"+
 						"<td>"+document.getElementById('wa_guangping3').value+"</td>"+
 						"<td>"+document.getElementById('wa_tutoujing13').value+"</td>"+
 						"<td>"+document.getElementById('wa_tutoujing23').value+"</td>"+
+						"<td>"+document.getElementById('wa_guangyuan3').value+"</td>"+
 					"</tr>"+
 				"</table>"+
 			"</sublab>"+
