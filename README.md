@@ -1,17 +1,23 @@
-# Phylab-Web
+# Overview
+
+本项目旨在为全国高校的物理实验提供自动计算与报告生成的自动化计算功能，欢迎广大开源爱好者参与。
+
+我们的网站是：[Phylab](http://121.42.204.94)
+
+# Docs
+
+- [技术规格说明](https://github.com/buaase/Phylab-Web/blob/master/docs/Back-end-frame.md)
+- [需求规格说明](https://github.com/buaase/Phylab-Web/blob/master/docs/Require-Specification.md)
+- [用户需求分析](https://github.com/buaase/Phylab-Web/blob/master/docs/User-needs.md)
+- [团队编码规范](https://github.com/buaase/Phylab-Web/blob/master/docs/PSR-SE.md)
+- [用户界面原型](https://github.com/buaase/Phylab-Web/blob/master/docs/User-Interface.md)
 
 
-## 文档目录
+# ChangeLog
 
-- [技术规格说明书](https://github.com/buaase/Phylab-Web/blob/master/docs/Back-end-frame.md)
-- [需求规格说明书](https://github.com/buaase/Phylab-Web/blob/master/docs/Require-Specification.md)
-- [用户需求分析文档](https://github.com/buaase/Phylab-Web/blob/master/docs/User-needs.md)
-- [团队编码规范文档](https://github.com/buaase/Phylab-Web/blob/master/docs/PSR-SE.md)
-- [用户界面原型设计](https://github.com/buaase/Phylab-Web/blob/master/docs/User-Interface.md)
 
-##更新日志
-
-v1.0.2（11.12）
+## Build 1.02
+**Release Date: 12 November 2015**
 - 增加了LOADING动画，点击生成报告后实验选择框会隐藏
 - 延迟POST实验数据，延迟时间暂定为1000+2000*random() ms
 - 新的英文字体已经可以使用
@@ -23,8 +29,8 @@ v1.0.2（11.12）
 - 收藏夹模态框排版优化
 - 1061和1081的实验数据处理已经成功完成，等待上线
 
-
-v1.0.1（11.11）
+## Build 1.01
+**Release Date: 11 November 2015**
 - 调整了首页底色为深色
 - 首页响应式布局修正，移动设备上显示为图片并列效果
 - 调整了图片尺寸，16:9高清屏下全屏浏览模式下不会出现滚动条和留白了
