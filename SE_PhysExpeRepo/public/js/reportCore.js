@@ -68,7 +68,7 @@ var labDoc3dot1415926;
 	}	
 	function SelectLab(index,ref){
 		var lt = document.getElementById(ref);
-			if((new RegExp("^10(11|12|21|22|31|41|42|51|61|62|71|81|82|91)$")).test(index)){
+			if((new RegExp("^10(11|21|31|41|61|71|81|82|91)$")).test(index)){
 				labDoc3dot1415926 = new lab(index);
 				lt.innerHTML = index;
 				return true;
@@ -103,11 +103,15 @@ var labDoc3dot1415926;
 	function exportBtnClick(){
 		eleDisable();
 		try{
-			Post_lab(errorFunction);
+			$('#lab_collapse').collapse('hide');
+			$('#loading-container').fadeIn();
+			setTimeout('Post_lab(errorFunction)',1000+Math.random()*2000); 
 		}catch(e){
+			$('#loading-container').fadeOut();
 			error();
 		}
 	}
+	
 	function errorFunction(message){
 		alert(message);
 	}	
@@ -192,7 +196,6 @@ var labDoc3dot1415926;
 				$("#lab_table_"+index).modal('toggle');
 				if(labStr!=""){
 					SetDisable('exportBtn',false);
-					SetDisable('collectBtn',false);
 					labDoc3dot1415926.flush();
 				}//when no selected sublab exist, just close modal
 			}
@@ -231,19 +234,21 @@ var labDoc3dot1415926;
 				if(jsonText["status"]=='success'){
 					changePdf('tmp',jsonText['link']);
 					$('#collectBtn').attr('link',jsonText['link']);
-					$('#LabStatus')[0].innerHTML = "数据";
+					$('#loading-container').fadeOut();
 					eleReset();
+					$('#LabStatus')[0].innerHTML = "数据";
 					SetDisable('collectBtn',false);
-					$('#lab_collapse').collapse('hide');
 				}
 				else{
-					eleReset();
 					postErrorFunc(jsonText["message"]);
+					$('#loading-container').fadeOut();
+					eleReset();
 				}
 			}
 			else if(this.readyState==4 && this.status!=200){
-				eleReset();
 				postErrorFunc("生成报告失败");
+				$('#loading-container').fadeOut();
+				eleReset();
 			}
 		});
 	}

@@ -153,7 +153,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-bottom" style="min-height:20px;">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right"  style="padding-top:0.25%;">
-                <li class="text-white" style="float:right;opacity:0.7;font-size:13px">Developed By BUAA-SCSE 软件攻城队&nbsp &nbsp &nbsp &nbsp &nbsp </li>
+                <li class="text-white ch" style="float:right;opacity:0.7;font-size:13px">Developed By BUAA-SCSE 软件攻城队&nbsp &nbsp &nbsp &nbsp &nbsp </li>
             </ul>
         </div>
     </nav>

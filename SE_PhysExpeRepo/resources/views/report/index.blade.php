@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/seven-style.css">
 	<link rel="stylesheet" href="./css/mystyle.css">
+	<link rel="stylesheet" href="./css/loading.css">
 </head>
 <body onload="check()">
 <div class="modal fade" id="lab_table_1011">
@@ -247,7 +248,7 @@
     			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<ul class="nav nav-tabs" role="tablist">
 					<li role="presentation"><h4><span class="label label-danger">&nbsp 1021&nbsp </span> &nbsp </h4></li>
-					<li role="presentation" class="active"><a href="#lab_1021_1" aria-controls="实验一 测量冰的溶解热" role="tab" data-toggle="tab">Lab1&nbsp测量冰的溶解热</a></li>
+					<li role="presentation" class="active"><a href="#lab_1021_1" aria-controls="实验一 测量冰的熔解热" role="tab" data-toggle="tab">Lab1&nbsp测量冰的熔解热</a></li>
 					<li role="presentation"><a href="#lab_1021_2" aria-controls="实验二 焦尔法测量热功当量" role="tab" data-toggle="tab">Lab2&nbsp焦耳法测量热功当量</a></li>
 				</ul>
 			</div>
@@ -2019,6 +2020,15 @@
 						<button class="btn btn-lg btn-info btn-block" type="submit" id="exportBtn" disabled="disabled" onclick="exportBtnClick()"><span class="glyphicon glyphicon-download-alt"></span>&nbsp生成报告</button>
 					</div>
 				</div>
+				<div class="row" id="loading-container" style="padding-top:30px;display:none;">
+					<ul class="loading-spinner">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<h3 style="text-align:center;font-color:#233">LOADING</h3>
+				</div>
 				<br/><br/>
 			</div>
 			<div class="col-md-9" style="padding-left:30px;height:82%;">
@@ -2053,7 +2063,7 @@
 	<nav class="navbar navbar-inverse navbar-fixed-bottom" style="min-height:20px;">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav navbar-right text-ch"  style="padding-top:0.25%;">
-				<li class="text-white text-ch" style="float:right;opacity:0.7;font-size:13px">Developed By BUAA-SCSE 软件攻城队&nbsp &nbsp &nbsp &nbsp &nbsp </li>
+				<li class="text-white ch" style="float:right;opacity:0.7;font-size:13px">Developed By BUAA-SCSE 软件攻城队&nbsp &nbsp &nbsp &nbsp &nbsp </li>
 			</ul>
 		</div>
 	</nav>
