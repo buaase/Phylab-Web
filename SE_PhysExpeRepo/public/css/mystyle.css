@@ -20,14 +20,16 @@ body{
 	font-family:"Montserrat","Microsoft Yahei";
 }
 img {
-	border-width: 0px 0px 0px 0px
+	border-width: 0px 0px 0px 0px;
+	border:0;
 }
 span{
 	font-family:"Microsoft Yahei";
 }
 a{
 	color:#808080;
-	border:none;
+	border-width: 0px 0px 0px 0px;
+	border:0;
 }
 a:hover
 {
@@ -73,7 +75,14 @@ hr{
 	margin:0px;
 	text-align:left;
 }
-
+@media (max-width: 970px) {
+	.login-alert {
+		text-align:right;
+		padding:5px;
+		height:30px;
+		margin-top:5px;
+	}
+}
 
 .login-success{
 	height:40px;
@@ -82,7 +91,14 @@ hr{
 	margin:0px;
 	text-align:left;
 }
-
+@media (max-width: 970px) {
+	.login-success {
+		text-align:right;
+		padding-top:5px;
+		padding-right:30px;
+		height:15px;
+	}
+}
 .img-responsive-mobile{
 	display: block;
 	max-height: 100%;
