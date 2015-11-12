@@ -176,3 +176,14 @@
     top: 50%; }
 .check-ios:checked + label {
   left: 25px; }
+
+.login-wrapper {
+	padding-top:10px;
+    max-width: 90%;
+    margin: 0 auto;
+	text-align: center;
+}@media (max-width: 720px) {
+	.login-wrapper {
+		max-width : 80%;
+	}
+}
