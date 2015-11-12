@@ -14,16 +14,9 @@
 
 }
 
-@font-face {
-  font-family: 'Hiragino Sans GB';
-  src: local('Hiragino Sans GB-Regular'),
-	   local('Hiragino Sans GB'),
-	   url('../font/Hiragino Sans GB W3.otf') format('opentype');
-}
-
 body{
 	background-color:#e4e4e4;
-	font-family:"montserrat","Hiragino Sans GB","Arial","Microsoft Yahei";
+	font-family:"montserrat","Arial","Microsoft Yahei";
 }
 
 img {
