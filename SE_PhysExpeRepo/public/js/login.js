@@ -11,13 +11,21 @@
                 window.location.href="/index";
             }
             else{
-                $('#errorMessage').text("&nbsp "+jsonText["message"]);
+                $('#errorMessage').text(jsonText["message"]);
                 $('#loginAlert').show();
             }
         }
         else if(this.readyState==4 && this.status!=200){
             var jsonText = eval("(" + this.responseText + ")");
-            $('#errorMessage').text(jsonText["message"]);
+            if(jsonText["code"]==904){
+                $('#errorMessage').text(" 账号或密码不能为空");
+            }
+            else if(jsonText["code"]==101){
+                $('#errorMessage').text(" 用户名或密码错误");
+            }
+            else{
+                $('#errorMessage').text(" 未知错误");
+            }
             $('#loginAlert').show();
         }
     });
