@@ -1,30 +1,30 @@
 /* latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat-Regular'), url('../fonts/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-/* latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Montserrat-Bold'), url('../fonts/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    font-family: 'montserrat';
+    src: url('../font/montserrat-regular-webfont.eot');
+    src: local('montserrat-Regular'),
+		 local('montserrat'),
+		 url('../font/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../font/montserrat-regular-webfont.woff') format('woff'),
+         url('../font/montserrat-regular-webfont.ttf') format('truetype'),
+         url('../font/montserrat-regular-webfont.svg#montserrat') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 body{
 	background-color:#e4e4e4;
-	font-family:"Montserrat","Microsoft Yahei";
+	font-family:"montserrat","Lucida Grande","Hiragino Sans GB","Arial:","Microsoft YaHei","STXihei";
 }
+
 img {
 	border-width: 0px 0px 0px 0px;
 	border:0;
 }
 span{
-	font-family:"Microsoft Yahei";
+	font-family:"Hiragino Sans GB","Microsoft YaHei","STXihei";
 }
 a{
 	color:#808080;
@@ -41,7 +41,7 @@ hr{
 	border-top:2px solid #808080;
 }
 .ch{
-	font-family:"Microsoft Yahei";
+	font-family:"Hiragino Sans GB","Microsoft YaHei","STXihei";
 }
 .no-decoration > tr > td > a
 {

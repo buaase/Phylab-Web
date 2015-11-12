@@ -144,8 +144,8 @@
 			<a href="##" data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else onclick="window.location.href='{{URL::route('report')}}'"@endif><img class="img-responsive" src="./img/quantumislam.jpg" alt=""></img></a>
 		</div>
 		<div>
-			<a href="##" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');"><img class="img-responsive" src="./img/format2.jpg" alt=""></img></a>
-			<p onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=696b1441fb818e845d04c16e329e0e753e1659e0b07676fdc45dad02b506f1a2','_blank');" class="Title" style="position:relative;bottom:50px;text-align:center;">—— Join PhyLab Community ——</p>
+			<a href="##" onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=66a700596900ff2f3f2dbe90ae35c2dcb4f769951a9275014add22bf9c2bbaae','_blank');"><img class="img-responsive" src="./img/format2.jpg" alt=""></img></a>
+			<p onclick="window.open('http://shang.qq.com/wpa/qunwpa?idkey=66a700596900ff2f3f2dbe90ae35c2dcb4f769951a9275014add22bf9c2bbaae','_blank');" class="Title" style="position:relative;bottom:50px;text-align:center;">—— Join PhyLab Community ——</p>
 		</div>
 	</div>
 </div> 
