@@ -1164,23 +1164,23 @@
 					<table class="table table-condensed table-hover table-striped" id="table1081_jiguangshuangleng1">
 					<thead>
 						<tr>
-							<td colspan="5"><span class="badge">仪器位置(mm)</span></td>
+							<td colspan="5"><span class="badge">仪器位置(cm)</span></td>
 						</tr>
 						<tr>
 							<th><label for="1081_kuoshu">扩束镜K</label></th>
 							<th><label for="1081_shuangleng">双棱镜B</label></th>
-							<th><label for="1081_guangyuan">光源s</label></th>
-							<th><label for="1081_xiaoxiang">小像S</label></th>
-							<th><label for="1081_daxiang">大像S1</label></th>
+							<th><label for="1081_guangyuan">测微目镜E</label></th>
+							<th><label for="1081_xiaoxiang">小像L2</label></th>
+							<th><label for="1081_daxiang">大像L1</label></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><input class="para 1081_1 form-control" type="text" aria-label="扩束镜K位置" id="1081_kuoshu" ></td>
 							<td><input class="para 1081_1 form-control" type="text" aria-label="双棱镜B位置" id="1081_shuangleng" ></td>
-							<td><input class="para 1081_1 form-control" type="text" aria-label="光源s位置" id="1081_guangyuan" ></td>
-							<td><input class="para 1081_1 form-control" type="text" aria-label="小像S位置" id="1081_xiaoxiang" ></td>
-							<td><input class="para 1081_1 form-control" type="text" aria-label="大像S1位置" id="1081_daxiang" ></td>
+							<td><input class="para 1081_1 form-control" type="text" aria-label="测微目镜E位置" id="1081_guangyuan" ></td>
+							<td><input class="para 1081_1 form-control" type="text" aria-label="小像L2位置" id="1081_xiaoxiang" ></td>
+							<td><input class="para 1081_1 form-control" type="text" aria-label="大像L1位置" id="1081_daxiang" ></td>
 						</tr>
 					</tbody>
 					</table>
