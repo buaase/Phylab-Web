@@ -124,7 +124,7 @@ def readXml10811(item):
     table_1 = tablelist[0]
     datalist = table_1.getElementsByTagName('td')
     #获取光源及小像大像位置
-    data_x = (float(datalist[2].firstChild.nodeValue),float(datalist[3].firstChild.nodeValue), float(datalist[4].firstChild.nodeValue))
+    data_x = (float(datalist[0].firstChild.nodeValue),float(datalist[3].firstChild.nodeValue), float(datalist[4].firstChild.nodeValue))
     LIGHT_SMALL_BIG  = (float(datalist[2].firstChild.nodeValue),float(datalist[3].firstChild.nodeValue),float(datalist[4].firstChild.nodeValue))
 
     table_2 = tablelist[1]
@@ -157,9 +157,9 @@ def cal_delta_X10811(X):
     sum=0
     for x in range(len(X)/2):
         sum+=X[x+len(X)/2]-X[x]
-    delta_x=sum/(len(X)/2)**2
+    delta_x=abs(sum/(len(X)/2)**2)
     #大写常量作为格式化后要打印在tex文件里的数
-    DELTA_X = ToScience(delta_x)
+    DELTA_X = ToScience(abs(delta_x))
     #计算不确定度
     sum=0
     for x in range(len(X)/2):
@@ -196,13 +196,13 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
     B_SMALL = ToScience(avg_b1)
     B_BIG = ToScience(avg_b2)
 
-    s1=x[0]-x[1]
-    S_SMALL = ToScience(s1)
+    s1=abs(x[0]-x[1])
+    S_SMALL = ToScience(abs(s1))
 
-    s2=x[0]-x[2]
-    S_BIG = ToScience(s2)
+    s2=abs(x[0]-x[2])
+    S_BIG = ToScience(abs(s2))
 
-    lab=1000000*delta_x*math.sqrt(avg_b1*avg_b2)/(s1+s2)/10
+    lab=abs(1000000*delta_x*math.sqrt(avg_b1*avg_b2)/(s1+s2)/10)
     LAMDA_LAB = ToScience(lab)
 
     #计算不确定度
@@ -217,7 +217,7 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
     u_lab=math.sqrt((u_delta_x/delta_x)**2+1/4*(u_b1/avg_b1)**2+1/4*(u_b2/avg_b2)**2+(u_s1s2/(s1+s2))**2)
     RE_LAMDA = ToScience(u_lab)
 
-    u_lamda = lab * u_lab
+    u_lamda = abs(lab * u_lab)
     U_LAMDA = ToScience(u_lamda)
 
     Result = BitAdapt(lab,u_lamda)
@@ -255,14 +255,14 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
 def ReadXmlTop():
     #´ò¿ªÍ³Ò»µÄÍ·ÎÄ¼þÄ£°æ
     global source_10711
-    latex_head_file = open('Head.tex','r')
+    latex_head_file = open('/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Head.tex','r')
     latex_head = latex_head_file.read().decode('utf-8', 'ignore')
     latex_tail = "\n\\end{document}"
     latex_body = ""
 
     #sys.argv[1]里放的是1081.xml
     #dom = xml.dom.minidom.parse(sys.argv[1])
-    dom = xml.dom.minidom.parse('1081.xml')
+    dom = xml.dom.minidom.parse(sys.argv[1]+'.xml')
     root = dom.documentElement
     root_id = root.getAttribute("id")
     itemlist = root.getElementsByTagName('sublab')
@@ -270,7 +270,7 @@ def ReadXmlTop():
     sublab_status = item.getAttribute("status")
     sublab_id = item.getAttribute("id")
     if sublab_status == "true" and sublab_id == "10811":
-        file_object = open("Handle10811.tex","r")
+        file_object = open("/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Handle10811.tex","r")
         source_10711 = file_object.read().decode('utf-8', 'ignore')
         datalist1 = readXml10811(item)
         datalist2 = cal_delta_X10811(datalist1[3])
@@ -281,8 +281,8 @@ def ReadXmlTop():
 if __name__ == '__main__':
     try:
         finish_str = ReadXmlTop()
-        finish_file = open(sys.argv[2]+".tex","w")
-        finish_file.write(finish_str.encode('utf-8', 'ignore'))
+	finish_file = open(sys.argv[2]+".tex","w")
+	finish_file.write(finish_str.encode('utf-8', 'ignore'))
         finish_file.close()
         #等于１时是错误
         ret =  subprocess.call("pdflatex -interaction=nonstopmode "+sys.argv[2]+".tex",shell=True)

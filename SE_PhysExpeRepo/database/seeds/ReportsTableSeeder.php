@@ -14,7 +14,7 @@ class ReportsTableSeeder extends Seeder{
         Report::create([
             "script_link" => null,
             "experiment_id" => 1021,
-            "experiment_name" =>"测定水的溶解热及电热法测量焦耳热的当量",
+            "experiment_name" =>"测定冰的熔解热及电热法测量焦耳热的当量",
             "prepare_link"  =>  "1021.pdf"
             ]);
         Report::create([

