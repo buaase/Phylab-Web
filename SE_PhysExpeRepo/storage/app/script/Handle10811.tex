@@ -75,16 +75,16 @@ X/cm
 
 \subsubsection*{(2)数据处理}
 用逐差法计算条纹间距${\Delta}x$:
-$$\overline{{\Delta}x} = \displaystyle\frac{\sum\limits_{i=1}^{10}(x_{i+10}-x_i)}{10{\times}10} = %% DELTA_X %%mm$$
+$$\overline{{\Delta}x} = \displaystyle\frac{\sum\limits_{i=1}^{10}{\mid}x_{i+10}-x_i{\mid}}{10{\times}10} = %% DELTA_X %%mm$$
 
 计算波长$\lambda$:
 $$\bar{b'} = \displaystyle\frac{b'_\text{正}+b'_\text{反}}{2} = \displaystyle\frac{ (%% DATA_SMALL[0] %%-%% DATA_SMALL[1]%%)+(%% DATA_SMALL[2] %%-%% DATA_SMALL[3] %%)}{2} = %% B_SMALL %%mm$$
 
 $$\bar{b} = \displaystyle\frac{b_\text{正}+b_\text{反}}{2} = \displaystyle\frac{ (%% DATA_BIG[0] %%-%% DATA_BIG[1]%%)+(%% DATA_BIG[2] %%-%% DATA_BIG[3] %%)}{2} = %% B_BIG %%mm$$
 
-$$ S = %% LIGHT_SMALL_BIG[0] %% - %% LIGHT_SMALL_BIG[1] %% = %% S_SMALL %%cm$$
+$$ S ={\mid} %% LIGHT_SMALL_BIG[0] %% - %% LIGHT_SMALL_BIG[1] %% {\mid}= %% S_SMALL %%cm$$
 
-$$ S' = %% LIGHT_SMALL_BIG[0] %% - %% LIGHT_SMALL_BIG[2] %% = %% S_BIG %%cm$$
+$$ S' ={\mid} %% LIGHT_SMALL_BIG[0] %% - %% LIGHT_SMALL_BIG[2] %% {\mid}= %% S_BIG %%cm$$
 
 $$ {\lambda} = \displaystyle\frac{{\Delta}\sqrt{bb'}}{S+S'} = %% LAMDA_LAB %%nm$$
 

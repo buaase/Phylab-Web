@@ -125,7 +125,7 @@ def readXml10811(item):
     datalist = table_1.getElementsByTagName('td')
     #获取光源及小像大像位置
     data_x = (float(datalist[0].firstChild.nodeValue),float(datalist[3].firstChild.nodeValue), float(datalist[4].firstChild.nodeValue))
-    LIGHT_SMALL_BIG  = (float(datalist[2].firstChild.nodeValue),float(datalist[3].firstChild.nodeValue),float(datalist[4].firstChild.nodeValue))
+    LIGHT_SMALL_BIG  = (float(datalist[0].firstChild.nodeValue),float(datalist[3].firstChild.nodeValue),float(datalist[4].firstChild.nodeValue))
 
     table_2 = tablelist[1]
     datalist = table_2.getElementsByTagName('td')
