@@ -65,8 +65,6 @@ def BitAdapt(x,u_x) :
         i = 0
         while(1):
             temp = float(u_x)*(10**i)
-            print i
-            print temp
             if(temp >= 1):
                 bit = i
                 break;
@@ -158,14 +156,17 @@ def cal_delta_X10811(X):
     global DELTA_X,UA_10DELTA_X,UB_10DELTA_X,U_10DELTA_X,U_DELTA_X
     sum=0
     for x in range(len(X)/2):
-        sum+=X[x+len(X)/2]-X[x]
+        sum+=abs(X[x+len(X)/2]-X[x])
     delta_x=sum/(len(X)/2)**2
+    print sum
+    print delta_x
     #大写常量作为格式化后要打印在tex文件里的数
     DELTA_X = ToScience(delta_x)
     #计算不确定度
     sum=0
     for x in range(len(X)/2):
-        sum+=(X[x+len(X)/2]-X[x]-10*delta_x)**2
+        sum+=(abs(X[x+len(X)/2]-X[x])-10*delta_x)**2
+    print sum
     ua_10delta_x=math.sqrt(sum/90)
     ub_10delta_x=0.01/(2*math.sqrt(3))
 
@@ -283,7 +284,7 @@ def ReadXmlTop():
 if __name__ == '__main__':
     '''try:'''
     finish_str = ReadXmlTop()
-    finish_file = open(sys.argv[2]+".tex","w")
+    finish_file = open("finished"+".tex","w")
     finish_file.write(finish_str.encode('utf-8', 'ignore'))
     finish_file.close()
     #等于１时是错误

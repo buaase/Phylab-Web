@@ -1,0 +1,118 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[UTF8,adobefonts]{ctex}
+
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{multirow}
+
+\begin{document}
+\section*{五、实验数据处理}
+\subsection*{实验1.激光双棱镜干涉}
+\subsubsection*{(1)原始数据记录}
+
+\begin{center}
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 
+\\ 
+\hline 
+$x_i/mm$
+&8.788&8.422&8.189&7.872&7.556&7.215&6.843&6.549&6.275&5.941
+\\ 
+\hline 
+i & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 
+\\ 
+\hline 
+$x_i/mm$ 
+&5.602&5.305&4.972&4.638&4.321&4.007&3.705&3.378&3.041&2.705
+\\ 
+\hline 
+\end{tabular} 
+\end{table}
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|c|}
+\hline 
+   & 扩展光源 & 透镜成小像 & 透镜成大像 \\ 
+\hline 
+X/cm 
+&24.62
+&51.55
+&82.9
+
+\\
+\hline 
+\end{tabular} 
+\end{table}
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|c|c|}
+\hline  
+ & \multicolumn{2}{|c|}{b/mm(小像) }& \multicolumn{2}{|c|}{b'/mm(大像)} \\ 
+\hline 
+左 & 5.086 &4.995 & 9.212 & 9.012 \\ 
+\hline 
+右 & 4.235 &4.125 & 3.839 & 4.489 \\ 
+\hline 
+\end{tabular}
+\end{table}
+\end{center}
+
+\subsubsection*{(2)数据处理}
+用逐差法计算条纹间距${\Delta}x$:
+$$\overline{{\Delta}x} = \displaystyle\frac{\sum\limits_{i=1}^{10}(x_{i+10}-x_i)}{10{\times}10} = -0.3198mm$$
+
+计算波长$\lambda$:
+$$\bar{b'} = \displaystyle\frac{b'_\text{正}+b'_\text{反}}{2} = \displaystyle\frac{ (5.086-4.235)+(4.995-4.125)}{2} = 0.8605mm$$
+
+$$\bar{b} = \displaystyle\frac{b_\text{正}+b_\text{反}}{2} = \displaystyle\frac{ (9.212-3.839)+(9.012-4.489)}{2} = 4.948mm$$
+
+$$ S = 24.62 - 51.55 = -26.93cm$$
+
+$$ S' = 24.62 - 82.9 = -58.28cm$$
+
+$$ {\lambda} = \displaystyle\frac{{\Delta}\sqrt{bb'}}{S+S'} = 774.3nm$$
+
+\subsubsection*{(3)不确定度计算}
+${\triangle}x$的不确定度：
+
+$10{\triangle}x$的A类不确定度：
+$$u_a(10{\triangle}x) = \sqrt{\displaystyle\frac{\sum\limits_{i=1}^{10} (10{{\triangle}x}_i-{10\overline{{\triangle}x}})^2}{10{\times}(10-1)}} = 0.0137mm$$
+$10{\triangle}x$的B类不确定度：
+$$u_b({10{\triangle}x})=\displaystyle\frac{\bigtriangleup\text{仪}}{\sqrt{3}}
+= \frac{0.01}{2{\times}\sqrt{3}} = 0.00289mm$$
+$10{\triangle}x$的不确定度：
+$$u(10{\triangle}x)=\sqrt{{u_a(10{\triangle}x}^2)+{u_b(10{\triangle}x}^2)} = 0.014mm$$
+${\triangle}x$的不确定度：
+$${\therefore}u({\triangle}x) = \displaystyle\frac{u(10{\triangle}x)}{10} = 0.0014mm$$
+
+$$ \displaystyle\frac{{\Delta}b}{b} = \displaystyle\frac{{\Delta}b'}{b} = 0.025 $$
+
+$b'$的不确定度：
+$$ u(b') = \displaystyle\frac{ 0.8605{\times}0.025}{\sqrt{3}} =0.01242mm$$
+b的不确定度：
+$$ u(b) = \displaystyle\frac{ 4.948{\times}0.025}{\sqrt{3}} =0.07142mm$$
+S的不确定度：
+$${\Delta}S = {\Delta}S' = 0.5cm$$
+$$ u(S+S') = \sqrt{2} {\times} 0.289 = 0.409cm$$
+
+不确定度的合成：
+$$ \ln{\lambda} = \ln{{\Delta}x}+ \displaystyle\frac{1}{2}(\ln{b}+\ln{b'}) - \ln(S+S')$$
+
+$$\displaystyle\frac{\ln{\lambda}}{\lambda} = \displaystyle\frac{\ln{\Delta}x}{{\Delta}x}+\displaystyle\frac{1}{2}(\displaystyle\frac{\ln{b}}{b}+\displaystyle\frac{\ln{b'}}{b'}) - \displaystyle\frac{\ln{(S+S')}}{S+S'} $$
+
+$$\displaystyle\frac{u({\lambda})}{\lambda} = \sqrt{ [{\frac{u({\Delta}x)}{{\Delta}x}}]^2+\frac{1}{4}[{\frac{u(b)}{b}}]^2 +\frac{1}{4}[{\frac{u(b')}{b'}}]^2 + [\frac{u(S+S')}{S+S'}]^2   } = 0.006491$$
+
+$$ u({\lambda}) = 5.026 nm$$
+最终结果为：
+$$ {\lambda}{\pm}{u({\lambda})} = 774 {\pm} 5 nm $$
+
+\end{document}

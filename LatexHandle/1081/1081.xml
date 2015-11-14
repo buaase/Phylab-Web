@@ -3,55 +3,55 @@
 <sublab id="10811" status="true">
 		<table name="10811_1" raw="1" column="5">
 			<tr index="1">
-				<td>115.34</td>
-				<td>52.38</td>
-				<td>46.72</td>
-				<td>85.94</td>
-				<td>63.39</td>
+				<td>114.75</td>
+				<td>95.10</td>
+				<td>24.62</td>
+				<td>51.55</td>
+				<td>82.90</td>
 			</tr>
 		</table>
 		<table name="10811_2" raw="2" column="4">
 			<tr index="1">
-				<td>5.609</td>
+				<td>9.212</td>
 				<td>3.839</td>
-				<td>5.625</td>
-				<td>3.895</td>
+				<td>9.012</td>
+				<td>4.489</td>
 			</tr>
 			<tr index="2">
-				<td>4.638</td>
-				<td>4.034</td>
-				<td>4.636</td>
-				<td>3.991</td>
+				<td>5.086</td>
+				<td>4.235</td>
+				<td>4.995</td>
+				<td>4.125</td>
 			</tr>
 		</table>
 		<table name="10811_3" raw="4" column="5">
 			<tr index="1">
-				<td>1.709</td>
-				<td>1.995</td>
-				<td>2.341</td>
-				<td>2.642</td>
-				<td>2.93</td>
+				<td>8.788</td>
+				<td>8.422</td>
+				<td>8.189</td>
+				<td>7.872</td>
+				<td>7.556</td>
 			</tr>
 			<tr index="2">
-				<td>3.309</td>
-				<td>3.589</td>
-				<td>3.821</td>
-				<td>4.145</td>
-				<td>4.484</td>
+				<td>7.215</td>
+				<td>6.843</td>
+				<td>6.549</td>
+				<td>6.275</td>
+				<td>5.941</td>
 			</tr>
 			<tr index="3">
-				<td>4.711</td>
-				<td>5.071</td>
-				<td>5.312</td>
-				<td>5.641</td>
-				<td>5.957</td>
+				<td>5.602</td>
+				<td>5.305</td>
+				<td>4.972</td>
+				<td>4.638</td>
+				<td>4.321</td>
 			</tr>
 			<tr index="4">
-				<td>6.245</td>
-				<td>6.534</td>
-				<td>6.841</td>
-				<td>7.155</td>
-				<td>7.438</td>
+				<td>4.007</td>
+				<td>3.705</td>
+				<td>3.378</td>
+				<td>3.041</td>
+				<td>2.705</td>
 			</tr>
 		</table>
 	</sublab>
