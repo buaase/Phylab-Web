@@ -3,25 +3,25 @@
 <sublab id="10811" status="true">
 		<table name="10811_1" raw="1" column="5">
 			<tr index="1">
-				<td>扩束镜K位置</td>
-				<td>双棱镜B位置</td>
-				<td>129.4</td>
-				<td>66.45</td>
-				<td>99.71</td>
+				<td>115.34</td>
+				<td>52.38</td>
+				<td>46.72</td>
+				<td>85.94</td>
+				<td>63.39</td>
 			</tr>
 		</table>
 		<table name="10811_2" raw="2" column="4">
 			<tr index="1">
-				<td>6.336</td>
-				<td>5.341</td>
-				<td>6.259</td>
-				<td>5.320</td>
+				<td>5.609</td>
+				<td>3.839</td>
+				<td>5.625</td>
+				<td>3.895</td>
 			</tr>
 			<tr index="2">
-				<td>7.791</td>
-				<td>3.434</td>
-				<td>7.612</td>
-				<td>3.391</td>
+				<td>4.638</td>
+				<td>4.034</td>
+				<td>4.636</td>
+				<td>3.991</td>
 			</tr>
 		</table>
 		<table name="10811_3" raw="4" column="5">
