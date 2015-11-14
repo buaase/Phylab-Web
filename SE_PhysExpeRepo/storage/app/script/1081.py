@@ -156,14 +156,14 @@ def cal_delta_X10811(X):
     global DELTA_X,UA_10DELTA_X,UB_10DELTA_X,U_10DELTA_X,U_DELTA_X
     sum=0
     for x in range(len(X)/2):
-        sum+=X[x+len(X)/2]-X[x]
+        sum+=abs(X[x+len(X)/2]-X[x])
     delta_x=abs(sum/(len(X)/2)**2)
     #大写常量作为格式化后要打印在tex文件里的数
     DELTA_X = ToScience(abs(delta_x))
     #计算不确定度
     sum=0
     for x in range(len(X)/2):
-        sum+=(X[x+len(X)/2]-X[x]-10*delta_x)**2
+        sum+=(abs(X[x+len(X)/2]-X[x])-10*delta_x)**2
     ua_10delta_x=math.sqrt(sum/90)
     ub_10delta_x=0.01/(2*math.sqrt(3))
 
