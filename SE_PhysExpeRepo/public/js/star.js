@@ -1,7 +1,7 @@
 function errorAlert(){
     alert("操作失败");
 }
-function createStar(ico,txt,check){
+function createStar(ico,txt){
     var url="/user/star";
     var postData = "link="+encodeURI($('#collectBtn').attr('link'))+"&reportId="+labDoc3dot1415926.getDbId();
     PostAjax(url,postData,function(){
@@ -25,7 +25,7 @@ function createStar(ico,txt,check){
         }
     });
 }
-function deleteStar(ico,txt,check){
+function deleteStar(ico,txt){
     var url="/user/star";
     var postData = "_method=DELETE&id="+encodeURI($('#collectBtn').attr('dbid'));
     PostAjax(url,postData,function(){
