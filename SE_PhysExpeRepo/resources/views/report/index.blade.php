@@ -1915,6 +1915,31 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<div class="modal fade" id="mymodal-party">
+	<div class="modal-dialog modal-lab" >
+		<div class="modal-content">
+			<div class="modal-head">
+				<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
+				<h4 class="lead ch">&nbsp &nbsp 联系我们</h4>
+			</div>
+			<div class="modal-body well">
+				<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<img class="img-responsive" src="./img/1447574686560.jpg"></img>
+					</div>
+					<div class="col-md-8">
+						<br/><a href="##" class="Title-black" style="font-size:15px;" onclick="window.open('http://www.cnblogs.com/buaase','_blank');"><b>博客: http://www.cnblogs.com/buaase</b></a><hr/>
+						<a href="mailto:buaase@126.com" class="Title-black" style="font-size:15px;"><b>邮箱: buaase@126.com</b></a><hr/>
+						<a href="##" class="Title-black" style="font-size:15px;" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');"><b>QQ: 229407702(物理实验网站交流群)</b></a><br/><br/>
+						<strong style="float:right">我们需要您的反馈！</strong>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="wrapper wrapper_navbar_top">
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -1930,9 +1955,9 @@
 		</div>
 		<div class="collapse navbar-collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a href="{{URL::route('index')}}"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
-				<li><a href="##">社区</a></li>
-				<li class="dropdown">
+				<li><a href="{{URL::route('index')}}"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
+				<li><a href="##" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');">社区</a></li>
+                <li class="dropdown active">
 					<a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
@@ -1940,8 +1965,8 @@
 						<li class="disabled"><a>其他功能</a></li>
 					</ul>
 				</li>
-				<li><a href="##">关于</a></li>
-			</ul>
+				<li><a href="##" data-toggle="modal" data-target="#mymodal-party">反馈</a></li>
+            </ul>
 			<ul class="nav navbar-nav navbar-right">
                 <li><a data-toggle="modal" data-target="#mymodal-star" href="#">{{$username}}的收藏夹</a></li>
                 <li><a href="{{URL::route('logout')}}">登出</a></li>

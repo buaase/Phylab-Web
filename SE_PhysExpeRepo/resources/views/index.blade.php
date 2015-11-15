@@ -53,13 +53,13 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div class="modal fade" id="mymodal-party">
-	 <div class="modal-dialog modal-lab" >
+	<div class="modal-dialog modal-lab" >
 		<div class="modal-content" style="background-image:url('./img/c0cf75793d30de36a2a243d212ca6b91.jpg');">
-				<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="color:white;font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
-				<h4 class="lead text-white ch">&nbsp &nbsp 联系我们</h4>
-			</div>
-			<div class="modal-body">
-				<div class="container">
+			<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="color:white;font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
+			<h4 class="lead text-white ch">&nbsp &nbsp 联系我们</h4>
+		</div>
+		<div class="modal-body">
+			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
 						<img class="img-responsive" src="./img/1447574686560.jpg"></img>
@@ -71,11 +71,11 @@
 						<strong class="text-white" style="float:right">我们需要您的反馈！</strong>
 					</div>
 				</div>
-				</div>
-			</div>
-			<div class="modal-footer">
 			</div>
 		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
 </div>
 
 @if($auth)
