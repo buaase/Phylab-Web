@@ -54,26 +54,26 @@
 </div><!-- /.modal -->
 <div class="modal fade" id="mymodal-party">
 	<div class="modal-dialog modal-lab" >
-		<div class="modal-content" style="background-image:url('./img/c0cf75793d30de36a2a243d212ca6b91.jpg');">
-			<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="color:white;font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
-			<h4 class="lead text-white ch">&nbsp &nbsp 联系我们</h4>
-		</div>
-		<div class="modal-body">
-			<div class="container">
+		<div class="modal-content">
+			<div class="modal-head">
+				<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
+				<h4 class="lead ch">&nbsp &nbsp 联系我们</h4>
+			</div>
+			<div class="modal-body well">
+				<div class="container">
 				<div class="row">
 					<div class="col-md-4">
 						<img class="img-responsive" src="./img/1447574686560.jpg"></img>
 					</div>
 					<div class="col-md-8">
-						<br/><a href="##" class="Title" style="font-size:15px;" onclick="window.open('http://www.cnblogs.com/buaase','_blank');"><b>博客: http://www.cnblogs.com/buaase</b></a><hr/>
-						<a href="mailto:buaase@126.com" class="Title" style="font-size:15px;"><b>邮箱: buaase@126.com</b></a><hr/>
-						<a href="##" class="Title" style="font-size:15px;" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');"><b>QQ: 229407702(物理实验网站交流群)</b></a><br/><br/>
-						<strong class="text-white" style="float:right">我们需要您的反馈！</strong>
+						<br/><a href="##" class="Title-black" style="font-size:15px;" onclick="window.open('http://www.cnblogs.com/buaase','_blank');"><b>博客: http://www.cnblogs.com/buaase</b></a><hr/>
+						<a href="mailto:buaase@126.com" class="Title-black" style="font-size:15px;"><b>邮箱: buaase@126.com</b></a><hr/>
+						<a href="##" class="Title-black" style="font-size:15px;" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');"><b>QQ: 229407702(物理实验网站交流群)</b></a><br/><br/>
+						<strong style="float:right">我们需要您的反馈！</strong>
 					</div>
 				</div>
+				</div>
 			</div>
-		</div>
-		<div class="modal-footer">
 		</div>
 	</div>
 </div>
