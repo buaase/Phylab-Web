@@ -53,15 +53,21 @@ var labDoc3dot1415926;
 		SetDisable('importBtn',false);
 		SetDisable('InputLabIndex',false);
 	}
+	function collectEnable(){
+		SetDisable('collectBtn',false);
+		document.getElementById('collectIco').setAttribute("class","glyphicon glyphicon-star-empty");
+		document.getElementById('collectText')innerHTML = "收藏";
+	}
+	
 	function collectLab(ico_id,txt_id){
 		var ico = document.getElementById(ico_id);
 		var txt = document.getElementById(txt_id);
 		var check = txt.innerHTML;
 			if(check=="取消收藏"){
-				deleteStar(ico,txt,check);
+				deleteStar(ico,txt);
 			}
 			else if(check=="收藏"){
-				createStar(ico,txt,check);
+				createStar(ico,txt);
             }
 			else
 				alert("Button text can not be [txt] when use this function!Please Use 收藏/取消收藏");
@@ -237,7 +243,7 @@ var labDoc3dot1415926;
 					$('#loading-container').fadeOut();
 					eleReset();
 					$('#LabStatus')[0].innerHTML = "数据";
-					SetDisable('collectBtn',false);
+					collectEnable();
 				}
 				else{
 					postErrorFunc(jsonText["message"]);

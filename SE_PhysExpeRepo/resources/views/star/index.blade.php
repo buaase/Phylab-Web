@@ -26,7 +26,7 @@
                     <td>{{$stars[$i]["name"]}}</td>
                     <td><button type="button" class="btn btn-default" onclick="window.open('{{URL::route('star').'/'.$stars[$i]['id']}}')"><a href="#">查看</a></button></td>
                     <td>{{$stars[$i]["time"]}}</td>
-                    <td>
+                    <td width="20%">
 						<div class="btn-group btn-block">
 							<button type="button" class="btn btn-default" onclick="window.open('{{URL::route('starDownload').'/'.$stars[$i]['id']}}')">下载</button>
 							<button type="button" class="btn btn-danger" onclick="deleteStar('{{$stars[$i]['id']}}')">删除</button>
