@@ -64,7 +64,7 @@ var labDoc3dot1415926;
 		var txt = document.getElementById(txt_id);
 		var check = txt.innerHTML;
 			if(check=="取消收藏"){
-				deleteStar(ico,txt);
+				deleteReportStar(ico,txt);
 			}
 			else if(check=="收藏"){
 				createStar(ico,txt);

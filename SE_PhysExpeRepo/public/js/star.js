@@ -27,7 +27,7 @@ function createStar(ico,txt){
         }
     });
 }
-function deleteStar(ico,txt){
+function deleteReportStar(ico,txt){
     var url="/user/star";
     var postData = "_method=DELETE&id="+encodeURI($('#collectBtn').attr('dbid'));
     PostAjax(url,postData,function(){
