@@ -182,11 +182,11 @@ hr{
 }
 
 .Title-black{
-	font-size:3vw;color:black;text-decoration:none;opacity:0.95;
+	font-size:3vw;color:#233;text-decoration:none;opacity:0.95;
 }
 .Title-black:hover, .Title-black:visited, .Title-black:active
 {
-	font-size:3vw;color:black;text-decoration:none;opacity:0.7;
+	font-size:3vw;color:#233;text-decoration:none;opacity:0.7;
 }
 
 /*carousel fade effect*/
