@@ -56,7 +56,7 @@ var labDoc3dot1415926;
 	function collectEnable(){
 		SetDisable('collectBtn',false);
 		document.getElementById('collectIco').setAttribute("class","glyphicon glyphicon-star-empty");
-		document.getElementById('collectText')innerHTML = "收藏";
+		document.getElementById('collectText').innerHTML = "收藏";
 	}
 	
 	function collectLab(ico_id,txt_id){

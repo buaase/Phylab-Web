@@ -55,7 +55,7 @@
 <div class="modal fade" id="mymodal-party">
 	 <div class="modal-dialog modal-lab" >
 		<div class="modal-content" style="background-image:url('./img/c0cf75793d30de36a2a243d212ca6b91.jpg');">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="color:white;font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
 				<h4 class="lead text-white ch">&nbsp &nbsp 联系我们</h4>
 			</div>
 			<div class="modal-body">
