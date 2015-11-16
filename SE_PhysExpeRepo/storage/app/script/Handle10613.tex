@@ -1,0 +1,37 @@
+\subsection*{实验3.物距像距法测凹透镜焦距}
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+屏1/mm &  凹透镜1/mm & 凹透镜2/mm & 屏2/mm & 均值/mm \\ 
+\hline 
+{%for ei in EXPER -%}
+{% for i in ei-%}
+{% if loop.index ==1 -%}
+%% i %%
+{% else -%}
+& %% i %%
+{%- endif %}
+{%- endfor %}
+\\
+\hline
+{%- endfor %}
+\end{tabular}
+\vspace{10pt}
+
+\end{center}
+$$u = {x}_{\text{屏1}} - {x}_{\text{均}}$$
+\begin{center}
+${u}_1 = %% U[0] %% mm$				${u}_2 = %% U[1] %% mm$				${u}_3 = %% U[2] %% mm$
+\end{center}
+$$v = {\mid} {x}_{\text{屏2}} - {x}_{\text{均}}{\mid}$$
+\begin{center}
+${v}_1 = %% V[0] %%mm$			${v}_2 = %% V[1] %%mm$			${v}_3 = %% V[2] %%mm$
+\end{center}
+$${\because} f = \displaystyle\frac{uv}{u+v}$$
+$${\therefore} {f}_1 = \displaystyle\frac{{u}_1{v}_1}{{u}_1+{v}_1} = %% F[0] %% mm$$	
+\begin{center}
+${f}_2 = %% F[1] %% mm$			${f}_3 = %% F[2] %% mm$
+\end{center}
+$${\therefore}{\bar{f}} = \displaystyle\frac{{f}_1+{f}_2+{f}_3}{3}  = %%　AVERAGE_F %% mm$$

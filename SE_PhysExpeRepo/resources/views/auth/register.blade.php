@@ -172,7 +172,8 @@
     <script src="./js/global.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/xmlInteraction.js"></script>
-	<script src="./js/regist.js"></script>
+    <script src="./js/regist.js"></script>
+    <script src="./js/statistics.js"></script>
   </body>
 
 </html>

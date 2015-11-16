@@ -24,14 +24,14 @@ class PhylabAuthController extends Controller {
                 'password' => 'required'
             );
         $validatorAttributes = array(
-                'email'  => '邮箱',
+                'email'  => '邮箱或用户名',
                 'password' => '密码'
             );
         postCheck($validatorRules,Config::get('phylab.validatorMessage'),$validatorAttributes);
         if(Request::has('remember'))
-            $checkBool = Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')], Request::get('remember'));
+            $checkBool = Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')], Request::get('remember')) || Auth::attempt(['name' => Request::get('email'), 'password' => Request::get('password')], Request::get('remember'));
         else
-            $checkBool = Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')]);
+            $checkBool = Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')]) || Auth::attempt(['name' => Request::get('email'), 'password' => Request::get('password')]);
         if($checkBool){
             return response()->json(["status"=>SUCCESS_MESSAGE]);
         }

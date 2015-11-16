@@ -2102,6 +2102,6 @@
 <script src="./js/xmlInteraction.js"></script>
 <script src="./js/star.js"></script>
 <script src="./js/test.js"></script>
-
+<script src="./js/statistics.js"></script>
 </body>
 </html>

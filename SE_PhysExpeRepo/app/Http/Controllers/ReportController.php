@@ -73,7 +73,7 @@ class ReportController extends Controller
         $experimentId = $report->experiment_id;
         if($scriptLink!=null){
             $system = exec(Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$tmpName." ".Config::get('phylab.tmpReportPath').$tmpName,$output,$reval);
-            #echo Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$xmlLink." ".Config::get('phylab.tmpReportPath').$tmpName.".tex";
+            #echo Config::get('phylab.scriptPath')."create.sh ".Config::get('phylab.tmpReportPath')." ".Config::get('phylab.scriptPath').$scriptLink." ".Config::get('phylab.tmpXmlPath').$tmpName." ".Config::get('phylab.tmpReportPath').$tmpName;
             #echo $out;
             #echo $system."\n";
             #echo $reval."\n";
@@ -89,10 +89,12 @@ class ReportController extends Controller
                 }
                 else{
                     $data["status"]=FAIL_MESSAGE;
+                    $data["message"]="生成脚本生成失败，请检查您的输入";
                 }
             }
             else{
                 $data["status"]=FAIL_MESSAGE;
+                $data["message"]="似乎发生了系统级的错误";
             }
         }
         else{

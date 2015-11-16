@@ -88,8 +88,8 @@ def BitAdapt(x,u_x) :
         u_x = round(float(u_x),bit)
         x = round(float(x),bit)
         if bit == 0:
-            u_x = ("%.1f" % u_x)
-            x = ("%.1f" % x)
+            u_x = ("%d" % u_x)
+            x = ("%d" % x)
         elif bit == 1:
             u_x = ("%.1f" % u_x)
             x = ("%.1f" % x)
@@ -124,7 +124,10 @@ def BitAdapt(x,u_x) :
                 i+=1
         if Tempbit == bit:
             break;
-
+    if ten>0:
+        x = "(" + str(x) + "\\pm"
+        u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
+        return x + u_x
     res = []    
     res.append(x)
     res.append(u_x)
@@ -446,7 +449,7 @@ if __name__ == '__main__':
         finish_file.write(finish_str.encode('utf-8', 'ignore'))
         finish_file.close()
         #等于１时是错误
-        ret =  subprocess.call("xelatex -interaction=nonstopmode "+sys.argv[2]+".tex",shell=True)
+        ret =  subprocess.call("pdflatex -interaction=nonstopmode "+sys.argv[2]+".tex",shell=True)
         subprocess.call("rm "+sys.argv[2]+".aux",shell=True)        
         subprocess.call("rm "+sys.argv[2]+".synctex*",shell=True)
         subprocess.call("rm "+sys.argv[2]+".log",shell=True)
@@ -455,4 +458,5 @@ if __name__ == '__main__':
         else:
             print('{"status":"fail"}')
     except Exception as e:
-        print(traceback.format_exc())
+        #print(traceback.format_exc())
+	print('{"status":"fail"}')

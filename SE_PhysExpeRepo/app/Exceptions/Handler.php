@@ -57,7 +57,7 @@ class Handler extends ExceptionHandler
             else return response()->view('errors.phylab',$errorData,$errorData['httpCode']);
         }
         else{
-            throw new UnkownException();
+           throw new UnkownException();
         }
         return parent::render($request, $e);
     }
