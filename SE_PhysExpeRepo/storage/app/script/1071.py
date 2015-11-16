@@ -88,8 +88,8 @@ def BitAdapt(x,u_x) :
         u_x = round(float(u_x),bit)
         x = round(float(x),bit)
         if bit == 0:
-            u_x = ("%.1f" % u_x)
-            x = ("%.1f" % x)
+            u_x = ("%d" % u_x)
+            x = ("%d" % x)
         elif bit == 1:
             u_x = ("%.1f" % u_x)
             x = ("%.1f" % x)
@@ -124,7 +124,10 @@ def BitAdapt(x,u_x) :
                 i+=1
         if Tempbit == bit:
             break;
-
+    if ten>0:
+        x = "(" + str(x) + "\\pm"
+        u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
+        return x + u_x
     res = []    
     res.append(x)
     res.append(u_x)
