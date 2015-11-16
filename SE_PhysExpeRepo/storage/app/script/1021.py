@@ -22,7 +22,7 @@ env = Environment(line_statement_prefix="#", variable_start_string="||", variabl
 
 
 def ToPoint(number):
-    Tempstr = format(number,'.4f')
+    Tempstr = format(number,'.4g')
     return float(Tempstr)
 
 
