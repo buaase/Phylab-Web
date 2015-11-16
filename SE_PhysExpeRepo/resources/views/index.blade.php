@@ -23,10 +23,10 @@
                         <span class="glyphicon glyphicon-remove-sign"></span><span id="errorMessage">&nbsp 用户名或密码错误!</span>
                     </div>
                     <div class="form-group">
-                        <label for="InputAccount" class="col-md-2 control-label">账号</label>
+                        <label for="InputAccount" class="col-md-2 control-label">用户名</label>
                         <div class="input-group col-md-9">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="email" class="form-control" id="InputAccount" placeholder="请输入您的账号" name="email" value="{{ old('email') }}">
+                            <input type="email" class="form-control" id="InputAccount" placeholder="请输入您的用户名/邮箱" name="email" value="{{ old('email') }}">
                         </div>
                     </div>
                     <div class="form-group">
