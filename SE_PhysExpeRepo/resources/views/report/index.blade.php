@@ -275,6 +275,9 @@
 					<table class="table table-condensed table-hover table-striped" id="table1021_1_zuzhi">
 					<thead>
 						<tr>
+							<td colspan="4"><span class="badge">电阻(kΩ)</span></td>
+						</tr>
+						<tr>
 							<th>序号&nbsp &nbsp </th>
 							<th>隔60s读数</th>
 							<th>隔15s读数</th>
