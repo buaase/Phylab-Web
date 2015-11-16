@@ -31,31 +31,31 @@ def DrawPicture(name,down_straight_line_x_init,down_straight_line_y_init,down_be
     fig = plt.figure()
     for i in np.arange(0,150,1):
         x = [i,i]
-        y = [0,210]
+        y = [0,290]
         plt.plot(x, y, color="red", linewidth=0.08, linestyle="-")
 
     for i in np.arange(0,150,5):
         x = [i,i]
-        y = [0,210]
+        y = [0,290]
         plt.plot(x, y, color="red", linewidth=0.16, linestyle="-")
 
     for i in np.arange(0,150,10):
         x = [i,i]
-        y = [0,210]
+        y = [0,290]
         plt.plot(x, y, color="red", linewidth=0.24, linestyle="-")
 
 
-    for i in np.arange(0,210,1):
+    for i in np.arange(0,290,1):
         y = [i,i]
         x = [0,150]
         plt.plot(x, y, color="red", linewidth=0.08, linestyle="-")
 
-    for i in np.arange(0,210,5):
+    for i in np.arange(0,290,5):
         y = [i,i]
         x = [0,150]
         plt.plot(x, y, color="red", linewidth=0.16, linestyle="-")
 
-    for i in np.arange(0,210,10):
+    for i in np.arange(0,290,10):
         y = [i,i]
         x = [0,150]
         plt.plot(x, y, color="red", linewidth=0.3, linestyle="-")
@@ -67,8 +67,8 @@ def DrawPicture(name,down_straight_line_x_init,down_straight_line_y_init,down_be
     plt.xticks((0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150), 
         (0,1*60,2*60,3*60,4*60,5*60,6*60,7*60,8*60,9*60,10*60,11*60,12*60,13*60,14*60,15*60))
 
-    plt.yticks((0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210),
-        (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32))
+    plt.yticks((0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290),
+        (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40))
 
     #point
     #x=[0,60,120,180,240,260,275,290,305,320,335,350,365,380,395,410,425,440,455,470,485,500,515,530,590,650,710,770,830]
@@ -179,7 +179,7 @@ def DrawPicture(name,down_straight_line_x_init,down_straight_line_y_init,down_be
     plt.plot(not_exist_down_line_x,not_exist_down_line_y,linestyle='--',c="blue",linewidth=1)
 
     vertical_line_x= [vertical_line/6,vertical_line/6]
-    vertical_line_y =[0,210]
+    vertical_line_y =[0,290]
 
     plt.plot(vertical_line_x,vertical_line_y,linestyle='--',c="black",linewidth=1)
     
