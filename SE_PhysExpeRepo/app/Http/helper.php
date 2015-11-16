@@ -17,5 +17,9 @@ function getRandName(){
     $fname = md5($fname);
     return $fname;
 }
-
+function toTimeZone($src, $from_tz = 'UTC', $to_tz = 'Asia/Shanghai', $fm = 'Y-m-d H:i:s') {
+    $datetime = new DateTime($src, new DateTimeZone($from_tz));
+    $datetime->setTimezone(new DateTimeZone($to_tz));
+    return $datetime->format($fm);
+}
 ?>

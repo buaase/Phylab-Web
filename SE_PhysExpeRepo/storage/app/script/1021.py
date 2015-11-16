@@ -118,29 +118,31 @@ def DrawPicture(name,down_straight_line_x_init,down_straight_line_y_init,down_be
     down_bend_u = 0;
     down_bend_func = 0;
 
-    while down_bend_u <0.999:
-        down_cicyle += 1
-        down_bend_base = numpy.polyfit(down_bend_x_init,down_bend_y_init,down_cicyle)
-        down_bend_func = numpy.poly1d(down_bend_base)
-        down_bend_yhat = down_bend_func(down_bend_x_init)
-        down_bend_ybar = numpy.sum(down_bend_y_init)/len(down_bend_y_init)
-        down_bend_reg = numpy.sum((down_bend_yhat-down_bend_ybar)**2)
-        down_bend_tot = numpy.sum((down_bend_y_init-down_bend_ybar)**2)
-        down_bend_u = down_bend_reg / down_bend_tot
-        
+    #while down_bend_u <0.999:
+    #    down_cicyle += 1
+    #    down_bend_base = numpy.polyfit(down_bend_x_init,down_bend_y_init,down_cicyle)
+    #    down_bend_func = numpy.poly1d(down_bend_base)
+    #   down_bend_yhat = down_bend_func(down_bend_x_init)
+    #   down_bend_ybar = numpy.sum(down_bend_y_init)/len(down_bend_y_init)
+    #   down_bend_reg = numpy.sum((down_bend_yhat-down_bend_ybar)**2)
+    #   down_bend_tot = numpy.sum((down_bend_y_init-down_bend_ybar)**2)
+    #   down_bend_u = down_bend_reg / down_bend_tot
+    down_bend_base = numpy.polyfit(down_bend_x_init,down_bend_y_init,5)
+    down_bend_func = numpy.poly1d(down_bend_base)
+    
     #上升直线的拟合函数
     up_straight_line_base = numpy.polyfit(up_straight_line_x_init,up_straight_line_y_init,1)
     up_straight_line_func = numpy.poly1d(up_straight_line_base)
     up_straight_line_fit_y = map(lambda x:up_straight_line_func(x)*10-110,up_straight_line_x_init)
 
-
+    down_bend_fit_y = map(lambda x:down_bend_func(x)*10-110,down_bend_x_init)
     #下降直线的模拟绘图
     plt.plot(down_straight_line_x,down_straight_line_y,linestyle=' ',c="black",marker=Line2D.markers.get('x'),markersize=5)
     plt.plot(down_straight_line_x,down_straight_line_fit_y,linestyle='-',c="blue",linewidth=1.5)
 
     #下降曲线的模拟绘图
     plt.plot(down_bend_x,down_bend_y,linestyle=' ',c="black",marker=Line2D.markers.get('x'),markersize=5)
-    plt.plot(down_bend_x,down_bend_y,linestyle='-',c="blue",linewidth=1.5)
+    plt.plot(down_bend_x,down_bend_fit_y,linestyle='-',c="blue",linewidth=1.5)
 
     #上升直线的模拟绘图
     plt.plot(up_straight_line_x,up_straight_line_y,linestyle=' ',c="black",marker=Line2D.markers.get('x'),markersize=5)
@@ -157,8 +159,15 @@ def DrawPicture(name,down_straight_line_x_init,down_straight_line_y_init,down_be
     while abs(s1-s2)>10:
         vertical_line += 1
         s1,aber1 = integrate.quad(lambda x:down_straight_line_func(x)-down_bend_func(x),down_bend_x_init[0],vertical_line)
-        s2,aber2 = integrate.quad(lambda x:down_bend_func(x) - up_straight_line_func(x),vertical_line,up_straight_line_x_init[0])
+        s2,aber2 = integrate.quad(lambda x:down_bend_func(x) - up_straight_line_func(x),vertical_line,down_bend_x_init[-1])
         #print vertical_line
+	print down_straight_line_func(vertical_line)
+	print "down_bend_func"
+	print down_bend_func(120)
+	#print down_bend_x_init[0]
+	#print down_bend_x_init[-1]
+	print s1,s2
+	#print vertical_line
         if s1 > s2:
             break;
 
@@ -218,8 +227,7 @@ def ReadXml10211(sublab_root,name):
             down_straight_line_y_init.append(ToPoint(float(RToTemperature(y_value))))
             down_straight_line_R.append(y_value)
             x_index += 60
-        else:
-            break
+
     #print down_straight_line_y_init
     down_bend_x_init.append(down_straight_line_x_init[-1])
     down_bend_y_init.append(down_straight_line_y_init[-1])
@@ -233,8 +241,7 @@ def ReadXml10211(sublab_root,name):
             down_bend_y_init.append(ToPoint(float(RToTemperature(y_value))))
             down_bend_R.append(y_value)
             x_index += 15
-        else:
-            break
+
     #print down_bend_y_init
     up_straight_line_x_init.append(down_bend_x_init[-1])
     up_straight_line_y_init.append(down_bend_y_init[-1])
@@ -248,14 +255,16 @@ def ReadXml10211(sublab_root,name):
             up_straight_line_y_init.append(ToPoint(float(RToTemperature(y_value))))
             up_straight_line_R.append(y_value)
             x_index += 60
-        else:
-            break
+
 
     #后面的实验中要使用的前提数据
     vertical_line = DrawPicture(name,down_straight_line_x_init, down_straight_line_y_init, down_bend_x_init, down_bend_y_init, up_straight_line_x_init, up_straight_line_y_init)
     print down_straight_line_x_init
     print down_straight_line_y_init
-
+    print down_bend_x_init
+    print down_bend_y_init
+    print up_straight_line_x_init
+    print up_straight_line_y_init
     result = env.from_string(source).render(
         figurename = name,
 	    vertical = vertical_line,
