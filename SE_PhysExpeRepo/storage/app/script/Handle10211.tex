@@ -1,0 +1,93 @@
+
+\section*{实验1.测定冰的熔解热}
+
+\subsection*{(1)原始数据记录}
+\textbf{初始每隔60s记录表}
+
+\begin{tabular}{|c|{% for x in  down_straight_line_R -%}c|{% endfor %}}
+\hline 
+时间/s
+{% for x in down_straight_line_x -%}
+& || x ||
+{%- endfor %}
+\\ 
+\hline 
+阻值/k$\Omega$
+{% for x in down_straight_line_R-%}
+& || x ||
+{%- endfor %}
+\\ 
+\hline 
+温度/$^{\circ}C$
+{% for x in down_straight_line_y-%}
+& || x ||
+{%- endfor %}
+\\
+\hline 
+\end{tabular} 
+
+\vspace{1.5cm}
+\textbf{每隔15s记录表}
+
+\begin{tabular}{|c|{% for x in down_bend_R -%}c|{% endfor %}}
+\hline 
+时间/s
+{% for x in down_bend_x-%}
+{% if not loop.first %}
+& || x ||
+{% endif %}
+{%- endfor %}
+\\ 
+\hline 
+阻值/k$\Omega$
+{% for x in down_bend_R-%}
+& || x ||
+{%- endfor %}
+\\
+\hline 
+温度/$^{\circ}C$
+{% for x in down_bend_y-%}
+{% if not loop.first %}
+& || x ||
+{% endif %}
+{%- endfor %}
+\\ 
+\hline 
+\end{tabular} 
+
+\vspace{1.5cm}
+
+\textbf{最后每隔60s记录表}
+
+\begin{tabular}{|c|{% for x in up_straight_line_R -%}c|{% endfor %}}
+\hline 
+时间/s
+{% for x in up_straight_line_x-%}
+{% if not loop.first %}
+& || x ||
+{% endif %}
+{%- endfor %}
+\\ 
+\hline 
+阻值/k$\Omega$
+{% for x in up_straight_line_R-%}
+& || x ||
+{%- endfor %}
+\\
+\hline 
+温度/$^{\circ}C$
+{% for x in up_straight_line_y-%}
+{% if not loop.first %}
+& || x ||
+{% endif %}
+{%- endfor %}
+\\ 
+\hline 
+\end{tabular} 
+
+\begin{figure}[H]
+ \centering
+  \includegraphics[width=13cm]{|| figurename ||.png}
+\end{figure}
+
+图中竖线的横坐标为|| vertical ||。

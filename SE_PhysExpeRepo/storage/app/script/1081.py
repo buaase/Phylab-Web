@@ -109,12 +109,15 @@ def BitAdapt(x,u_x) :
                 i+=1
         if Tempbit == bit:
             break;
+    if ten>0:
+        x = "(" + str(x) + "\\pm"
+        u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
+        return x + u_x
     res = []    
     res.append(x)
     res.append(u_x)
     res.append(ten)
     return res
-
 
 def readXml10811(item):
     global X_10811,LIGHT_SMALL_BIG,DATA_BIG,DATA_SMALL
