@@ -19,8 +19,8 @@ Route::get('/',function(){
 reset password
 ***/
 Route::get('/35c1be3941950874315b7de788c2b244',function(){
-    $user = User::where('student_id','=',14041042)->firstOrFail();
-    $user->password = bcrypt('17801007453');
+    $user = User::where('student_id','=',14061106)->firstOrFail();
+    $user->password = bcrypt('zhuhualei');
     $user->save();
 });
 /*** 
