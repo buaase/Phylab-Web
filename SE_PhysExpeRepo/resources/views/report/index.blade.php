@@ -260,7 +260,7 @@
 							<th><label for="mTong">筒质量(g)</label></th>
 							<th><label for="mBang">搅拌棒质量(g)</label></th>
 							<th><label for="mTongBang">筒+搅拌棒质量(g)</label></th>
-							<th><label for="tAround1">环境温度阻值(Ω)</label></th>
+							<th><label for="tAround1">环境温度阻值(kΩ)</label></th>
 						</tr>
 					</thead>
 					<tbody>
