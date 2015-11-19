@@ -145,13 +145,8 @@ def DrawPicture(name,envir_temp,down_straight_line_x_init,down_straight_line_y_i
     plt.plot(down_straight_line_x,down_straight_line_fit_y,linestyle='-',c="blue",linewidth=2)
 
     #下降曲线的模拟绘图
-<<<<<<< HEAD
-    plt.plot(down_bend_x,down_bend_y,linestyle=' ',c="black",marker=Line2D.markers.get('x'),markersize=5)
-    plt.plot(down_bend_x,down_bend_fit_y,linestyle='-',c="blue",linewidth=1.5)
-=======
     plt.plot(down_bend_x,down_bend_y,linestyle=' ',c="black",marker=Line2D.markers.get('x'),markersize=10)
     plt.plot(down_bend_x,down_bend_y_fit,linestyle='-',c="blue",linewidth=2)
->>>>>>> 94341676145fbb94fba9d7dc8fbc3672a8f6a161
 
     #上升直线的模拟绘图
     plt.plot(up_straight_line_x,up_straight_line_y,linestyle=' ',c="black",marker=Line2D.markers.get('x'),markersize=10)
@@ -267,10 +262,7 @@ def ReadXml10211(sublab_root,name):
             up_straight_line_R.append(y_value)
             x_index += 60
 
-<<<<<<< HEAD
-=======
     envir_temp = RToTemperature(scale[3])
->>>>>>> 94341676145fbb94fba9d7dc8fbc3672a8f6a161
 
     #后面的实验中要使用的前提数据
     vertical_line = DrawPicture(name,envir_temp,down_straight_line_x_init, down_straight_line_y_init, down_bend_x_init, down_bend_y_init, up_straight_line_x_init, up_straight_line_y_init)
@@ -330,7 +322,7 @@ def ReadXmlTop(name):
     return latex_head+latex_body+latex_tail
 
 if __name__ == '__main__':
-    #try:
+    try:
         finish_str = ReadXmlTop(sys.argv[2])
         finish_file = open(sys.argv[2]+".tex","w")
         finish_file.write(finish_str.encode('utf-8', 'ignore'))
@@ -344,6 +336,6 @@ if __name__ == '__main__':
             print('{"status":"success"}')
         else:
             print('{"status":"fail"}')
-    #except Exception as e:
+    except Exception as e:
         #print(traceback.format_exc())
-        #print('{"status":"fail"}')
+        print('{"status":"fail"}')

@@ -116,7 +116,6 @@ def BitAdapt(x,u_x) :
     res = []    
     res.append(x)
     res.append(u_x)
-    res.append(ten)
     return res
 
 def readXml10811(item):

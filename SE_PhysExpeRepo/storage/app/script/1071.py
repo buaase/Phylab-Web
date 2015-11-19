@@ -375,10 +375,10 @@ def Refract(source,ANGLE_A1_MIN,ANGLE_A2_MIN,ANGLE_B1_MIN,ANGLE_B2_MIN):
         temp2 = ChangeAngle(temp2,100)
         temp = (temp1 + temp2) / 2
         angle_min.append(temp)
-        tempstr = round(temp-int(temp)*60,2)
+        tempstr = round((temp-int(temp))*60,2)
         tempstr = str(tempstr)
         if "." in tempstr:
-            tempstr = tempstr.split('.')[1]
+            tempstr = tempstr.split('.')[0]
         ANGLE_DELTA_MIN.append({'angle':int(temp),'minus':tempstr})
         sum_min += temp
 
