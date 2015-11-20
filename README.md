@@ -14,7 +14,10 @@
 
 
 # ChangeLog
-
+## Build 1.1
+**Release Date: 16 November 2015**
+- 增加了1021实验的图表生成，第一次完美实现了图表的展示。
+- 增加了反馈页面，并且可以便捷加入QQ群
 
 ## Build 1.02
 **Release Date: 12 November 2015**
