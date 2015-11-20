@@ -14,6 +14,9 @@
 
 
 # ChangeLog
+## Build 1.1.1
+- 服务器性能升级,内存从1G增加到2G
+
 ## Build 1.1
 **Release Date: 16 November 2015**
 - 增加了1021实验的图表生成，第一次完美实现了图表的展示。
