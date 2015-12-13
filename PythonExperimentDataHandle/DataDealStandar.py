@@ -11,12 +11,11 @@ output:
     变量y 表示什么东西也要写出来
 '''
 #标准函数处理文件
-import head
+import phylab
 from jinja2 import Template
 from jinja2 import Environment
 
 env = Environment(line_statement_prefix="#", variable_start_string="%%", variable_end_string="%%")
-import
 
 def XXX(a,b,c...,source):
     #具体数据处理，要求如下：
@@ -43,9 +42,9 @@ def XXX(a,b,c...,source):
         )
     return result 
 
-def ReadXmlObjectImageConvex():
+def ReadXmlXXX():
     #载入数据处理模板
-    file_object = open("***********//Handle10XXY.tex","r")
+    file_object = open("Handle10XXY.tex","r")
     #将模板作为字符串存储在template文件中
     source = file_object.read().decode('utf-8', 'ignore')
     
@@ -54,7 +53,7 @@ def ReadXmlObjectImageConvex():
     return source
 
 if __name__ == '__main__':
-    nstr = ReadXmlObjectImageConvex()
-    nfile = open('********//Handle10XXYfinish.tex','w')
+    nstr = ReadXmlXXX()
+    nfile = open('Handle10XXYfinish.tex','w')
     nfile.write(nstr.encode('utf-8', 'ignore'));
     nfile.close();
