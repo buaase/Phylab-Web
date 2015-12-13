@@ -1,6 +1,6 @@
 function errorAlert(xmessage){
     var message = typeof(xmessage) == "undefined"?null:xmessage;
-    message = message==null ? "未知错误":message;
+    message = message==null ? "未知错误,该收藏可能已被删除":message;
     alert("操作失败："+message);
 }
 function createStar(ico,txt){
@@ -27,7 +27,7 @@ function createStar(ico,txt){
         }
     });
 }
-function deleteStar(ico,txt){
+function deleteReportStar(ico,txt){
     var url="/user/star";
     var postData = "_method=DELETE&id="+encodeURI($('#collectBtn').attr('dbid'));
     PostAjax(url,postData,function(){

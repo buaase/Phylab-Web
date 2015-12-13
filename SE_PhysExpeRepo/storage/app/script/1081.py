@@ -109,12 +109,13 @@ def BitAdapt(x,u_x) :
                 i+=1
         if Tempbit == bit:
             break;
+    if ten>0:
+        x = "(" + str(x) + "\\pm"
+        u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
     res = []    
     res.append(x)
     res.append(u_x)
-    res.append(ten)
     return res
-
 
 def readXml10811(item):
     global X_10811,LIGHT_SMALL_BIG,DATA_BIG,DATA_SMALL
@@ -223,7 +224,6 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
     Result = BitAdapt(lab,u_lamda)
     RESULT_LAMDA = Result[0]
     RESULT_U_LAMDA = Result[1]
-    RESULT_POWER = Result[2]
     
     result = env.from_string(source_10711).render(
         X_10811 = X_10811,
@@ -244,8 +244,7 @@ def cal_lab10811(b1,b2,x,delta_x,u_delta_x):
         U_B2 = U_B2,
         RE_LAMDA = RE_LAMDA,
         RESULT_LAMDA = RESULT_LAMDA,
-        RESULT_U_LAMDA = RESULT_U_LAMDA,
-        RESULT_POWER = RESULT_POWER,
+        RESULT_U_LAMDA = RESULT_U_LAMDA, 
         U_LAMDA = U_LAMDA
         )
     #lab为波长

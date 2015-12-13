@@ -32,7 +32,7 @@ class StarController extends Controller
                 "id" => $star->id,
                 "name" => $star->name,
                 "link" => $star->link,
-                "time" => $star->created_at
+                "time" => toTimeZone($star->created_at)
                 );
             array_push($data["stars"],$rearr);
         }

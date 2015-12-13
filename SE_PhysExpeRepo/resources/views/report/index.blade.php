@@ -260,7 +260,7 @@
 							<th><label for="mTong">筒质量(g)</label></th>
 							<th><label for="mBang">搅拌棒质量(g)</label></th>
 							<th><label for="mTongBang">筒+搅拌棒质量(g)</label></th>
-							<th><label for="tAround1">环境温度阻值(Ω)</label></th>
+							<th><label for="tAround1">环境温度阻值(kΩ)</label></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -274,6 +274,9 @@
 					</table>
 					<table class="table table-condensed table-hover table-striped" id="table1021_1_zuzhi">
 					<thead>
+						<tr>
+							<td colspan="4"><span class="badge">电阻(kΩ)</span></td>
+						</tr>
 						<tr>
 							<th>序号&nbsp &nbsp </th>
 							<th>隔60s读数</th>

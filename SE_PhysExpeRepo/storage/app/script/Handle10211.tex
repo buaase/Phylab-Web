@@ -1,0 +1,52 @@
+
+\section*{实验1.测定冰的熔解热}
+
+\subsection*{(1)原始数据记录}
+\textbf{初始每隔60s记录表}
+\begin{tabular}{|c|c|c|}
+\hline 
+时间/s & 阻值/k$\Omega$ & 温度/$^{\circ}C$
+\\
+\hline
+{%  for number in down_straight_line_x %}
+|| down_straight_line_x[loop.index-1] || & || down_straight_line_R[loop.index-1] || & || down_straight_line_y[loop.index-1] ||
+\\
+\hline
+{% endfor %}
+\end{tabular} 
+
+\vspace{1.5cm}
+
+\textbf{每隔15s记录表}
+\begin{tabular}{|c|c|c|}
+\hline 
+时间/s & 阻值/k$\Omega$ & 温度/$^{\circ}C$
+\\
+\hline
+{%  for number in down_bend_R %}
+|| down_bend_x[loop.index] || & || down_bend_R[loop.index-1] || & || down_bend_y[loop.index] ||
+\\
+\hline
+{% endfor %}
+\end{tabular} 
+
+\vspace{1.5cm}
+\textbf{最后每隔60s记录表}
+\begin{tabular}{|c|c|c|}
+\hline 
+时间/s & 阻值/k$\Omega$ & 温度/$^{\circ}C$
+\\
+\hline
+{%  for number in up_straight_line_R %}
+|| up_straight_line_x[loop.index] || & || up_straight_line_R[loop.index-1] || & || up_straight_line_y[loop.index] ||
+\\
+\hline
+{% endfor %}
+\end{tabular}
+
+\begin{figure}[H]
+ \centering
+  \includegraphics[width=13cm]{|| figurename ||.png}
+\end{figure}
+
+图中竖线的横坐标为|| vertical ||。

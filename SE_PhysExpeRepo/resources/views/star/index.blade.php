@@ -22,7 +22,7 @@
         <tbody>
             @for ($i=0;$i < count($stars);$i++)
                 <tr id="star_{{$stars[$i]['id']}}">
-                    <th scope="row">{{$i}}</th>
+                    <th scope="row">{{$i+1}}</th>
                     <td>{{$stars[$i]["name"]}}</td>
                     <td><button type="button" class="btn btn-default" onclick="window.open('{{URL::route('star').'/'.$stars[$i]['id']}}')"><a href="#">查看</a></button></td>
                     <td>{{$stars[$i]["time"]}}</td>
