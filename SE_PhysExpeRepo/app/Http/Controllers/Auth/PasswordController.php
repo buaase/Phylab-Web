@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+use App\Http\Controllers\Auth\PhylabPasswordReset;
 
 class PasswordController extends Controller
 {
@@ -19,7 +19,7 @@ class PasswordController extends Controller
     */
     protected $redirectPath = '/index';
     protected $redirectT = '/index';
-    use ResetsPasswords;
+    use PhylabPasswordReset;
 
     /**
      * Create a new password controller instance.
