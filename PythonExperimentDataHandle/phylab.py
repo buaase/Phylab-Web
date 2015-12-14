@@ -25,6 +25,7 @@ def Ua(x, aver, k) :
 #输入算出来的最终结果和它的不确定度，可以返回最终结果的形式
 def BitAdapt(x,u_x) :
     ten = 0
+    ften = 0
     if (u_x >= 10):
         temp = x
         while(temp >= 10):
@@ -32,6 +33,15 @@ def BitAdapt(x,u_x) :
             ten += 1
         x = float(x)/10**ten
         u_x = float(u_x)/10**ten
+    elif (x < 0.001):
+        temp = x
+        ften = 0
+        while(temp < 1):
+            print ften
+            temp = temp*10
+            ften += 1
+        x = float(x) * 10**ften
+        u_x = float(u_x) * 10**ften
     Tempbit = 0
     bit = 0
     while (1):
@@ -46,8 +56,8 @@ def BitAdapt(x,u_x) :
         u_x = round(float(u_x),bit)
         x = round(float(x),bit)
         if bit == 0:
-            u_x = ("%.1f" % u_x)
-            x = ("%.1f" % x)
+            u_x = ("%d" % u_x)
+            x = ("%d" % x)
         elif bit == 1:
             u_x = ("%.1f" % u_x)
             x = ("%.1f" % x)
@@ -82,9 +92,13 @@ def BitAdapt(x,u_x) :
                 i+=1
         if Tempbit == bit:
             break
-    if ten>0:
+    print bit
+    if ten > 0:
         x = "(" + str(x) + "\\pm"
         u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
+    elif ften > 0:
+        x = "(" + str(x) + "\\pm"
+        u_x = str(u_x) + "){\\times}10^{-" + str(ften) + "}"
     else:
         x = "(" + str(x) + "\\pm"
         u_x = str(u_x) + ")" 
@@ -118,4 +132,15 @@ def ULR(x,y):
     b = (x[size]*y[size]-xy[size])/(pow(x[size],2)-x_2[size])
     r = (xy[size] - x[size]*y[size]) / sqrt((x_2[size] - pow(x[size],2))*(y_2[size]-pow(y[size],2)))
     res = [b,r]
+    return res
+
+#求仪器误差限
+def DELTA_R(R):
+    res = 0.02 + R%1*5/100.0
+    R = R - R%1
+    res = res + R%10*5/1000.0
+    R = R - R%10
+    res = res + R%100*2/1000.0
+    R = R - R%100
+    res = res + R/1000.0
     return res
