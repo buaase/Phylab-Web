@@ -127,7 +127,6 @@ def BitAdapt(x,u_x) :
     if ten>0:
         x = "(" + str(x) + "\\pm"
         u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
-        return x + u_x
     res = []    
     res.append(x)
     res.append(u_x)
@@ -292,27 +291,33 @@ def Handle10711():
     ANGLE_B2 = []
 
     for a1 in angle_a1_vert:
-        tempstr = str(a1-int(a1))
+        tempstr = str(a1)
         if '.' in tempstr:
             tempstr = tempstr.split('.')[1]
         ANGLE_A1.append({'angle':int(a1),'minus':tempstr})
 
     for a2 in angle_a2_vert: 
-        tempstr = str(a2-int(a2))
+        tempstr = str(a2)
         if "." in tempstr:
             tempstr = tempstr.split('.')[1]
+        else:
+	    tempstr = 0
         ANGLE_A2.append({'angle':int(a2),'minus':tempstr})
 
     for b1 in angle_b1_vert:
-        tempstr = str(b1-int(b1))
+        tempstr = str(b1)
         if "." in tempstr:
             tempstr = tempstr.split('.')[1]
+	else:
+	    tempstr = 0
         ANGLE_B1.append({'angle':int(b1),'minus':tempstr})
 
     for b2 in angle_b2_vert:
-        tempstr = str(b2-int(b2))
+        tempstr = str(b2)
         if "." in tempstr:
             tempstr = tempstr.split('.')[1]
+        else:
+            tempstr = 0
         ANGLE_B2.append({'angle':int(b2),'minus':tempstr})
     
     #µ÷ÓÃÖ÷Òª´¦Àíº¯Êý
