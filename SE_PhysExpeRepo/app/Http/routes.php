@@ -10,6 +10,15 @@ use App\Models\User;
 | and give it the controller to call when that URI is requested.
 |
 */
+
+// 发送密码重置链接路由
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// 密码重置路由
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
+
 #'middleware'    =>  'auth'
 // redirect root path to index
 Route::get('/',function(){

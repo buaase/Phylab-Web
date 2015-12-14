@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
-        if ($e instanceof HttpException){
+        /*if ($e instanceof HttpException){
             $errorData = [
                   "status"=>FAIL_MESSAGE,
                   "message"=>$e->getMessage(),
@@ -58,7 +58,7 @@ class Handler extends ExceptionHandler
         }
         else{
            throw new UnkownException();
-        }
+        }*/
         return parent::render($request, $e);
     }
 }
