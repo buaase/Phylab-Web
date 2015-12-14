@@ -45,7 +45,7 @@
                                     <label><input type="checkbox" id="IfRemember" name="remember">记住密码</input></label>
                                 </div>
                             </div>
-                            <div class="col-md-offset-3 col-md-3" style="display:none;float:right"><a href="##">忘记密码?</a></div>
+                            <div class="col-md-offset-3 col-md-3" style="float:right"><a href="/password/email">忘记密码?</a></div>
                         </div>
                     </form>
                 </div>
