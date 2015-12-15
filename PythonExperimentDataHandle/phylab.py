@@ -37,7 +37,6 @@ def BitAdapt(x,u_x) :
         temp = x
         ften = 0
         while(temp < 1):
-            print ften
             temp = temp*10
             ften += 1
         x = float(x) * 10**ften
@@ -92,7 +91,6 @@ def BitAdapt(x,u_x) :
                 i+=1
         if Tempbit == bit:
             break
-    print bit
     if ten > 0:
         x = "(" + str(x) + "\\pm"
         u_x = str(u_x) + "){\\times}10^{" + str(ten) + "}"
