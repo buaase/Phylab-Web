@@ -1,0 +1,79 @@
+<div class="aw-footer-wrap">
+	<div class="aw-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">
+					<h4>网站相关</h4>
+					<ul class="list-unstyled">
+						<li>关于我们</li>
+						<li>服务条款</li>
+						<li>免责声明</li>
+						<li>帮助中心</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h4>联系合作</h4>
+					<ul class="list-unstyled">
+						<li>联系我们</li>
+						<li>加入我们</li>
+						<li>合作伙伴</li>
+						<li>建议反馈</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h4>关注我们</h4>
+					<ul class="list-unstyled">
+						<li>Twitter</li>
+						<li>Github</li>
+						<li>公众号</li>
+						<li>新浪微博</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h4>友情链接</h4>
+					<ul class="list-unstyled">
+						<li><a href="http://www.wecenter.com/?copyright" target="blank">WeCenter <?php echo G_VERSION; ?></a></li>
+						<li><a href="http://www.houziquan.com/" target="blank">猴子圈</a></li>
+						<li><a href="http://www.houziquan.com/" target="blank">开发者社区</a></li>
+						<li><a href="http://www.houziquan.com/" target="blank">全栈工程师</a></li>
+					</ul>
+				</div>
+	 			<div class="col-sm-4">
+					<h4>内容许可</h4>
+					除特别说明外，用户内容均采用 知识共享署名-相同方式共享 3.0 中国大陆许可协议 进行许可<br>
+					本站由 Aliyun 提供云计算服务
+				</div>
+			</div>
+		</div>
+		猴子圈 - 纯粹的技术交流社区，年轻的开发者社区！
+		Copyright © <?php echo date('Y'); ?><?php if(get_setting('icp_beian')){ ?><span class="hidden-xs"> - <?php echo get_setting('icp_beian'); ?><?php } ?>, All Rights Reserved</span>
+		<?php if (is_mobile(true)) { ?>
+			<div class="container">
+				<div class="row">
+					<p align="center"><?php _e('版本切换'); ?>: <b><?php _e('PC 版'); ?></b> | <a href="m/ignore_ua_check-FALSE"><?php _e('手机版'); ?></a></p>
+				</div>
+			</div>
+		<?php } ?>
+	</div>
+</div>
+
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>
+
+<?php echo get_setting('statistic_code'); ?>
+
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+
+<div style="display:none;" id="__crond">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#__crond').html(unescape('%3Cimg%20src%3D%22' + G_BASE_URL + '/crond/run/<?php echo TIMESTAMP; ?>%22%20width%3D%221%22%20height%3D%221%22%20/%3E'));
+		});
+	</script>
+</div>
+
+<?php TPL::output('global/debuger.tpl.htm'); ?>
+<!-- / DO NOT REMOVE -->
+
+</body>
+</html>

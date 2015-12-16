@@ -1,0 +1,172 @@
+/*全局a标签默认样式*/
+a {
+  color: #000000;
+}
+a:hover{
+  text-decoration: none;color: #1ABC9C;
+}
+
+/*主导航样式*/
+.aw-top-menu-wrap {
+  background-color: #FFF;
+  border-top: 2px solid #1abc9c;
+  box-shadow: 0 1px 2px #e1e1e1;
+  position: fixed;
+  top:0;
+}
+.aw-logo {
+  width: 123px;
+  margin: 7px 0 0 0;
+}
+.aw-logo a{
+  width: 123px;
+  background: url('/static/css/jianyue/img/logo.png') no-repeat;
+}
+.navbar-collapse{
+  background: #FFF;
+}
+.aw-top-nav > nav > ul > li > a {
+  color: #999;
+  transition: all 0.3s ease-out;
+}
+
+.aw-top-nav > nav > ul > li > a.active {
+  background: #1abc9c;
+  color: #FFF;
+}
+.aw-top-nav > nav > ul > li > a:hover, .aw-top-nav > nav > ul > li > a:focus {
+  background: #1abc9c;
+  color: #FFF;
+}
+
+.aw-container-wrap{
+  margin-top: 60px;
+}
+
+/*全局默认字体样式*/
+body{
+  font-family:"Microsoft Yahei",arial,"Lucida Grande","Lucida Sans Unicode";
+}
+
+/*其他样式*/
+.aw-footer-wrap{
+  background: #FFF;
+  margin-top: 10px;
+}
+.btn-primary{
+  border: none !important;
+  background-color: #1ABC9C;
+}
+.btn-primary:hover {
+  background-color: #1ABC9C;
+}
+
+.aw-publish-btn .dropdown-list a {
+  background-color: #1ABC9C;
+}
+.aw-footer-wrap {
+  background: #444;
+}
+.aw-footer h4{
+  font-size: 16px;
+  color: #fff;
+}
+.aw-footer a{
+  cursor: pointer;
+  color: #999;
+}
+.aw-footer a:hover{
+  color: #1ABC9C;
+}
+.aw-footer{
+  color:#999;
+}
+.container{
+  width: 1050px !important;
+}
+.topic-tag .text{
+  background-color: #1ABC9C;
+}
+.aw-mod.side-nav ul li a.active {
+  background-color: #1ABC9C;
+}
+.topic-tag .text:hover, .topic-tag .text:active, .topic-tag .close:hover, .topic-tag .close:active {
+  background: rgb(28, 204, 169);
+}
+.aw-common-list .aw-question-content h4{
+  font-weight: bold;
+}
+.aw-publish-btn .dropdown-list a:hover{
+  background: rgb(28, 204, 169);
+}
+.btn-success:hover, .btn-gray.active:hover{
+  background: rgb(28, 204, 169) !important;color: #fff !important;
+}
+.btn-success, .btn-gray.active {
+  background-color: #1ABC9C;
+}
+.aw-feed-list .aw-user-name {
+  color: #999;
+}
+.aw-mod .mod-head h4, .aw-mod .mod-head h4 a {
+  font-size: 15px;
+}
+.aw-feed-list .aw-item {
+  border-bottom: 1px solid #eee;
+}
+.aw-common-list > div + div {
+  border-top: 1px solid #eee;
+}
+.aw-search-box input {
+  border: 1px solid #ccc;
+}
+.form-control:focus{
+  border-color: #1ABC9C !important;
+}
+
+.aw-nav-tabs > li.active a{
+  border-bottom: 2px solid #1ABC9C;
+}
+.aw-nav-tabs > li > a:hover{
+  border:none;border-bottom:2px solid #1ABC9C;
+}
+.aw-question-detail > .mod-head {
+  border-bottom: 1px solid #1ABC9C;
+}
+.markitup-box {
+  font-size: 14px;
+  color: #333;
+}
+.markitup-box a{
+  color: #1abc9c;
+}
+.aw-question-detail {
+  margin-bottom:10px;
+}
+.aw-topic-detail-title h2 {
+  font-size: 28px;
+}
+.aw-topic-detail-title {
+  min-height: 70px;
+}
+.aw-load-more-content:hover {
+  background: #1ABC9C;
+}
+.aw-load-more-content:hover a, .aw-load-more-content:hover span {
+  background-color: #1ABC9C;
+}
+.aw-load-more-content.disabled:hover span {
+  color: #fff;
+}
+.aw-topic-list .aw-item {
+  padding: 24px 0px 10px 65px;
+}
+.aw-question-content h4 a {
+  color: #333;
+}
+.aw-top-nav {
+  font-size: 16px;
+}
+.aw-question-detail .mod-head h1 {
+  font-weight: bold;
+}
