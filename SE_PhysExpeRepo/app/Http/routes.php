@@ -10,7 +10,10 @@ use App\Models\User;
 | and give it the controller to call when that URI is requested.
 |
 */
-
+// 加密密码接口
+Route::get('password/encrypt/{pwd}', function(){
+    return bcrypt(Request::get('pwd'));
+});
 // 发送密码重置链接路由
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');

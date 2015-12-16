@@ -6,3 +6,7 @@
 *.log
 *.synctex.gz(busy)
 *.synctex.gz
+wecenter/tmp/*
+wecenter/cache/*
+wecenter/uploads/*
+wecenter/language/*
