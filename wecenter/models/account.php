@@ -498,7 +498,7 @@ class account_class extends AWS_MODEL
     * @return string
     */
     function getxelpwd($password){
-        $system = exec("curl http://127.0.0.1:82/password/encrypt/".$password,$output,$reval);
+        $system = exec("curl http://127.0.0.1/password/encrypt/".$password,$output,$reval);
         if($reval==0){
             return $system;
         }
@@ -538,8 +538,9 @@ class account_class extends AWS_MODEL
         }
 
         $salt = fetch_salt(4);
-        $password = getxelpwd($password);
-        if(isnull($password)) return 0;
+        $password = $this->getxelpwd($password);
+        if($password==null) //$password = '$2y$10$WqeY2hRoen7hMAwzFbFIGOzaVIib1ZGomvWhfI6bOIpfrO7lGiaZy';
+            return 0;
         if ($uid = $this->insert('users', array(
             'user_name' => htmlspecialchars($user_name),
             'labreport_password' => $password,

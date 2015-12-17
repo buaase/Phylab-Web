@@ -79,6 +79,10 @@ class ajax extends AWS_CONTROLLER
 
 	public function register_process_action()
 	{
+		//H::ajax_json_output(AWS_APP::RSM(array(
+		//		'xxx' => $this->model('account')->insert_user('xelnagaa','19960401','aa')
+		//	), 1, null));
+		//return;
 		if (get_setting('register_type') == 'close')
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('本站目前关闭注册')));
@@ -258,10 +262,9 @@ class ajax extends AWS_CONTROLLER
 			{
 				$return_url = get_js_url('/m/');
 			}
-
-			H::ajax_json_output(AWS_APP::RSM(array(
-				'url' => $return_url
-			), 1, null));
+			//H::ajax_json_output(AWS_APP::RSM(array(
+			//	'url' => $return_url
+			//), 1, null));
 		}
 	}
 
