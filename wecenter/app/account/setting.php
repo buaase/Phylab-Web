@@ -133,12 +133,12 @@ class setting extends AWS_CONTROLLER
 		TPL::output('account/setting/integral');
 	}
 
-	public function security_action()
+	/*public function security_action()
 	{
 		$this->crumb(AWS_APP::lang()->_t('安全设置'), '/account/setting/security/');
 
 		TPL::output('account/setting/security');
-	}
+	}*/
 
 	public function verify_action()
 	{

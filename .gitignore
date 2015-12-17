@@ -1,4 +1,5 @@
 /bootstrap/compiled.php
+SE_PhysExpeRepo/app/Exceptions/Handler.php
 .env.*.php
 .env.php
 .env

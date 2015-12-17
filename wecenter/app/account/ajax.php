@@ -79,6 +79,10 @@ class ajax extends AWS_CONTROLLER
 
 	public function register_process_action()
 	{
+		//H::ajax_json_output(AWS_APP::RSM(array(
+		//		'xxx' => $this->model('account')->insert_user('xelnagaa','19960401','aa')
+		//	), 1, null));
+		//return;
 		if (get_setting('register_type') == 'close')
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('本站目前关闭注册')));
@@ -258,25 +262,30 @@ class ajax extends AWS_CONTROLLER
 			{
 				$return_url = get_js_url('/m/');
 			}
-
-			H::ajax_json_output(AWS_APP::RSM(array(
-				'url' => $return_url
-			), 1, null));
+			//H::ajax_json_output(AWS_APP::RSM(array(
+			//	'url' => $return_url
+			//), 1, null));
 		}
 	}
-
+	/**
+    *  对这部分添加了对Laravel的组态
+    *  <buaaPhylab>
+    */
 	public function login_process_action()
 	{
+		$xel_user_name = $this->model('account')->getxelauth($_COOKIE['laravel_session']);
+		$xel_password = AWS_APP::config()->get('xel')->xelpwd;
+
 		if (get_setting('ucenter_enabled') == 'Y')
 		{
-			if (!$user_info = $this->model('ucenter')->login($_POST['user_name'], $_POST['password']))
+			if (!$user_info = $this->model('ucenter')->login($xel_user_name, $xel_password))
 			{
-				$user_info = $this->model('account')->check_login($_POST['user_name'], $_POST['password']);
+				$user_info = $this->model('account')->check_login($xel_user_name, $xel_password);
 			}
 		}
 		else
 		{
-			$user_info = $this->model('account')->check_login($_POST['user_name'], $_POST['password']);
+			$user_info = $this->model('account')->check_login($xel_user_name, $xel_password);
 		}
 
 		if (! $user_info)
@@ -309,7 +318,7 @@ class ajax extends AWS_CONTROLLER
 				$this->model('account')->update_user_last_login($user_info['uid']);
 				$this->model('account')->setcookie_logout();
 
-				$this->model('account')->setcookie_login($user_info['uid'], $_POST['user_name'], $_POST['password'], $user_info['salt'], $expire);
+				$this->model('account')->setcookie_login($user_info['uid'], $xel_user_name, $xel_password, $user_info['salt'], $expire);
 
 				if (get_setting('register_valid_type') == 'email' AND !$user_info['valid_email'])
 				{

@@ -110,12 +110,12 @@
         <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li class="active"><a href="##"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
-                <li><a href="##" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');">社区</a></li>
+                <li><a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" href="##" @else href="{{URL::route('wc_login')}}"@endif></span>社区</a></li>
                 <li class="dropdown">
                     <a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" @else href="{{URL::route('report')}}"@endif><span class="glyphicon glyphicon-flag"></span>&nbsp实验报告中心</a></li>
+                        <li><a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" href="##" @else href="{{URL::route('report')}}"@endif><span class="glyphicon glyphicon-flag"></span>&nbsp实验报告中心</a></li>
                         <li class="disabled"><a>其他功能</a></li>
                     </ul>
                 </li>
