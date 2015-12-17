@@ -7,11 +7,35 @@ def RoundTwo(x,b):
     for i in range(len(x)):
         for j in range(len(x[i])):
             x[i][j] = round(x[i][j],b)
+            if b == 1:
+                x[i][j] = ("%.1f" %x[i][j])
+            elif b == 2:
+                x[i][j] = ("%.2f" %x[i][j])
+            elif b == 3:
+                x[i][j] = ("%.3f" %x[i][j])
+            elif b == 4:
+                x[i][j] = ("%.4f" %x[i][j])
+            elif b == 5:
+                x[i][j] = ("%.5f" %x[i][j])
+            elif b == 6:
+                x[i][j] = ("%.6f" %x[i][j])
 
 #将一维列表x中的每一个值保留b位小数（带四舍五入）
 def RoundOne(x,b):
     for i in range(len(x)):
         x[i] = round(x[i],b)
+        if b == 1:
+            x[i] = ("%.1f" %x[i])
+        elif b == 2:
+            x[i] = ("%.2f" %x[i])
+        elif b == 3:
+            x[i] = ("%.3f" %x[i])
+        elif b == 4:
+            x[i] = ("%.4f" %x[i])
+        elif b == 5:
+            x[i] = ("%.5f" %x[i])
+        elif b == 6:
+            x[i] = ("%.6f" %x[i])
 
 #计算a类不确定度：x是一个列表，aver是x的平均值，k是数据的组数（不一定等于len(x)，
 #               因为x后面可能添加了x的平均值）
@@ -141,4 +165,13 @@ def DELTA_R(R):
     res = res + R%100*2/1000.0
     R = R - R%100
     res = res + R/1000.0
+    return res
+
+#逐差法求
+def DWM(x):
+    res = []
+    size = len(x)/2
+    for i in range(size):
+        temp = abs(x[i]-x[i+size])
+        res.append(temp)
     return res
