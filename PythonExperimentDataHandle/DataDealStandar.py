@@ -48,7 +48,7 @@ def ReadXmlXXX():
     #将模板作为字符串存储在template文件中
     source = file_object.read().decode('utf-8', 'ignore')
     
-    source = ObjectImageConcave(source)
+    source = XXX(source)
 
     return source
 
