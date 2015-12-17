@@ -75,6 +75,7 @@ Route::get('/logout', [
 /***
 // Registration routes
 ***/
+/*
 Route::get('/register', [
     'as'    =>  'register',
     'uses'  =>  'Auth\AuthController@getRegister',
@@ -82,7 +83,12 @@ Route::get('/register', [
 Route::post('/register', [
     'uses'    =>  'Auth\PhylabAuthController@postRegister',
     'middleware'    =>  'guest']);
-
+*/
+/* use the wecenter register*/
+Route::get('/register', [
+    'as'    =>  'register',
+    'uses'  =>  function(){return Redirect::to('/wc/?/account/register/');},
+    'middleware'    =>  'guest']);
 /***
 // User routes
 ***/
