@@ -10,6 +10,21 @@ use App\Models\User;
 | and give it the controller to call when that URI is requested.
 |
 */
+//社区登陆入口
+Route::get('/wc/?/account/login',['as'=>'wc_login']);
+/**
+* 本地认证接口
+*/
+Route::get('/74315b7de788c2b24',function(){
+    if(Auth::check()){
+        $auth = Auth::user();
+        $re['email'] = $auth->email;
+    }
+    else{
+        $re['email'] = null;
+    }
+    return Response::json($re);
+});
 // 加密密码接口
 Route::get('password/encrypt/{pwd}', function($pwd){
     return bcrypt($pwd);

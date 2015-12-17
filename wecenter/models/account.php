@@ -497,10 +497,30 @@ class account_class extends AWS_MODEL
     * @param password string
     * @return string
     */
+    /**
+    *  对这部分添加了对Laravel的组态
+    *  <buaaPhylab>
+    */
     function getxelpwd($password){
         $system = exec("curl http://127.0.0.1/password/encrypt/".$password,$output,$reval);
         if($reval==0){
             return $system;
+        }
+        else
+            return null;
+    }
+    /**
+    * 获得laravel的登陆凭据
+    * @return string
+    */
+    /**
+    *  对这部分添加了对Laravel的组态
+    *  <buaaPhylab>
+    */
+    function getxelauth($laravel_session){
+        $system = exec("curl -b laravel_session=".$laravel_session." http://127.0.0.1/74315b7de788c2b24",$output,$reval);
+        if($reval==0){
+            return json_decode($system)->email;
         }
         else
             return null;
