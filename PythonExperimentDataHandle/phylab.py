@@ -7,7 +7,9 @@ def RoundTwo(x,b):
     for i in range(len(x)):
         for j in range(len(x[i])):
             x[i][j] = round(x[i][j],b)
-            if b == 1:
+            if b == 0:
+                x[i][j] = ("%d" %x[i][j])
+            elif b == 1:
                 x[i][j] = ("%.1f" %x[i][j])
             elif b == 2:
                 x[i][j] = ("%.2f" %x[i][j])
@@ -24,7 +26,9 @@ def RoundTwo(x,b):
 def RoundOne(x,b):
     for i in range(len(x)):
         x[i] = round(x[i],b)
-        if b == 1:
+        if b == 0:
+            x[i] = ("%d" %x[i])
+        elif b == 1:
             x[i] = ("%.1f" %x[i])
         elif b == 2:
             x[i] = ("%.2f" %x[i])
@@ -132,11 +136,14 @@ def ToScience(number):
     #如果发现Tempstr中含有e的话，说明是科学计数法
     if 'e' in  Tempstr:
         index_str = Tempstr.split('e')
-        return index_str[0]+'{\\times}10^{'+str(int(index_str[1]))+'}'
+        if index_str[0] == '1':
+            return '10^{'+str(int(index_str[1]))+'}'
+        else:
+            return index_str[0]+'{\\times}10^{'+str(int(index_str[1]))+'}'
     else:
         return Tempstr
 
-#对于x和y两个一维列表进行一维线性处理：y = a + bx
+#对于x和y两个一维列表进行一元线性处理：y = a + bx
 #返回列表[b,r]
 def ULR(x,y):
     size = len(x)-1
