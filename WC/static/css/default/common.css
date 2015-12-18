@@ -1,5 +1,17 @@
 @charset "UTF-8";
-
+@font-face {
+    font-family: 'montserrat';
+    src: url('../font/montserrat-regular-webfont.eot');
+    src: local('montserrat-Regular'),
+		 local('montserrat'),
+		 url('../../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/montserrat-regular-webfont.woff') format('woff'),
+         url('../../fonts/montserrat-regular-webfont.ttf') format('truetype'),
+         url('../../fonts/montserrat-regular-webfont.svg#montserrat') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
 /* 重载bootstrap部分 */
 em{font-style: normal;}
 input[type="radio"], input[type="checkbox"]{margin:0;}
@@ -48,8 +60,8 @@ select{width: auto;}
 
 /* 公共部分 */
 html{height: 100%;}
-body{margin: 0;height: 100%;font-size:14px; line-height:160%;color: #666;background:url('img/bg.gif') repeat;}
-body, input, button, select, textarea, h1, h2, h3, h4, h5, h6{font-family:'Helvetica Neue', 'STHeiti', '微软雅黑', 'Microsoft YaHei', Helvetica,Arial,sans-serif;}
+body{margin: 0;height: 100%;font-size:14px; line-height:160%;color: #666;background-color:#e4e4e4;}
+body, input, button, select, textarea, h1, h2, h3, h4, h5, h6{font-family:"montserrat","Lucida Grande","Hiragino Sans GB","Arial","Microsoft YaHei","STXihei";}
 ul, ol{margin:0;padding:0;list-style:none;}
 h1, h2, h3, h4, h5, h6{margin-top:0;font-size:100%;line-height: 1.7;}
 dd{margin-left: 10px;}

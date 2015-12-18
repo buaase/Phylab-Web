@@ -25,16 +25,6 @@ img {
 span{
 	font-family:"Hiragino Sans GB","Microsoft YaHei","STXihei";
 }
-a{
-	color:#808080;
-	border-width: 0px 0px 0px 0px;
-	border:0;
-	outline:none;
-}
-a:hover
-{
-	color:#404040;
-}
 hr{
 	height:1px;
 	border:0;
