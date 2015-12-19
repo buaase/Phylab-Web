@@ -117,7 +117,7 @@ a:hover{
 }
 
 .aw-nav-tabs > li.active a{
-  border-bottom: 1px solid #bb4444;
+  border-bottom: 2px solid #bb4444;
 }
 .aw-nav-tabs > li > a:hover{
   border:none;border-bottom:2px solid #bb4444;

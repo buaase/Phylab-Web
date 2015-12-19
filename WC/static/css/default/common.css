@@ -55,7 +55,7 @@ select{width: auto;}
 .btn.follow.btn-gray em, .btn.follow.btn-gray.active em, .btn.follow.btn-success.active em{color: #e0e0e0;}
 .btn.follow.btn-success em{color: #78c779;}
 .form-control{padding: 6px;resize:none;box-shadow: none;border-color: #ccc;}
-.form-control:focus{border-color:#499ef3 !important;box-shadow: none;}
+.form-control:focus{border: 1px solid #49f39e !important;box-shadow: none;}
 .btn-group.open .aw-dropdown, .aw-feed-list .more-operate.open .aw-dropdown, .aw-question-detail .more-operate.open .aw-dropdown, .aw-article-list .aw-item .mod-footer .more-operate.open .aw-dropdown{display: block;}
 
 /* 公共部分 */

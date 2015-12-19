@@ -1,12 +1,13 @@
 <?php TPL::output('global/header_meta.tpl.htm'); ?>
-
+<div class="nav navbar-inverse navbar-fixed-top"style="text-align:center;position:relative;">
+	<a href="./index.html"><img style="width:20%;height:auto;" src="<?php echo G_STATIC_URL; ?>/css/<?php echo $this->template_name; ?>/img/phylab_logo_white.svg" /></a>
+</div>
 <div class="aw-register-box">
-    <div class="mod-head">
-        <a href=""><img src="<?php echo G_STATIC_URL; ?>/css/<?php echo $this->template_name; ?>/img/login_logo.png" alt="" /></a>
-        <h1><?php _e('注册新用户'); ?></h1>
-    </div>
+    <!-- <div class="mod-head"><h1>
+		?php _e('注册新用户'); ?>
+	</h1></div> -->
     <div class="mod-body">
-        <form class="aw-register-form" action="account/ajax/register_process/" method="post" id="register_form">
+        <form class="aw-register-form form-group" action="account/ajax/register_process/" method="post" id="register_form">
             <?php if ($this->icode) { ?><input type="hidden" name="icode" id="icode" value="<?php echo $this->icode; ?>" /><?php } ?>
             <?php if ($this->return_url) { ?><input type="hidden" name="return_url" value="<?php echo $this->return_url; ?>" /><?php } ?>
 
@@ -15,14 +16,25 @@
                     <i class="icon icon-delete"></i> <em></em>
                 </li>
                 <li>
-                    <input class="aw-register-name form-control" type="text" name="user_name" placeholder="<?php _e('用户名'); ?>" tips="<?php _e('请输入一个 2-14 位的用户名');?>" errortips="<?php _e('用户名长度不符合');?>" value="" />
-                </li>
+					<div class="input-group">
+						<label for="phy_user_name" class="sr-only">用户名</label>
+						<div class="input-group-addon glyphicon glyphicon-user"></div>
+						<input class="aw-register-name input-lg form-control" type="text" id="phy_user_name" name="user_name" placeholder="<?php _e('用户名'); ?>" tips="<?php _e('请输入一个 2-14 位的用户名');?>" errortips="<?php _e('用户名长度不符合');?>" value="" />
+					</div>
+			    </li>
+                <li><div class="input-group">
+						<label for="phy_user_email" class="sr-only">邮箱</label>
+						<div class="input-group-addon glyphicon glyphicon-envelope"></div>
+						<input class="aw-register-email input-lg form-control" type="text" id="phy_user_email" placeholder="<?php _e('邮箱'); ?>" name="email" tips="<?php _e('请输入你常用的电子邮箱作为你的账号'); ?>" value="<?php echo htmlspecialchars($_GET['email']); ?>" errortips="<?php _e('邮箱格式不正确'); ?>" />
+					</div>
+			    </li>
                 <li>
-                    <input class="aw-register-email form-control" type="text" placeholder="<?php _e('邮箱'); ?>" name="email" tips="<?php _e('请输入你常用的电子邮箱作为你的账号'); ?>" value="<?php echo htmlspecialchars($_GET['email']); ?>" errortips="<?php _e('邮箱格式不正确'); ?>" />
-                </li>
-                <li>
-                    <input class="aw-register-pwd form-control" type="password" name="password" placeholder="密码" tips="<?php _e('请输入 6-16 个字符,区分大小写'); ?>" errortips="<?php _e('密码不符合规则'); ?>" />
-                </li>
+					<div class="input-group">
+						<label for="phy_user_pwd" class="sr-only">密码</label>
+						<div class="input-group-addon glyphicon glyphicon-eye-close"></div>
+						<input class="aw-register-pwd input-lg form-control" type="password" id="phy_user_pwd" name="password" placeholder="密码" tips="<?php _e('请输入 6-16 个字符,区分大小写'); ?>" errortips="<?php _e('密码不符合规则'); ?>" />
+					</div>
+				</li>
                 <li class="more-information hide">
                     <ul>
                         <li>
@@ -66,7 +78,7 @@
                 </li>
                 <?php } ?>
                 <li class="last">
-                    <label><input type="checkbox" checked="checked" value="agree" name="agreement_chk" /> <?php _e('我同意'); ?></label> <a href="javascript:;" class="aw-agreement-btn"><?php _e('用户协议'); ?></a>
+                    <label><input type="checkbox" checked="checked" value="agree" name="agreement_chk" /> <?php _e('我同意'); ?></label> <a class="aw-agreement-btn" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" title="PhyLab协议摘要" data-content="1、	本网站为物理实验学习交流平台，严禁用于非法或商业用途<br/>2、	网站最终解释权归网站开发团队——软件攻城队所有" id="License"><?php _e('《用户协议》'); ?></a>
                     <a href="account/login/" class="pull-right">已有账号?</a>
                     <div class="aw-register-agreement hide">
                         <div class="aw-register-agreement-txt" id="register_agreement"></div>
@@ -74,7 +86,7 @@
 
                 </li>
                 <li class="clearfix">
-                    <button class="btn btn-large btn-blue btn-block" onclick="AWS.ajax_post($('#register_form'), AWS.ajax_processer, 'error_message'); return false;"><?php _e('注册'); ?></button>
+                    <button class="btn btn-large btn-green btn-block" onclick="AWS.ajax_post($('#register_form'), AWS.ajax_processer, 'error_message'); return false;"><?php _e('注册'); ?></button>
                 </li>
             </ul>
         </form>
@@ -83,6 +95,12 @@
 </div>
 
 <script type="text/javascript">
+$(function () {
+			$('[data-toggle="popover"]').popover({
+				html : true
+			});
+		})
+
 $(document).ready(function ()
 {
     $.get(G_BASE_URL + '/account/ajax/register_agreement/', function (result) { $('#register_agreement').html(result.err); }, 'json');
