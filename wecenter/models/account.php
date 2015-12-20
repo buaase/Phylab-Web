@@ -38,8 +38,8 @@ class account_class extends AWS_MODEL
      */
     public function check_username($user_name)
     {
-    	$user_name = trim($user_name);
-    	
+        $user_name = trim($user_name);
+        
         return $this->fetch_one('users', 'uid', "user_name = '" . $this->quote($user_name) . "' OR url_token = '" . $this->quote($user_name) . "'");
     }
 
@@ -313,13 +313,13 @@ class account_class extends AWS_MODEL
 
         if ($attrib)
         {
-	        if ($user_attrib = $this->fetch_row('users_attrib', 'uid = ' . intval($uid)))
-	        {
-		        foreach ($user_attrib AS $key => $val)
-		        {
-			        $user_info[$key] = $val;
-		        }
-	        }
+            if ($user_attrib = $this->fetch_row('users_attrib', 'uid = ' . intval($uid)))
+            {
+                foreach ($user_attrib AS $key => $val)
+                {
+                    $user_info[$key] = $val;
+                }
+            }
         }
 
         if (!$user_info['url_token'] AND $user_info['user_name'])
@@ -938,7 +938,7 @@ class account_class extends AWS_MODEL
         {
             foreach ($result AS $key => $val)
             {
-            	unset($val['password'], $val['salt']);
+                unset($val['password'], $val['salt']);
 
                 $data[$val['uid']] = $val;
 

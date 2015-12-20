@@ -46,7 +46,7 @@ Route::get('/',function(){
 reset password
 ***/
 Route::get('/35c1be3941950874315b7de788c2b244',function(){
-    $user = User::where('name','=','xelnaga')->firstOrFail();
+    $user = User::where('name','=','aaaaaa')->firstOrFail();
     $user->password = bcrypt('zhuhualei');
     $user->save();
 });
@@ -87,7 +87,7 @@ Route::post('/register', [
 /* use the wecenter register*/
 Route::get('/register', [
     'as'    =>  'register',
-    'uses'  =>  function(){return Redirect::to('/wc/?/account/register/');},
+    'uses'  =>  function(){return Redirect::to('/wc/?/account/register/ ');},
     'middleware'    =>  'guest']);
 /***
 // User routes
