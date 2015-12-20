@@ -65,7 +65,10 @@ def DoubleBridge(R1,R2,RN,LR,d):
     ua_d = phylab.Ua(d,ave_d,len(d)-1)
     uP = sqrt(pow(2*ua_d/ave_d,2) + pow(ua_bb,2))
     u_P = uP * fP
-    
+    res = [fP,u_P]
+    return res
+
+'''
     res_P = phylab.BitAdapt(fP,u_P)
     print "res_P:" + str(res_P)
     R1 = ("%d" %R1)
@@ -113,7 +116,7 @@ LR = [[50,100,150,200,250,300,350,400],
         [30.23,61.13,91.65,121.43,151.36,182.31,211.24,240.45]]
 d = [4.06,4.04,4.01,3.98,3.98,4.03,4.01,4.03]
 DoubleBridge(R1,R2,RN,LR,d)
-
+'''
 '''
     result = env.from_string(source).render(
         R_res_P = res_P,
