@@ -80,7 +80,8 @@ class main extends AWS_CONTROLLER
 		}
 		else
 		{
-			HTTP::redirect($url);
+			//HTTP::redirect('/../');
+			header('Location: /');
 		}
 	}
 
@@ -124,7 +125,7 @@ class main extends AWS_CONTROLLER
 			$return_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 		}
 		$xel_auth = $this->model('account')->getxelauth($_COOKIE['laravel_session']);
-		if(!$xel_auth) $xel_auth="U R a Bitch";
+		if(!$xel_auth) $xel_auth="您的登陆凭证有误";
 		TPL::assign('return_url', $return_url);
 		TPL::assign('xel_auth',$xel_auth);
 		TPL::output("account/login");
