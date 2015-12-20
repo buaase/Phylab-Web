@@ -1,0 +1,38 @@
+
+<div class="wrapper wrapper_navbar_foot">
+			<nav class="navbar navbar-inverse navbar-fixed-bottom" style="min-height:20px;">
+				<div class="container-fluid">
+					<ul class="nav navbar-nav navbar-right"  style="padding-top:0.25%;">
+						<li class="text-white ch" style="float:right;opacity:0.7;font-size:13px;">Developed By BUAA-SCSE 软件攻城队&nbsp &nbsp &nbsp &nbsp &nbsp </li>
+					</ul>
+				</div>
+				<?php if (is_mobile(true)) { ?>
+					<div class="container">
+						<div class="row">
+							<p align="center"><?php _e('版本切换'); ?>: <b><?php _e('PC 版'); ?></b> | <a href="m/ignore_ua_check-FALSE"><?php _e('手机版'); ?></a></p>
+						</div>
+					</div>
+				<?php } ?>
+			</nav>
+		</div>
+
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>
+
+<?php echo get_setting('statistic_code'); ?>
+
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+
+<div style="display:none;" id="__crond">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#__crond').html(unescape('%3Cimg%20src%3D%22' + G_BASE_URL + '/crond/run/<?php echo TIMESTAMP; ?>%22%20width%3D%221%22%20height%3D%221%22%20/%3E'));
+		});
+	</script>
+</div>
+
+<?php TPL::output('global/debuger.tpl.htm'); ?>
+<!-- / DO NOT REMOVE -->
+
+</body>
+</html>
