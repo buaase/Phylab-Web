@@ -1,0 +1,158 @@
+<div class="modal fade" id="lab_table_1022">
+    <div class="modal-dialog modal-lab">
+        <div class="modal-content">
+            <div class="modal-header">
+    			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation"><h4><span class="label label-danger">&nbsp 1022&nbsp </span> &nbsp </h4></li>
+					<li role="presentation" class="active"><a href="#lab_1022_1" aria-controls="实验一 伏安法测中电阻" role="tab" data-toggle="tab">Lab1&nbsp伏安法测中电阻</a></li>
+				</ul>
+			</div>
+			<div class="table-autoscroll well tab-content" id="modal-body-1022-1">
+				<div role="tabpanel" class="tab-pane fade in active" id="lab_1022_1">
+					<table class="table table-condensed table-hover table-striped" id="table1022_fuanfazhong">
+					<tbody>
+						<tr>
+							<td>向量\次数</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>hp</td>
+							<td><input class="para 1022_1 form-control" aria-label="hp1" type="text" id="hp1" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hp2" type="text" id="hp2" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hp3" type="text" id="hp3" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hp4" type="text" id="hp4" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hp5" type="text" id="hp5" ></td>
+						</tr>
+						<tr>
+							<td>dp</td>
+							<td><input class="para 1022_1 form-control" aria-label="dp1" type="text" id="dp1" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="dp2" type="text" id="dp2" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="dp3" type="text" id="dp3" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="dp4" type="text" id="dp4" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="dp5" type="text" id="dp5" ></td>
+						</tr>
+						<tr>
+							<td>hb</td>
+							<td><input class="para 1022_1 form-control" aria-label="hb1" type="text" id="hb1" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hb2" type="text" id="hb2" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hb3" type="text" id="hb3" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hb4" type="text" id="hb4" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="hb5" type="text" id="hb5" ></td>
+						</tr>
+						<tr>
+							<td>db</td>
+							<td><input class="para 1022_1 form-control" aria-label="db1" type="text" id="db1" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="db2" type="text" id="db2" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="db3" type="text" id="db3" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="db4" type="text" id="db4" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="db5" type="text" id="db5" ></td>
+						</tr>
+						<tr>
+							<td>t/min</td>
+							<td>0</td>
+							<td>5</td>
+							<td>10</td>
+							<td>15</td>
+							<td>20</td>
+							<td>25</td>
+							<td>30</td>
+							<td>35</td>
+							<td>40</td>
+							<td>45</td>
+							<td>50</td>
+							<td>55</td>
+							<td>60</td>
+							<td>65</td>
+							<td>70</td>
+							<td>75</td>
+						</tr>
+						<tr>
+							<td>θ1/mv</td>
+							<td><input class="para 1022_1 form-control" aria-label="θ110" type="text" id="θ10" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ115" type="text" id="θ15" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ110" type="text" id="θ110" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ115" type="text" id="θ115" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ120" type="text" id="θ120" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ125" type="text" id="θ125" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ130" type="text" id="θ130" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ135" type="text" id="θ135" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ140" type="text" id="θ140" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ145" type="text" id="θ145" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ150" type="text" id="θ150" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ155" type="text" id="θ155" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ160" type="text" id="θ160" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ165" type="text" id="θ165" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ170" type="text" id="θ170" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ175" type="text" id="θ175" ></td>
+						</tr>
+						<tr>
+							<td>θ2/mv</td>
+							<td><input class="para 1022_1 form-control" aria-label="θ210" type="text" id="θ20" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ215" type="text" id="θ25" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ210" type="text" id="θ210" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ215" type="text" id="θ215" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ220" type="text" id="θ220" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ225" type="text" id="θ225" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ230" type="text" id="θ230" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ235" type="text" id="θ235" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ240" type="text" id="θ240" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ245" type="text" id="θ245" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ250" type="text" id="θ250" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ255" type="text" id="θ255" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ260" type="text" id="θ260" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ265" type="text" id="θ265" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ270" type="text" id="θ270" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="θ275" type="text" id="θ275" ></td>
+						</tr>
+						<tr>
+							<td>t/s</td>
+							<td>0</td>
+							<td>30</td>
+							<td>60</td>
+							<td>90</td>
+							<td>120</td>
+							<td>150</td>
+							<td>180</td>
+							<td>210</td>
+							<td>240</td>
+							<td>270</td>
+							<td>300</td>
+						</tr>
+						<tr>
+							<td>θ2/mv</td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ20" type="text" id="tθ20" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ230" type="text" id="tθ230" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ260" type="text" id="tθ260" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ290" type="text" id="tθ290" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2120" type="text" id="tθ2120" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2150" type="text" id="tθ2150" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2180" type="text" id="tθ2180" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2210" type="text" id="tθ2210" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2240" type="text" id="tθ2240" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2270" type="text" id="tθ2270" ></td>
+							<td><input class="para 1022_1 form-control" aria-label="tθ2300" type="text" id="tθ2300" ></td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="modal-footer-1022-1">
+				<div class="form-group" style="float:right;">
+					<label for="check_1022_1">&nbsp Lab1&nbsp </label>
+					<div class="holder">
+						<input class="1022_1 check-ios" id="check_1022_1" name="check_1022" type="checkbox">
+						<label for="check_1022_1"></label>
+						<span></span>
+					</div>
+				</div><br/>
+				<button type="button" class="btn-Save btn btn-lg btn-danger btn-block" id="btnSave_1022" style="display:block"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp 保存！</button>
+				<button type="button" class="btn-Error btn btn-lg btn-danger btn-block" id="btnError_1022" style="display:none;" disabled="disable"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp ：<span id="ErrorText_1022">请选择并完整填写至少一个实验</span></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
