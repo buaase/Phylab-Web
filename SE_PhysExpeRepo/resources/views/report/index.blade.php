@@ -1959,7 +1959,7 @@
 		<div class="collapse navbar-collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav navbar-left">
 				<li><a href="{{URL::route('index')}}"><span class="glyphicon glyphicon-home"></span>&nbsp主页</a></li>
-				<li><a href="##" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');">社区</a></li>
+				<li><a href="{{URL::route('wc_login')}}">社区</a></li>
                 <li class="dropdown active">
 					<a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
 					</a>

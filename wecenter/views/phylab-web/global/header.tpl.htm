@@ -48,7 +48,7 @@
 					<li><a href="article/" class="<?php if ($_GET['app'] == 'article') { ?>active<?php } ?>"><?php _e('文章'); ?></a></li>
 
 					<li><a href="topic/" <?php if ($_GET['app'] == 'topic') { ?>class="active"<?php } ?>> <?php _e('话题'); ?></a></li>
-					<li><a href="/" style="color:#c55"> <?php _e('报告生成'); ?></a></li>
+					<li><a href="/report" style="color:#c55"> <?php _e('报告生成'); ?></a></li>
 					<?php if ($this->user_id) { ?>
 					<li>
 						<a href="notifications/" class="<?php if ($_GET['app'] == 'notifications') { ?>active<?php } ?>"> <?php _e('通知'); ?></a>
