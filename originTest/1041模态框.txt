@@ -1,0 +1,136 @@
+<div class="modal fade" id="lab_table_1041">
+    <div class="modal-dialog modal-lab">
+        <div class="modal-content">
+            <div class="modal-header">
+    			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation"><h4><span class="label label-danger">&nbsp 1041&nbsp </span> &nbsp </h4></li>
+					<li role="presentation" class="active"><a href="#lab_1041_1" aria-controls="实验一 伏安法测中电阻" role="tab" data-toggle="tab">Lab1&nbsp伏安法测中电阻</a></li>
+					<li role="presentation"><a href="#lab_1041_2" aria-controls="实验二 测检流计内阻与电流常数" role="tab" data-toggle="tab">Lab2&nbsp测检流计内阻与电流常数</a></li>
+				</ul>
+			</div>
+			<div class="table-autoscroll well tab-content" id="modal-body-1041-1">
+				<div role="tabpanel" class="tab-pane fade in active" id="lab_1041_1">
+					<table class="table table-condensed table-hover table-striped" id="table1041_fuanfazhong">
+					<tbody>
+						<tr>
+							<td>内接(V)</td>
+							<td>外接(V)</td>
+							<td>欧姆表(欧姆)</td>
+						</tr>
+						<tr>
+							<td><input class="para 1041_1 form-control" aria-label="内接值" type="text" id="neijie" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="外接值" type="text" id="waijie" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="欧姆表值" type="text" id="oumubiao" ></td>
+						</tr>
+						<tr>
+							<td>V/v</td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值1" type="text" id="1041_1_v1" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值2" type="text" id="1041_1_v2" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值3" type="text" id="1041_1_v3" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值4" type="text" id="1041_1_v4" ></td>
+						</tr>
+						<tr>
+							<td>V/v</td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值5" type="text" id="1041_1_v5" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值6" type="text" id="1041_1_v6" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值7" type="text" id="1041_1_v7" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电压值8" type="text" id="1041_1_v8" ></td>
+						</tr>
+						<tr>
+							<td>I/ma</td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值1" type="text" id="1041_1_i1" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值2" type="text" id="1041_1_i2" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值3" type="text" id="1041_1_i3" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值4" type="text" id="1041_1_i4" ></td>
+						</tr>
+						<tr>
+							<td>I/ma</td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值5" type="text" id="1041_1_i5" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值6" type="text" id="1041_1_i6" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值7" type="text" id="1041_1_i7" ></td>
+							<td><input class="para 1041_1 form-control" aria-label="电流值8" type="text" id="1041_1_i8" ></td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="lab_1041_2">
+					<table class="table table-condensed table-hover table-striped" id="table1041_zuixiaopianxiang">
+						<thead>
+							<tr>
+								<th>R1固定电阻</th>
+								<th>检流计的格数/div</th>
+								<th>满偏时 R0/Ω</th>
+								<th>满偏时 U/v</th>
+								<th>半偏时 R2/Ω</th>
+								<th>电压表仪器误差限/V</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input class="para 1041_2 form-control" aria-label="R1固定电阻" type="text" id="gudingdianzu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="检流计的格数" type="text" id="1041_2_jianliujigeshu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="满偏时 R0/Ω" type="text" id="manpianR0" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="满偏时 U/v" type="text" id="manpianU" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="半偏时 R2/Ω" type="text" id="banpianR2" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="电压表仪器误差限/V" type="text" id="1041_2_yiqiwuchaxian" ></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="lab_1041_3">
+					<table class="table table-condensed table-hover table-striped" id="table1041_zuixiaopianxiang">
+						<thead>
+							<tr>
+								<th>ki 检流计电流常数/div</th>
+								<th>d 检流计格数/div</th>
+								<th>Rg 检流计内阻/Ω</th>
+								<th>U_ki ki的不确定度/div</th>
+								<th>U_d d的不确定度/div</th>
+								<th>Rs/Ω</th>
+								<th>U 电压表示数/V</th>
+								<th>delta_V 电压表的仪器误差限/V</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input class="para 1041_2 form-control" aria-label="ki 检流计电流常数" type="text" id="1041_3_jianliujichangshu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="d 检流计格数" type="text" id="1041_3_jianliujigeshu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="Rg 检流计内阻" type="text" id="1041_3_jianliujineizu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="U_ki ki的不确定度" type="text" id="U_ki_buquedingdu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="U_d d的不确定度" type="text" id="U_d_buquedingdu" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="Rs" type="text" id="1041_3_Rs" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="U 电压表示数" type="text" id="1041_3_dianyabiao" ></td>
+								<td><input class="para 1041_2 form-control" aria-label="delta_V 电压表的仪器误差限" type="text" id="1041_3_yiqiwuchaxian" ></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="modal-footer-1041-1">
+				<div class="form-group" style="float:right;">
+					<label for="check_1041_1">&nbsp Lab1&nbsp </label>
+					<div class="holder">
+						<input class="1041_1 check-ios" id="check_1041_1" name="check_1041" type="checkbox">
+						<label for="check_1041_1"></label>
+						<span></span>
+					</div>
+					<label for="check_1041_2">&nbsp Lab2&nbsp </label>
+					<div class="holder">
+						<input class="1041_2 check-ios" id="check_1041_2" name="check_1041" type="checkbox">
+						<label for="check_1041_2"></label>
+						<span></span>
+					</div>
+					<label for="check_1041_3">&nbsp Lab2&nbsp </label>
+					<div class="holder">
+						<input class="1041_3 check-ios" id="check_1041_3" name="check_1041" type="checkbox">
+						<label for="check_1041_3"></label>
+						<span></span>
+					</div>
+				</div><br/>
+				<button type="button" class="btn-Save btn btn-lg btn-danger btn-block" id="btnSave_1041" style="display:block"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp 保存！</button>
+				<button type="button" class="btn-Error btn btn-lg btn-danger btn-block" id="btnError_1041" style="display:none;" disabled="disable"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp ：<span id="ErrorText_1041">请选择并完整填写至少一个实验</span></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
