@@ -17,7 +17,7 @@
                 <h4 class="modal-title lead">登录PhyLab</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form" method="post" action="{{URL::route('login')}}">
+                <form id="login_form" class="form-horizontal" role="form" method="post" action="{{URL::route('login')}}">
                     {!! csrf_field() !!}
 					<div class="alert alert-danger" role="alert" id="loginAlert" style="display:none;height:30px;padding:5px;">
                         <span class="glyphicon glyphicon-remove-sign"></span><span id="errorMessage">&nbsp 用户名或密码错误!</span>
@@ -45,7 +45,7 @@
                         <div class="col-md-offset-3 col-md-3" style="float:right"><a href="/password/email">忘记密码?</a></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp </button>
+                        <button type="button" id="login_submit" onclick="Post_login()" class="btn btn-primary btn-lg btn-block lead"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp&nbsp登录！&nbsp </button>
                     </div>
                 </form>
             </div>

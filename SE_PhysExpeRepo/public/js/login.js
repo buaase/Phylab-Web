@@ -30,3 +30,9 @@
         }
     });
 }
+$('#login_form input').keydown(function (e) {
+    if (e.keyCode == 13)
+        {
+            $('#login_submit').click();
+        }
+    });
