@@ -11,7 +11,7 @@ use App\Models\User;
 |
 */
 //社区登陆入口
-Route::get('/wc/?/account/login',['as'=>'wc_login']);
+Route::get('/wc/?/account/login/ ',['as'=>'wc_login']);
 /**
 * 本地认证接口
 */

@@ -1,14 +1,14 @@
 /* latin */
 @font-face {
     font-family: 'montserrat';
-    src: url('../font/montserrat-regular-webfont.eot');
+    src: url('../../fonts/montserrat-regular-webfont.eot');
     src: local('montserrat-Regular'),
 		 local('montserrat'),
-		 url('../font/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font/montserrat-regular-webfont.woff2') format('woff2'),
-         url('../font/montserrat-regular-webfont.woff') format('woff'),
-         url('../font/montserrat-regular-webfont.ttf') format('truetype'),
-         url('../font/montserrat-regular-webfont.svg#montserrat') format('svg');
+		 url('../../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/montserrat-regular-webfont.woff') format('woff'),
+         url('../../fonts/montserrat-regular-webfont.ttf') format('truetype'),
+         url('../../fonts/montserrat-regular-webfont.svg#montserrat') format('svg');
     font-weight: 400;
     font-style: normal;
 

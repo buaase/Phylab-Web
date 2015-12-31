@@ -37,7 +37,7 @@ class main extends AWS_CONTROLLER
 
 	public function index_action()
 	{
-		HTTP::redirect('/account/setting/');
+		HTTP::redirect('/');
 	}
 
 	public function captcha_action()
