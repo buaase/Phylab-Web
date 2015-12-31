@@ -208,7 +208,7 @@ function cacl() {
 	$(".s-result #ySum").html(s_global.succDiff.ySum().toFixed(s_global.fixedNum))
 	$(".s-result #a").html(s_global.succDiff.a().toFixed(s_global.fixedNum));
 	$(".s-result #b").html(s_global.succDiff.b().toFixed(s_global.fixedNum));
-	$(".s-result #muaB").html(s_global.succDiff.muaB().toFixed(s_global.fixedNum));
+	$(".s-result #muaB1").html(s_global.succDiff.muaB().toFixed(s_global.fixedNum));
 	//New code here
 	$("#successive-difference-modalOk").modal('show');
 	$("#successive-difference-modal").modal('hide');
