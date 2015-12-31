@@ -115,8 +115,9 @@
                     <a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" href="##" @else href="{{URL::route('report')}}"@endif><span class="glyphicon glyphicon-flag"></span>&nbsp实验报告中心</a></li>
-                        <li class="disabled"><a>其他功能</a></li>
+                        <li><a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" href="##" @else href="{{URL::route('report')}}"@endif><span class="glyphicon glyphicon-flag"></span>&nbsp 实验报告中心</a></li>
+                        <li><a data-toggle="modal" @if (!$auth) data-target="#mymodal-signin" href="##" @else href="{{URL::route('tools')}}"@endif><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
+						<li class="disabled"><a>其他功能</a></li>
                     </ul>
                 </li>
                 <li><a href="##" data-toggle="modal" data-target="#mymodal-party">反馈</a></li>

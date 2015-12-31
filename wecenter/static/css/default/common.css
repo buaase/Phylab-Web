@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face {
     font-family: 'montserrat';
-    src: url('../font/montserrat-regular-webfont.eot');
+    src: url('../../fonts/montserrat-regular-webfont.eot');
     src: local('montserrat-Regular'),
          local('montserrat'),
          url('../../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
