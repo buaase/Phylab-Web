@@ -132,6 +132,13 @@ Route::get('/user/star/download/{id}',[
     'uses'  =>  'StarController@download',
     'middleware'    =>  'auth']);
 /***
+tools routes
+***/
+Route::get('/tools',[
+    'as'=>'tools',
+    'uses'=>'ToolsController@index',
+    'middleware' => 'auth']);
+/***
 //Report routes
 ***/
 Route::get('/report',[
