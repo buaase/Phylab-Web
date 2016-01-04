@@ -184,10 +184,10 @@ but then i came up with hack. I made .rotater 2px width/height and placed child 
   background: #e57373;
 }
 .inner.inner-3 {
-  background: #ffefef;
+  background: rgba(255,239,239,0.75);
 }
 .inner.inner-4 {
-  background: #fdfdfd;
+  background: rgba(253,253,253,0.75);
 }
 .inner.inner-5 {
   background: #26c6da;

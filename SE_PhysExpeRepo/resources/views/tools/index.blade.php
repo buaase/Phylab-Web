@@ -1,4 +1,4 @@
-	<html lang="zh-CN">
+﻿	<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,12 +27,12 @@
 						  <div class="row">
 							<div class="span3 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20k="
+								<img src="./img/vark.png"
 								/>
 								<span id="k">
 								  未知数 &nbsp &nbsp &nbsp 
 								</span>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20n="
+								<img src="./img/varn.png"
 								/>
 								<span id="n">
 								  未知数
@@ -41,12 +41,12 @@
 							</div>
 							<div class="span3">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\sum%20x_{i}="
+								<img src="./img/sumx.png"
 								/>
 								<span id="xSum">
 								 &nbsp 未知数 &nbsp &nbsp &nbsp 
 								</span>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\sum%20y_{i}="
+								<img src="./img/sumy.png"
 								/>
 								<span id="ySum">
 								 &nbsp 未知数
@@ -58,7 +58,7 @@
 						  <div class="row">
 							<div class="span6 offset1 ">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\overline{a}=\frac{1}{n}\cdot%20(\sum%20y_{i}-\bar{b}\cdot%20\sum%20x_{i}%20)="
+								<img src="./img/expra.png"
 								/>
 								<span id="a">
 								  未知数
@@ -70,8 +70,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\bar{b}=\frac{1}{n}\cdot%20\sum%20\frac{\Delta%20y_{i}}{\Delta%20x_{i}}="
-								/>
+								<img src="./img/exprb.png">
 								<span id="b">
 								  未知数
 								</span>
@@ -82,9 +81,9 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\mu_a(\bar{b})=\sqrt{\frac{\sum%20(b_{i}-\bar{b})}{n(n-1)}}="
+								<img src="./img/expruab.png"
 								/>
-								<span id="muaB">
+								<span id="muaB1">
 								  未知数
 								</span>
 							  </p>
@@ -179,12 +178,12 @@
 						  <div class="row">
 							<div class="span3 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\overline{x}="
+								<img src="./img/avgx.png"
 									/>
 								<span id="xAvg">
 									未知数
 								</span>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\overline{y}="
+								<img src="./img/avgy.png"
 								/>
 								<span id="yAvg">
 								  未知数
@@ -193,12 +192,12 @@
 							</div>
 							<div class="span3">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\overline{xy}="
+								<img src="./img/avgxy.png"
 								/>
 								<span id="xyMulAvg">
 								  未知数
 								</span>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\bar{x}%20\bar{y}="
+								<img src="./img/avgxavgy.png"
 								/>
 								<span id="xAvgYAvgMul">
 								  未知数
@@ -210,7 +209,7 @@
 						  <div class="row">
 							<div class="span6 offset1 ">
 							  <p>
-								 <img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\overline{x^2}="
+								 <img src="./img/avgx2.png"
 								/>
 								<span id="xSquareAvg">
 								  未知数
@@ -222,7 +221,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\overline{y^2}="
+								<img src="./img/avgy2.png"
 								/>
 								<span id="ySquareAvg">
 								  未知数
@@ -234,7 +233,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20{\overline{x}}^2="
+								<img src="./img/(avgx)2.png"
 								/>
 								<span id="xAvgSquare">
 								  未知数
@@ -243,7 +242,7 @@
 							</div>
 							<div class="span3">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20{\overline{y}}^2="
+								<img src="./img/(avgy)2.png"
 								/>
 								<span id="yAvgSquare">
 								  未知数
@@ -255,7 +254,7 @@
 						  <div class="row">
 							<div class="span6 offset1 ">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20a=\overline{y}-b\overline{x}="
+								<img src="./img/vara.png"
 								/>
 								<span id="a">
 								  未知数
@@ -267,7 +266,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20b=\frac{\bar{x}\bar{y}-\overline{xy}}@{{\overline{x}}^2-\overline{x^2}}="
+								<img src="./img/varb.png"
 								/>
 								<span id="b">
 								  未知数
@@ -279,7 +278,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20r=\frac{\overline{xy}-\bar{x}\bar{y}}{\sqrt{({\overline{x}}^2-\overline{x^2})({\overline{y}}^2-\overline{y^2})}}="
+								<img src="./img/varr.png"
 								/>
 								<span id="r">
 								  未知数
@@ -290,7 +289,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\mu_a(a)=\sqrt{\overline{x^2}}\cdot\mu_a(b)="
+								<img src="./img/expruaa.png"
 								/>
 								<span id="muaA">
 								  未知数
@@ -301,7 +300,7 @@
 						  <div class="row">
 							<div class="span6 offset1">
 							  <p>
-								<img src="https://chart.googleapis.com/chart?cht=tx&chl=\Large%20\mu_a(b)=b\cdot\sqrt{\frac1{k-2}(\frac1{r^2}-1)}="
+								<img src="./img/expruab2.png"
 								/>
 								<span id="muaB">
 								  未知数
@@ -403,7 +402,8 @@
 					<a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a data-toggle="modal" data-target="#mymodal-signin"><span class="glyphicon glyphicon-flag"></span>&nbsp实验报告中心</a></li>
+						<li><a data-toggle="modal" href="{{URL::route('report')}}"><span class="glyphicon glyphicon-flag"></span>&nbsp 实验报告中心</a></li>
+						<li><a data-toggle="modal" href="{{URL::route('tools')}}"><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
 						<li class="disabled"><a>其他功能</a></li>
 					</ul>
 				</li>
@@ -423,25 +423,25 @@
 			<div class="rotater">
 			  <div class="elem active">
 				<div class="inner inner-3">
-					<h2 class="art-heading ch">逐差法计算器</h2>
+					<h2 class="art-heading ch"><span class="glyphicon glyphicon-pushpin"></span>&nbsp 逐差法计算器</h2>
 					<button class="art-btn" data-toggle="modal" data-target="#successive-difference-modal" type="button">立即使用</button>
 				</div>
 			  </div>
 			  <div class="elem">
 				<div class="inner inner-4">
-					<h2 class="art-heading ch">线性回归分析</h2>
+					<h2 class="art-heading ch"><span class="glyphicon glyphicon-pushpin"></span>&nbsp 线性回归分析</h2>
 					<button class="art-btn" data-toggle="modal" data-target="#linear-regression-modal" type="button">立即使用</button>
 				</div>
 			  </div>
 			  <div class="elem">
 				<div class="inner inner-3">
-					<h2 class="art-heading ch">逐差法计算器</h2>
+					<h2 class="art-heading ch"><span class="glyphicon glyphicon-pushpin"></span>&nbsp 逐差法计算器</h2>
 					<button class="art-btn" data-toggle="modal" data-target="#successive-difference-modal" type="button">立即使用</button>
 				</div>
 			  </div>
 			  <div class="elem">
 				<div class="inner inner-4">
-				  <h2 class="art-heading ch">线性回归分析</h2>
+				  <h2 class="art-heading ch"><span class="glyphicon glyphicon-pushpin"></span>&nbsp 线性回归分析</h2>
 					<button class="art-btn" data-toggle="modal" data-target="#linear-regression-modal" type="button">立即使用</button>
 				</div>
 			  </div>
@@ -452,9 +452,9 @@
 		<div class="nav-top" style="margin-top:12vh;">
 		<button class="btn btn-danger" id="btnTitle">
 			<h2 class="nav-top__heading" style="text-aligh:center;">
-				<span class="nav-top__btn up ch">-</span>
-				<span class="ch">小工具</span>
-				<span class="nav-top__btn down">-</span>
+				<span class="nav-top__btn up ch"></span>
+				<span class="glyphicon glyphicon-wrench"></span><span class="ch">小工具</span>
+				<span class="nav-top__btn down"></span>
 			</h2>
 		</button>
 		</div>
