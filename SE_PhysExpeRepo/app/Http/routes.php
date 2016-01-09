@@ -11,7 +11,7 @@ use App\Models\User;
 |
 */
 //社区登陆入口
-Route::get('/wc/?/account/login',['as'=>'wc_login']);
+Route::get('/wc/?/account/login/ ',['as'=>'wc_login']);
 /**
 * 本地认证接口
 */
@@ -131,6 +131,13 @@ Route::get('/user/star/download',[
 Route::get('/user/star/download/{id}',[
     'uses'  =>  'StarController@download',
     'middleware'    =>  'auth']);
+/***
+tools routes
+***/
+Route::get('/tools',[
+    'as'=>'tools',
+    'uses'=>'ToolsController@index',
+    'middleware' => 'auth']);
 /***
 //Report routes
 ***/
