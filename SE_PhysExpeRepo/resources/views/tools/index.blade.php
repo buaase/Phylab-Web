@@ -440,13 +440,8 @@
 					<a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-<<<<<<< HEAD
 						<li><a data-toggle="modal" href="{{URL::route('report')}"><span class="glyphicon glyphicon-flag"></span>&nbsp 实验报告中心</a></li>
-						<li><a data-toggle="modal" href="{{URL::route('tools')}"><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
-=======
-						<li><a data-toggle="modal" href="{{URL::route('report')}}"><span class="glyphicon glyphicon-flag"></span>&nbsp 实验报告中心</a></li>
-						<li><a data-toggle="modal" href="{{URL::route('tools')}}"><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
->>>>>>> buaase/Back-end
+						<li><a data-toggle="modal" href="{{URL::route('tools')}"><span class="glyphicon glyphicon-pencil"></span>&nbsp 实用小工具</a></li>
 						<li class="disabled"><a>其他功能</a></li>
 					</ul>
 				</li>

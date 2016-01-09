@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./css/mystyle.css">
 </head>
 
-
 <body onload="check()">
     
     <div class="modal fade" id="mymodal-signin">

@@ -1965,7 +1965,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="{{URL::route('report')}}"><span class="glyphicon glyphicon-flag"></span>&nbsp实验报告中心</a></li>
-						<li><a href="{{URL::route('tools')}}"><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
+						<li><a href="{{URL::route('tools')}}"><span class="glyphicon glyphicon-pencil"></span>&nbsp 实用小工具</a></li>
 						<li class="disabled"><a>其他功能</a></li>
 					</ul>
 				</li>
