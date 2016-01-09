@@ -381,6 +381,44 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<div class="modal fade" id="mymodal-star">
+    <div class="modal-dialog modal-lab">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title lead">报告收藏夹</h4>
+            </div>
+            <div class="well" style="padding:0px;">
+                <iframe id="starIframe" src="{{URL::route('star')}}" style="width:100%;height:75%" frameborder="0"></iframe>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="mymodal-party">
+	<div class="modal-dialog modal-lab" >
+		<div class="modal-content">
+			<div class="modal-head">
+				<button type="button" class="close" data-dismiss="modal" style="height:50px;width:auto;"><span aria-hidden="true" style="font-size:30px;">&times;&nbsp;</span><span class="sr-only">Close</span></button>
+				<h4 class="lead ch">&nbsp &nbsp 联系我们</h4>
+			</div>
+			<div class="modal-body well">
+				<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<img class="img-responsive" src="./img/1447574686560.jpg"></img>
+					</div>
+					<div class="col-md-8">
+						<br/><a href="##" class="Title-black" style="font-size:15px;" onclick="window.open('http://www.cnblogs.com/buaase','_blank');"><b>博客: http://www.cnblogs.com/buaase</b></a><hr/>
+						<a href="mailto:buaase@126.com" class="Title-black" style="font-size:15px;"><b>邮箱: buaase@126.com</b></a><hr/>
+						<a href="##" class="Title-black" style="font-size:15px;" onclick="window.open('http://qm.qq.com/cgi-bin/qm/qr?k=_8RvE1OthrVD1heTREc3i0HN8kXBx92_','_blank');"><b>QQ: 229407702(物理实验网站交流群)</b></a><br/><br/>
+						<strong style="float:right">我们需要您的反馈！</strong>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
    <div class="wrapper wrapper_navbar_top">
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -402,8 +440,13 @@
 					<a href="##" data-toggle="dropdown" class="dropdown-toggle">服务<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
+<<<<<<< HEAD
+						<li><a data-toggle="modal" href="{{URL::route('report')}"><span class="glyphicon glyphicon-flag"></span>&nbsp 实验报告中心</a></li>
+						<li><a data-toggle="modal" href="{{URL::route('tools')}"><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
+=======
 						<li><a data-toggle="modal" href="{{URL::route('report')}}"><span class="glyphicon glyphicon-flag"></span>&nbsp 实验报告中心</a></li>
 						<li><a data-toggle="modal" href="{{URL::route('tools')}}"><span class="glyphicon glyphicon-wrench"></span>&nbsp 实用小工具</a></li>
+>>>>>>> buaase/Back-end
 						<li class="disabled"><a>其他功能</a></li>
 					</ul>
 				</li>
@@ -477,11 +520,14 @@
 		</nav>
 	</div>
 	
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/phycacl.js"></script>
-    <script src="js/successive-difference.js"></script>
-	<script src="js/linear-regression.js"></script>
+	<script src="./js/jquery-2.1.4.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/global.js"></script>
+    <script src="./js/star.js"></script>
+    <script src="./js/statistics.js"></script>
+    <script src="./js/phycacl.js"></script>
+    <script src="./js/successive-difference.js"></script>
+	<script src="./js/linear-regression.js"></script>
 	<script id="google-jsapi"></script>
 	<script id="google-jsapi2"></script>
     <script type="text/javascript">
