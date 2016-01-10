@@ -16,20 +16,26 @@
 # ChangeLog
 
 ## Build 1.2.2
+**Release Date: 22 December 2015**
 - 实用小工具加入，Beta阶段基本完成
 
 ## Build 1.2.1
+**Release Date: 20 December 2015**
 - wecenter的bug修复与认证登陆
 - 注册页面UI修改与统一
 
 ## Build 1.2
+**Release Date: 17 December 2015**
 - wecenter与laravel框架对接成功
 - wecenter论坛已经可用
 
 ## Build 1.1.2
+**Release Date: 23 November 2015**
 - drone.io自动测试部署成功
+- 域名正式启用，域名为buaaphylab.com
 
 ## Build 1.1.1
+**Release Date: 20 November 2015**
 - 服务器性能升级,内存从1G增加到2G
 
 ## Build 1.1
